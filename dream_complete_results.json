@@ -1,0 +1,285 @@
+{
+  "dream_002": {
+    "verdict": "PARTIAL",
+    "mean_correlation": 0.4954059415155242,
+    "std_correlation": 0.0815352159688381,
+    "mean_p_value": 0.00038056254140110616,
+    "trial_results": [
+      {
+        "pearson_surprise_vividness": 0.4492471943928488,
+        "pearson_p_value": 0.00031744636057467405,
+        "pearson_surprise_recall": 0.41428762300336436,
+        "pearson_surprise_content": 0.5466287616382642,
+        "spearman_surprise_vividness": 0.42761739131502013,
+        "mean_surprise": 0.040648995800621285,
+        "std_surprise": 0.020593710758523714,
+        "mean_vividness": 0.2273739698268404,
+        "std_vividness": 0.19973488415937812,
+        "mean_recall": 0.18896352832880314,
+        "mean_errors_replayed": 0.9666666666666667,
+        "mean_resolution": 0.7310162902592029,
+        "trial": 0
+      },
+      {
+        "pearson_surprise_vividness": 0.5348373110968737,
+        "pearson_p_value": 1.07138915820424e-05,
+        "pearson_surprise_recall": 0.48388024823572984,
+        "pearson_surprise_content": 0.4588747478406882,
+        "spearman_surprise_vividness": 0.36071977143239625,
+        "mean_surprise": 0.039385309111368526,
+        "std_surprise": 0.018347211618261687,
+        "mean_vividness": 0.22320870254452835,
+        "std_vividness": 0.2116142880695579,
+        "mean_recall": 0.17540736794911652,
+        "mean_errors_replayed": 0.9166666666666666,
+        "mean_resolution": 0.7321037001286641,
+        "trial": 1
+      },
+      {
+        "pearson_surprise_vividness": 0.3997422012017243,
+        "pearson_p_value": 0.0015545184034980672,
+        "pearson_surprise_recall": 0.3748539535779589,
+        "pearson_surprise_content": 0.5149150713837382,
+        "spearman_surprise_vividness": 0.36890102860619833,
+        "mean_surprise": 0.04098198414355365,
+        "std_surprise": 0.019722068461711324,
+        "mean_vividness": 0.231633810948462,
+        "std_vividness": 0.18532348334121257,
+        "mean_recall": 0.1868364360747473,
+        "mean_errors_replayed": 0.9833333333333333,
+        "mean_resolution": 0.7103116208128454,
+        "trial": 2
+      },
+      {
+        "pearson_surprise_vividness": 0.5220076960788738,
+        "pearson_p_value": 1.8896519333072057e-05,
+        "pearson_surprise_recall": 0.5199984093730029,
+        "pearson_surprise_content": 0.4001314180997755,
+        "spearman_surprise_vividness": 0.37192819167142727,
+        "mean_surprise": 0.04074707844260332,
+        "std_surprise": 0.01965087784150219,
+        "mean_vividness": 0.22906945620899666,
+        "std_vividness": 0.19658726081745054,
+        "mean_recall": 0.17694839320337075,
+        "mean_errors_replayed": 1.0,
+        "mean_resolution": 0.6841891567324648,
+        "trial": 3
+      },
+      {
+        "pearson_surprise_vividness": 0.42859615846404897,
+        "pearson_p_value": 0.0006342225858349844,
+        "pearson_surprise_recall": 0.3884138598249758,
+        "pearson_surprise_content": 0.4805158142233879,
+        "spearman_surprise_vividness": 0.331628485664776,
+        "mean_surprise": 0.040405192436501314,
+        "std_surprise": 0.018866850469133986,
+        "mean_vividness": 0.17216736124667148,
+        "std_vividness": 0.12732777380729896,
+        "mean_recall": 0.1419347814170889,
+        "mean_errors_replayed": 0.9166666666666666,
+        "mean_resolution": 0.760874560002715,
+        "trial": 4
+      },
+      {
+        "pearson_surprise_vividness": 0.4987516908186893,
+        "pearson_p_value": 4.994383555802082e-05,
+        "pearson_surprise_recall": 0.5502318250097477,
+        "pearson_surprise_content": 0.4614035710709717,
+        "spearman_surprise_vividness": 0.31863306879956277,
+        "mean_surprise": 0.03974189071212716,
+        "std_surprise": 0.018482600766473928,
+        "mean_vividness": 0.24645654638373732,
+        "std_vividness": 0.23873848730624084,
+        "mean_recall": 0.20167718060810072,
+        "mean_errors_replayed": 0.8333333333333334,
+        "mean_resolution": 0.7634335867047745,
+        "trial": 5
+      },
+      {
+        "pearson_surprise_vividness": 0.6715735658466604,
+        "pearson_p_value": 4.267645891030015e-09,
+        "pearson_surprise_recall": 0.6611085108921325,
+        "pearson_surprise_content": 0.691176097602343,
+        "spearman_surprise_vividness": 0.6619166590649016,
+        "mean_surprise": 0.044684701625990544,
+        "std_surprise": 0.019345795370586658,
+        "mean_vividness": 0.24359522340913822,
+        "std_vividness": 0.21619491720650402,
+        "mean_recall": 0.18920395846030208,
+        "mean_errors_replayed": 0.9166666666666666,
+        "mean_resolution": 0.7133398547535276,
+        "trial": 6
+      },
+      {
+        "pearson_surprise_vividness": 0.4329153440211099,
+        "pearson_p_value": 0.0005507310219941869,
+        "pearson_surprise_recall": 0.3653700675492443,
+        "pearson_surprise_content": 0.5283264058264246,
+        "spearman_surprise_vividness": 0.39919977831673054,
+        "mean_surprise": 0.040102827746204536,
+        "std_surprise": 0.02070156223157034,
+        "mean_vividness": 0.28561103126507953,
+        "std_vividness": 0.2493181509073791,
+        "mean_recall": 0.22665012691350145,
+        "mean_errors_replayed": 1.25,
+        "mean_resolution": 0.6479867992332378,
+        "trial": 7
+      },
+      {
+        "pearson_surprise_vividness": 0.5894139637486605,
+        "pearson_p_value": 7.24155247316144e-07,
+        "pearson_surprise_recall": 0.5850088244417663,
+        "pearson_surprise_content": 0.5387514886573259,
+        "spearman_surprise_vividness": 0.46248443081008095,
+        "mean_surprise": 0.038433736188483204,
+        "std_surprise": 0.01705976339194504,
+        "mean_vividness": 0.16745186560951833,
+        "std_vividness": 0.1256899887949151,
+        "mean_recall": 0.14392684008766404,
+        "mean_errors_replayed": 0.55,
+        "mean_resolution": 0.7583366633809728,
+        "trial": 8
+      },
+      {
+        "pearson_surprise_vividness": 0.42697428948575117,
+        "pearson_p_value": 0.0006684243727428066,
+        "pearson_surprise_recall": 0.3858156085269369,
+        "pearson_surprise_content": 0.41157566423820957,
+        "spearman_surprise_vividness": 0.27400753064615374,
+        "mean_surprise": 0.03915910005190416,
+        "std_surprise": 0.0182451963125962,
+        "mean_vividness": 0.23162020199077343,
+        "std_vividness": 0.19639723061614278,
+        "mean_recall": 0.19087375531374648,
+        "mean_errors_replayed": 1.0333333333333334,
+        "mean_resolution": 0.6719895254606051,
+        "trial": 9
+      }
+    ]
+  },
+  "dream_003": {
+    "mean_replay_rate": 0.5333333333333333,
+    "mean_resolution_rate": 0.45833333333333326,
+    "mean_unresolved_magnitude": 0.6659724270293585,
+    "magnitude_replay_correlation": 0.23572993974663203,
+    "magnitude_replay_p_value": 0.20982517831065556,
+    "verdict": "NOT_SUPPORTED"
+  },
+  "dream_004_tournament": [
+    {
+      "theory_id": "predictive_error",
+      "theory_name": "Predictive Coding Error",
+      "scores": {
+        "prediction_accuracy": 0.7,
+        "explanatory_power": 0.75,
+        "novelty": 0.9,
+        "evidence_support": 0.5,
+        "parsimony": 0.5
+      },
+      "total": 0.6725
+    },
+    {
+      "theory_id": "bayesian_inference",
+      "theory_name": "Bayesian Inference",
+      "scores": {
+        "prediction_accuracy": 0.55,
+        "explanatory_power": 0.75,
+        "novelty": 0.85,
+        "evidence_support": 0.6666666666666666,
+        "parsimony": 0.5
+      },
+      "total": 0.6608333333333334
+    },
+    {
+      "theory_id": "creativity_incubator",
+      "theory_name": "Creativity Incubator",
+      "scores": {
+        "prediction_accuracy": 0.6,
+        "explanatory_power": 0.75,
+        "novelty": 0.8,
+        "evidence_support": 0.5,
+        "parsimony": 0.5
+      },
+      "total": 0.6325
+    },
+    {
+      "theory_id": "memory_consolidation",
+      "theory_name": "Memory Consolidation",
+      "scores": {
+        "prediction_accuracy": 0.65,
+        "explanatory_power": 0.75,
+        "novelty": 0.4,
+        "evidence_support": 0.6666666666666666,
+        "parsimony": 0.5
+      },
+      "total": 0.6183333333333333
+    },
+    {
+      "theory_id": "emotional_regulation",
+      "theory_name": "Emotional Regulation",
+      "scores": {
+        "prediction_accuracy": 0.6,
+        "explanatory_power": 0.75,
+        "novelty": 0.4,
+        "evidence_support": 0.5,
+        "parsimony": 0.5
+      },
+      "total": 0.5725
+    },
+    {
+      "theory_id": "threat_simulation",
+      "theory_name": "Threat Simulation",
+      "scores": {
+        "prediction_accuracy": 0.5,
+        "explanatory_power": 0.75,
+        "novelty": 0.4,
+        "evidence_support": 0.5,
+        "parsimony": 0.5
+      },
+      "total": 0.5475
+    }
+  ],
+  "dream_005": {
+    "n_entries": 500,
+    "r_surprise_vividness": -0.09657013624476463,
+    "p_surprise_vividness": 0.030848810941299792,
+    "r_surprise_bizarreness": -0.08969892763243559,
+    "r_surprise_content": 0.6124701126242346,
+    "mean_surprising_events": 1.5,
+    "excess_surprise": 1.0,
+    "verdict": "PARTIAL"
+  },
+  "dream_006": {
+    "n_alignments": 5,
+    "mean_alignment_strength": 0.74,
+    "alignments": [
+      {
+        "mechanism": "Amygdala active during REM",
+        "supports": "Emotional prediction errors replayed",
+        "strength": 0.8
+      },
+      {
+        "mechanism": "Hippocampus active during REM",
+        "supports": "Memory-based prediction errors replayed",
+        "strength": 0.85
+      },
+      {
+        "mechanism": "Prefrontal cortex suppressed during REM",
+        "supports": "Errors explored without logical filtering",
+        "strength": 0.7
+      },
+      {
+        "mechanism": "Brainstem pons active during REM",
+        "supports": "Noisy inputs create prediction errors",
+        "strength": 0.75
+      },
+      {
+        "mechanism": "Dopamine responds to prediction errors",
+        "supports": "Novelty signal during dreaming",
+        "strength": 0.6
+      }
+    ],
+    "neural_support": "STRONG",
+    "verdict": "SUPPORTED"
+  }
+}
