@@ -1,0 +1,54 @@
+{
+  "sweep": [
+    {
+      "noise": 0.0,
+      "final_diversity": 0.23814778113775983,
+      "final_clusters": 6.0,
+      "signal_speed": 0.01,
+      "birth_rate": 0.0,
+      "death_rate": 0.0,
+      "net_rate": 0.0
+    },
+    {
+      "noise": 0.05,
+      "final_diversity": 0.32706851652697,
+      "final_clusters": 85.0,
+      "signal_speed": 0.01,
+      "birth_rate": 0.0,
+      "death_rate": 0.0,
+      "net_rate": 0.0
+    },
+    {
+      "noise": 0.1,
+      "final_diversity": 0.5676116541190904,
+      "final_clusters": 98.5,
+      "signal_speed": 0.02,
+      "birth_rate": 0.0,
+      "death_rate": 0.0,
+      "net_rate": 0.0
+    },
+    {
+      "noise": 0.2,
+      "final_diversity": 0.8557147069033486,
+      "final_clusters": 99.5,
+      "signal_speed": 0.085,
+      "birth_rate": 0.0,
+      "death_rate": 0.0,
+      "net_rate": 0.0
+    },
+    {
+      "noise": 0.3,
+      "final_diversity": 1.0135542519926815,
+      "final_clusters": 100.0,
+      "signal_speed": 0.275,
+      "birth_rate": 0.0,
+      "death_rate": 0.0,
+      "net_rate": 0.0
+    }
+  ],
+  "mechanism": {
+    "transition_noise": 0.0,
+    "birth_dominates_above": false,
+    "death_dominates_below": false
+  }
+}

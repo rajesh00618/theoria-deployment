@@ -1,0 +1,104 @@
+"""THEORIA Layer Modules."""
+
+from theoria.layers.sensorium import Sensorium, SensoryInput
+from theoria.layers.empirics import Empirics
+from theoria.layers.ontogenesis import Ontogenesis
+from theoria.layers.abductive import AbductiveImagination
+from theoria.layers.theory_constructor import TheoryConstructor
+from theoria.layers.falsification import FalsificationEngine
+from theoria.layers.meta_theory import MetaTheoryReasoner
+from theoria.layers.auditor import MetascientificAuditor, ConstitutionalReview
+
+from theoria.layers.literature import LiteratureIngestor, PaperCorpus
+from theoria.layers.gap_detector import GapDetector
+from theoria.layers.question_generator import QuestionGenerator
+from theoria.layers.planner import ResearchPlanner
+from theoria.layers.critic import ScientificCritic
+from theoria.layers.dashboard import DiscoveryDashboard
+
+from theoria.layers.experiment_design import ExperimentPlanner
+from theoria.layers.intervention import InterventionGenerator, CounterfactualSimulator, ExperimentEvaluator
+from theoria.layers.multi_agent import MultiAgentLab, PlannerAgent, TheoryAgent, ExperimentAgent, CriticAgent, ReviewerAgent, SafetyAgent
+from theoria.layers.paper_generator import PaperGenerator
+from theoria.layers.prediction_engine import PredictionEngine
+from theoria.layers.cross_domain import CrossDomainTransfer
+from theoria.layers.data_connectors import DataConnector, Dataset
+
+from theoria.layers.real_data import RealDataConnector
+from theoria.layers.embodied import EmbodiedLab
+from theoria.layers.scientific_society import ScientificSociety
+from theoria.layers.communication import CommunicationLayer
+from theoria.layers.ethics import EthicsLayer
+from theoria.layers.adversarial import AdversarialScience, RedTeam
+from theoria.layers.prediction_market import PredictionMarket
+from theoria.layers.economy import ScientificEconomy
+from theoria.layers.research_programs import ResearchProgramManager
+from theoria.layers.evolution import KnowledgeEvolution
+
+from theoria.layers.self_improvement import SelfImprovementLayer, ArchitectureSearch, AlgorithmDiscovery, StrategyEvolution
+from theoria.layers.meta_civilization import MetaCivilizationLayer, MetaScienceEngine, CivilizationAnalytics, GoalGeneration
+from theoria.layers.benchmark_generator import BenchmarkGenerator
+from theoria.layers.simulation_worlds import SimulationWorldManager
+from theoria.layers.self_modification import SelfModificationFramework
+from theoria.layers.knowledge_compression import KnowledgeCompressionEngine
+
+# Phase 6
+from theoria.layers.universal_reasoning import UniversalReasoningEngine
+from theoria.layers.knowledge_civilization import KnowledgeCivilizationLayer
+from theoria.layers.mathematical_discovery import MathematicalDiscovery
+from theoria.layers.software_intelligence import SoftwareIntelligence
+from theoria.layers.open_ended_learning import OpenEndedLearning
+from theoria.layers.long_horizon_planning import LongHorizonPlanning
+from theoria.layers.general_agent_society import GeneralAgentSociety
+from theoria.layers.universal_solver import UniversalProblemSolver
+from theoria.layers.world_models import WorldModelingEngine
+from theoria.layers.universal_fabric import UniversalKnowledgeFabric
+
+# Phase 7
+from theoria.layers.unified_cognitive_core import UnifiedCognitiveCore
+from theoria.layers.lifelong_memory import LifelongMemoryLayer
+from theoria.layers.autonomous_research_director import AutonomousResearchDirector
+from theoria.layers.unified_world_model import UnifiedWorldModel
+from theoria.layers.tool_creation_engine import ToolCreationEngine
+from theoria.layers.human_collaboration import HumanCollaboration
+from theoria.layers.creativity_engine import CreativityEngine
+from theoria.layers.agency_layer import AgencyLayer
+from theoria.layers.self_evaluation import SelfEvaluation
+from theoria.layers.grand_challenge_engine import GrandChallengeEngine
+from theoria.layers.civilization_intelligence import CivilizationIntelligenceLayer
+
+# Phase 8
+from theoria.layers.open_world_learning import OpenWorldLearningEngine
+from theoria.layers.global_memory import GlobalMemory
+from theoria.layers.executive_intelligence import ExecutiveIntelligenceLayer
+from theoria.layers.organization_builder import OrganizationBuilder
+from theoria.layers.cognitive_evolution import CognitiveEvolutionLayer
+from theoria.layers.real_world_action import RealWorldActionEngine
+from theoria.layers.tool_ecosystem import UniversalToolEcosystem
+from theoria.layers.civilization_simulator import CivilizationSimulator
+from theoria.layers.mission_system import MissionIntelligenceLayer
+from theoria.layers.intelligence_evaluator import IntelligenceEvaluator
+
+# Phase 9
+from theoria.layers.planet_scale_discovery import PlanetScaleDiscoveryEngine, PlanetScaleDiscoveryResult
+from theoria.layers.field_creation import AutonomousFieldCreator, FieldCreationResult
+from theoria.layers.discovery_acceleration import DiscoveryAccelerationLayer, AccelerationResult
+from theoria.layers.global_knowledge import GlobalKnowledgeCivilization, KnowledgeIntegrationResult
+from theoria.layers.research_institutions import AutonomousResearchInstitutions, InstitutionCycleResult
+from theoria.layers.paradigm_shift_generator import ParadigmShiftGenerator, ParadigmShiftResult
+from theoria.layers.recursive_tool_civilization import RecursiveToolCivilization, RecursiveToolResult
+from theoria.layers.grand_discovery_programs import GrandDiscoveryPrograms, DiscoveryProgramResult
+from theoria.layers.meta_civilization_intelligence import MetaCivilizationIntelligence, MetaCivilizationResult
+from theoria.layers.superintelligence_governance import SuperintelligenceGovernance, GovernanceResult
+from theoria.layers.knowledge_civilization_integration import KnowledgeCivilizationLayer, KnowledgeCivilizationResult
+
+# Phase 10
+from theoria.layers.knowledge_evolution_layer import KnowledgeEvolutionLayer, KnowledgeEvolutionResult
+from theoria.layers.recursive_discovery_ecosystem import RecursiveDiscoveryEcosystem, RecursiveDiscoveryResult
+from theoria.layers.universal_knowledge_fabric2 import UniversalKnowledgeFabric2, Fabric2Result
+from theoria.layers.meta_knowledge_civilization import MetaKnowledgeCivilization, MetaKnowledgeResult
+from theoria.layers.civilization_memory import CivilizationMemory, MemoryResult
+from theoria.layers.civilization_governance_layer import CivilizationGovernanceLayer, GovernanceLayerResult
+from theoria.layers.discovery_forecasting import DiscoveryForecastingEngine, ForecastingResult
+from theoria.layers.universal_problem_network import UniversalProblemNetwork, ProblemNetworkResult
+from theoria.layers.singularity_coordination_layer import SingularityCoordinationLayer, CoordinationResult

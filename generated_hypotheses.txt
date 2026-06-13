@@ -1,0 +1,158 @@
+THEORIA LLM-Powered Discovery Results
+======================================
+Concept: Emergence in Complex Systems
+Domain: Interdisciplinary (physics + biology + information theory)
+LLM: gemma3:4b via Ollama
+Date: 2026-06-13
+
+======================================================================
+LLM-GENERATED HYPOTHESES (S13 Strategy)
+======================================================================
+
+Hypothesis 1 (S13 — from THEORIA pipeline):
+  Information entropy within complex, dynamically evolving networks
+  exhibits a non-Gaussian distribution correlated with the rate of
+  emergent novelty generation, suggesting a fundamental link between
+  disorder and creative information processing.
+
+  Mechanism: Increased entropy, typically associated with randomness,
+  represents a state conducive to creative information processing
+  rather than pure disorder. The non-Gaussian tails capture rare but
+  significant high-novelty events that drive emergent structure.
+
+  Confidence: 0.65 | Novelty: 0.80
+
+----------------------------------------------------------------------
+DIRECT LLM QUERIES
+======================================================================
+
+Hypothesis 2:
+  Macroscopic patterns of neural activity during complex cognitive
+  tasks exhibit fractal dimension characteristics mirroring those
+  observed in phase transition systems, suggesting a fundamental
+  link between information processing and emergent order.
+
+  Mechanism: The sheer complexity of neural networks, coupled with
+  non-linear interactions (synaptic plasticity, reverberatory loops),
+  generates patterns of activity that, when analyzed via fractal
+  dimension analysis, reveal scale-invariant properties characteristic
+  of systems near critical phase transitions.
+
+  Confidence: 0.7
+
+  Testable Predictions:
+  - Increased task complexity will demonstrably increase the fractal
+    dimension of recorded neural activity within specific cortical
+    regions (e.g., parietal lobe, prefrontal cortex) as measured by
+    wavelet analysis of EEG or MEG data.
+  - Manipulation of network connectivity through targeted stimulation
+    or pharmacological interventions will systematically alter the
+    fractal dimension of neural activity, correlating with the degree
+    of change in cognitive performance on the same task.
+
+----------------------------------------------------------------------
+
+Hypothesis 3:
+  The emergence of "proto-beliefs" — tentative, internally consistent
+  narratives — within multi-agent systems interacting under simple,
+  rule-based constraints will demonstrate a non-linear amplification
+  of initial noise into robust, self-reinforcing cognitive structures.
+
+  Mechanism: Self-organization expanded to include cognitive structures.
+  Even with basic interaction rules (e.g., "follow the leader",
+  "mimic successful agents"), initial random perturbations get
+  amplified through positive feedback loops into stable, shared
+  belief structures that persist and evolve.
+
+  Confidence: 0.6
+
+  Testable Predictions:
+  - Simulations of multi-agent systems with varying levels of initial
+    noise and interaction rules will reveal the emergence of distinct,
+    stable "belief clusters" within the agents, characterized by
+    shared narratives and behaviors, even when rules are ambiguous.
+  - Introducing a "contrarian" agent — one that actively deviates
+    from the dominant belief cluster — will trigger a "belief shift"
+    within the majority of agents, demonstrating sensitivity to
+    external influence and the dynamic nature of emergent cognitive
+    structures.
+
+----------------------------------------------------------------------
+
+Hypothesis 4:
+  The rate of spontaneous innovation within complex adaptive systems,
+  such as bacterial colonies or software development teams, will
+  correlate inversely with the degree of functional specialization
+  among individual components, suggesting that emergent creativity
+  arises from the interplay of diverse, loosely-coupled agents.
+
+  Mechanism: Overly specialized components, while individually
+  efficient, limit cross-pollination of ideas and novel combinations.
+  Innovation requires recombination of existing elements in new ways,
+  which is inhibited when components are tightly specialized.
+
+  Confidence: 0.5
+
+  Testable Predictions:
+  - Comparing innovation rates in bacterial colonies with varying
+    degrees of genetic diversity and interaction rules will show a
+    negative correlation between specialization and innovation rate.
+  - In simulated software development teams, introducing functional
+    redundancy (multiple developers on overlapping tasks) will lead
+    to higher rates of novel feature development compared to highly
+    specialized roles.
+
+======================================================================
+DISCOVERY-007: UNIVERSALITY TEST
+======================================================================
+
+Status: PRINCIPLE IS UNIVERSAL, VALUE IS DOMAIN-SPECIFIC
+Confidence: 0.88
+
+Key findings:
+  1. All 5 domains show optimal noise point (principle universal)
+  2. Noise* values vary by domain:
+     - Language/Culture: 0.02 (fast-changing)
+     - Science: 0.04 (moderate)
+     - Technology/Innovation: 0.10-0.12 (slow-changing)
+  3. Mean Noise* = 0.060 +/- 0.042 (CV = 0.699)
+  4. Pattern: fast-changing domains need less noise
+
+The Optimal Diversity Principle is confirmed as universal.
+
+Files:
+  - universality_results.json
+  - universality_results.csv
+  - DISCOVERY_REPORT_007.md
+
+======================================================================
+DISCOVERY-011: SELF-APPLICATION TEST
+======================================================================
+
+Status: SELF-REFERENTIAL VALIDATION CONFIRMED
+Confidence: 0.90
+
+Key findings:
+  1. THEORIA's optimal exploration noise: Noise* = 0.02
+  2. Same value as belief emergence, language, culture
+  3. Three regimes confirmed: stagnation, optimal, chaos
+  4. The principle predicts its own optimal operating point
+
+THEORIA discovers a principle and validates it on itself.
+
+Files:
+  - self_application_results.json
+  - self_application_results.csv
+  - DISCOVERY_REPORT_011.md
+
+======================================================================
+  PATTERN_COMPLETION: 1
+  ANALOGICAL_TRANSFER: 1
+  EVOLUTIONARY_SEARCH: 1
+  RARE_EVENT: 1
+  LITERATURE_INFORMED: 1
+  CROSS_DOMAIN: 1
+  LLM_DRIVEN: 1
+
+Total candidates generated: 7
+LLM contribution: 14.3% (1 of 7 candidates)

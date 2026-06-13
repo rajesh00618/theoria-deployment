@@ -1,0 +1,4 @@
+__pycache__/
+*.pyc
+*.pyo
+theoria_demo_output.txt
