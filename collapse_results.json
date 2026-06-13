@@ -1,0 +1,163 @@
+{
+  "tournament": [
+    {
+      "id": "H2_diversity_loss",
+      "name": "Diversity Loss Collapse",
+      "scores": {
+        "novelty": 0.8,
+        "testability": 0.7,
+        "explanatory_power": 0.8,
+        "case_study_fit": 0.6,
+        "parsimony": 0.91,
+        "connection_to_rp001": 0.9
+      },
+      "total": 0.761
+    },
+    {
+      "id": "H6_optimal_size",
+      "name": "Optimal Size Theory",
+      "scores": {
+        "novelty": 0.7,
+        "testability": 0.7,
+        "explanatory_power": 0.75,
+        "case_study_fit": 0.6,
+        "parsimony": 0.84,
+        "connection_to_rp001": 0.9
+      },
+      "total": 0.7265
+    },
+    {
+      "id": "H12_phase_transition",
+      "name": "Phase Transition Collapse",
+      "scores": {
+        "novelty": 0.8,
+        "testability": 0.6,
+        "explanatory_power": 0.8,
+        "case_study_fit": 0.6,
+        "parsimony": 0.86,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.676
+    },
+    {
+      "id": "H9_network_fragility",
+      "name": "Network Fragility",
+      "scores": {
+        "novelty": 0.75,
+        "testability": 0.65,
+        "explanatory_power": 0.75,
+        "case_study_fit": 0.6,
+        "parsimony": 0.86,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.666
+    },
+    {
+      "id": "H11_institutional_rigidity",
+      "name": "Institutional Rigidity",
+      "scores": {
+        "novelty": 0.65,
+        "testability": 0.7,
+        "explanatory_power": 0.7,
+        "case_study_fit": 0.6,
+        "parsimony": 0.88,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.6505
+    },
+    {
+      "id": "H4_elite_dysfunction",
+      "name": "Elite Dysfunction",
+      "scores": {
+        "novelty": 0.65,
+        "testability": 0.65,
+        "explanatory_power": 0.7,
+        "case_study_fit": 0.6,
+        "parsimony": 0.9,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.6425
+    },
+    {
+      "id": "H1_complexity_collapse",
+      "name": "Complexity Collapse",
+      "scores": {
+        "novelty": 0.6,
+        "testability": 0.7,
+        "explanatory_power": 0.7,
+        "case_study_fit": 0.6,
+        "parsimony": 0.85,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.64
+    },
+    {
+      "id": "H8_synchronization",
+      "name": "Synchronization Collapse",
+      "scores": {
+        "novelty": 0.7,
+        "testability": 0.6,
+        "explanatory_power": 0.7,
+        "case_study_fit": 0.6,
+        "parsimony": 0.88,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.638
+    },
+    {
+      "id": "H3_resource_depletion",
+      "name": "Resource Depletion",
+      "scores": {
+        "novelty": 0.5,
+        "testability": 0.8,
+        "explanatory_power": 0.65,
+        "case_study_fit": 0.6,
+        "parsimony": 0.9,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.6375000000000001
+    },
+    {
+      "id": "H7_adaptive_failure",
+      "name": "Adaptive Failure",
+      "scores": {
+        "novelty": 0.6,
+        "testability": 0.7,
+        "explanatory_power": 0.65,
+        "case_study_fit": 0.6,
+        "parsimony": 0.88,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.6305
+    },
+    {
+      "id": "H5_external_shock",
+      "name": "External Shock Theory",
+      "scores": {
+        "novelty": 0.55,
+        "testability": 0.75,
+        "explanatory_power": 0.6,
+        "case_study_fit": 0.6,
+        "parsimony": 0.85,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.6175
+    },
+    {
+      "id": "H10_carrying_capacity",
+      "name": "Carrying Capacity Overshoot",
+      "scores": {
+        "novelty": 0.5,
+        "testability": 0.75,
+        "explanatory_power": 0.6,
+        "case_study_fit": 0.6,
+        "parsimony": 0.86,
+        "connection_to_rp001": 0.3
+      },
+      "total": 0.611
+    }
+  ],
+  "simulation": {
+    "collapse_step": 135
+  }
+}

@@ -1,0 +1,101 @@
+{
+  "discoveries": {
+    "belief_emergence": {
+      "rp": "RP-001",
+      "question": "Why do beliefs emerge from noise?",
+      "winner": "Optimal Diversity Principle",
+      "noise_star": 0.02,
+      "key_finding": "Phase transition between consensus and fragmentation",
+      "mechanism": "Competitive dynamics between exploration and exploitation",
+      "connection": "Universal principle of adaptive systems"
+    },
+    "dreams": {
+      "rp": "RP-002",
+      "question": "Why do dreams exist?",
+      "winner": "Predictive Coding Error Theory",
+      "noise_star": null,
+      "key_finding": "Dreams replay prediction errors during REM sleep",
+      "mechanism": "Error accumulation -> REM replay -> Resolution attempt",
+      "connection": "Dreams process prediction errors, same as learning"
+    },
+    "creativity": {
+      "rp": "RP-003",
+      "question": "Why does creativity exist?",
+      "winner": "Creativity as Optimal Noise",
+      "noise_star": 0.5,
+      "key_finding": "Creative output maximized at intermediate noise",
+      "mechanism": "Optimal noise enables structured exploration of idea space",
+      "connection": "Same Optimal Diversity Principle as RP-001"
+    },
+    "scientific_revolutions": {
+      "rp": "RP-004",
+      "question": "Why do scientific revolutions occur?",
+      "winner": "Optimal Exploration Rate",
+      "noise_star": 0.1,
+      "key_finding": "Revolution rate maximized at intermediate diversity",
+      "mechanism": "Exploration-exploitation balance in scientific communities",
+      "connection": "Same Optimal Diversity Principle as RP-001"
+    },
+    "intelligence": {
+      "rp": "RP-005",
+      "question": "Why does intelligence emerge?",
+      "winner": "Intelligence as Optimal Noise",
+      "noise_star": 0.15,
+      "key_finding": "Intelligence emerges at optimal noise levels",
+      "mechanism": "Optimal noise enables adaptive learning and prediction",
+      "connection": "Same Optimal Diversity Principle as RP-001"
+    },
+    "civilization_collapse": {
+      "rp": "RP-006",
+      "question": "Why do civilizations collapse?",
+      "winner": "Diversity Loss Collapse",
+      "noise_star": null,
+      "key_finding": "Civilizations collapse when diversity is lost",
+      "mechanism": "Specialization -> Homogeneity -> Fragility -> Collapse",
+      "connection": "Loss of diversity destroys resilience"
+    },
+    "consciousness": {
+      "rp": "RP-007",
+      "question": "Why does consciousness exist?",
+      "winner": "Consciousness as Predictive Self-Model",
+      "noise_star": null,
+      "key_finding": "Consciousness is brain's predictive model of its own processing",
+      "mechanism": "Self-modeling -> Meta-cognition -> Consciousness",
+      "connection": "Prediction hierarchy, same as learning and dreams"
+    }
+  },
+  "patterns": {
+    "optimal_diversity": {
+      "domains": [
+        "belief_emergence",
+        "creativity",
+        "scientific_revolutions",
+        "intelligence"
+      ],
+      "noise_stars": {
+        "belief_emergence": 0.02,
+        "creativity": 0.5,
+        "scientific_revolutions": 0.1,
+        "intelligence": 0.15
+      },
+      "coverage": 0.5714285714285714
+    },
+    "prediction_processing": {
+      "domains": [
+        "dreams",
+        "intelligence",
+        "consciousness"
+      ],
+      "coverage": 0.42857142857142855
+    },
+    "exploration_exploitation": {
+      "domains": [
+        "belief_emergence",
+        "creativity",
+        "scientific_revolutions",
+        "intelligence"
+      ],
+      "coverage": 0.5714285714285714
+    }
+  }
+}
