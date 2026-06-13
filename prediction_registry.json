@@ -1,0 +1,48 @@
+{
+  "version": "1.0",
+  "frozen_date": "2026-06-13",
+  "note": "DO NOT MODIFY AFTER FREEZE DATE",
+  "predictions": {
+    "PRED-001": {
+      "question": "Which AI field will grow fastest by 2030?",
+      "prediction": "Multimodal AI (vision + language + reasoning)",
+      "confidence": 0.70,
+      "test_date": "2030-01-01",
+      "result": "UNKNOWN",
+      "reasoning": "Optimal diversity principle: multimodal systems combine diverse inputs, enabling more robust adaptation.",
+      "status": "FROZEN"
+    },
+    "PRED-002": {
+      "question": "Which scientific field is closest to a paradigm shift?",
+      "prediction": "Consciousness studies (IIT vs GWT vs PP convergence)",
+      "confidence": 0.60,
+      "test_date": "2028-01-01",
+      "result": "UNKNOWN",
+      "reasoning": "Multiple competing theories with accumulating anomalies = approaching threshold.",
+      "status": "FROZEN"
+    },
+    "PRED-003": {
+      "question": "Which technology will dominate the next decade?",
+      "prediction": "Foundation models (LLMs + multimodal)",
+      "confidence": 0.65,
+      "test_date": "2030-01-01",
+      "result": "UNKNOWN",
+      "reasoning": "Network effects + optimal diversity of applications = rapid adoption.",
+      "status": "FROZEN"
+    },
+    "PRED-004": {
+      "question": "Which online communities are most vulnerable to fragmentation?",
+      "prediction": "Communities with high noise + low diversity + rapid growth",
+      "confidence": 0.70,
+      "test_date": "2027-01-01",
+      "result": "UNKNOWN",
+      "reasoning": "Optimal Diversity Principle: deviation from optimal diversity predicts fragmentation.",
+      "status": "FROZEN"
+    }
+  },
+  "evaluation_protocol": {
+    "accuracy_metric": "correct / total",
+    "confidence_calibration": "predicted_confidence vs actual_outcome",
+    "scoring": "+1 for correct, 0 for incorrect, weighted by confidence"
+  }
+}
