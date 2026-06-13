@@ -1,0 +1,3034 @@
+{
+  "existing_theories": {
+    "activation_synthesis": {
+      "name": "Activation-Synthesis Theory",
+      "author": "Hobson & McCarley (1977)",
+      "description": "Dreams result from the brainstem activating random signals during REM sleep, which the forebrain attempts to synthesize into a coherent narrative.",
+      "mechanism": "Brainstem pons sends random electrical signals to cortex. Cortex tries to make sense of noise, producing dream narratives.",
+      "predictions": [
+        "Dream content correlates with brainstem activity",
+        "Pontine lesions reduce dream recall",
+        "Random neural noise produces narrative-like experience"
+      ],
+      "evidence_for": [
+        "REM sleep correlates with pontine activity",
+        "Dream reports have narrative structure despite random inputs",
+        "Brainstem lesions affect dreaming"
+      ],
+      "evidence_against": [
+        "Dreams are more coherent than pure noise synthesis would predict",
+        "Lucid dreams show voluntary control within dreams",
+        "Some dreams reflect waking concerns, not random noise"
+      ],
+      "status": "established",
+      "strength": 0.6,
+      "weakness": "Does not explain why dreams have emotional content"
+    },
+    "memory_consolidation": {
+      "name": "Memory Consolidation Theory",
+      "author": "Stickgold (2001)",
+      "description": "Dreams serve to consolidate and integrate memories from waking experience, transferring information from hippocampus to neocortex.",
+      "mechanism": "During REM sleep, hippocampal memories are replayed and integrated with cortical networks, strengthening important memories and pruning weak ones.",
+      "predictions": [
+        "Learning new tasks increases subsequent REM sleep",
+        "Dream content reflects recent experiences",
+        "Sleep deprivation impairs memory consolidation"
+      ],
+      "evidence_for": [
+        "REM sleep increases after learning",
+        "Dream reports often reference recent events",
+        "Sleep deprivation impairs memory"
+      ],
+      "evidence_against": [
+        "Many dreams have no connection to recent events",
+        "Memory consolidation occurs in non-REM sleep too",
+        "Dreams are more creative than mere replay"
+      ],
+      "status": "established",
+      "strength": 0.7,
+      "weakness": "Does not explain bizarre, creative, or emotional dream content"
+    },
+    "threat_simulation": {
+      "name": "Threat Simulation Theory",
+      "author": "Revonsuo (2000)",
+      "description": "Dreams evolved as a biological defense mechanism that simulates threatening events, allowing the dreamer to practice threat perception and avoidance.",
+      "mechanism": "Natural selection favored individuals who could rehearse threat responses in dreams, improving survival in dangerous environments.",
+      "predictions": [
+        "Dreams contain more threats than positive events",
+        "People in dangerous environments have more threat dreams",
+        "Dream threat content correlates with waking anxiety"
+      ],
+      "evidence_for": [
+        "Nightmares are common across cultures",
+        "Trauma survivors have recurrent threat dreams",
+        "Children's dreams contain more monsters/threats"
+      ],
+      "evidence_against": [
+        "Many dreams are positive or neutral",
+        "Modern threats differ from ancestral ones",
+        "Does not explain creative or abstract dreams"
+      ],
+      "status": "established",
+      "strength": 0.5,
+      "weakness": "Does not explain why most dreams are not threatening"
+    },
+    "emotional_regulation": {
+      "name": "Emotional Regulation Theory",
+      "author": "Walker & van der Helm (2009)",
+      "description": "Dreams serve to process and regulate emotions, stripping the emotional charge from difficult experiences while preserving the memory.",
+      "mechanism": "During REM sleep, emotional memories are reprocessed in a neurochemically different state (low norepinephrine), reducing emotional intensity.",
+      "predictions": [
+        "REM sleep reduces emotional reactivity to difficult memories",
+        "Dreams help process traumatic experiences",
+        "Emotional dream content decreases over time"
+      ],
+      "evidence_for": [
+        "REM sleep reduces amygdala reactivity",
+        "PTSD patients have disrupted REM sleep",
+        "Dreaming about difficult events reduces emotional charge"
+      ],
+      "evidence_against": [
+        "Some dreams increase emotional distress",
+        "Not all emotional memories are processed in dreams",
+        "Emotional regulation occurs in waking too"
+      ],
+      "status": "established",
+      "strength": 0.65,
+      "weakness": "Does not explain why dreams are experienced as narratives"
+    },
+    "default_network": {
+      "name": "Default Network Hypothesis",
+      "author": "Domhoff (2011)",
+      "description": "Dreams reflect the default mode network operating during sleep, producing spontaneous thought similar to daydreaming.",
+      "mechanism": "The default mode network (active during rest) generates spontaneous thought during sleep, producing dream-like mental content.",
+      "predictions": [
+        "Dreaming correlates with default network activity",
+        "Daydreamers have more vivid dreams",
+        "Default network damage affects dreaming"
+      ],
+      "evidence_for": [
+        "Default network is active during REM sleep",
+        "Dreaming and daydreaming share neural substrates",
+        "Spontaneous thought and dreaming are phenomenologically similar"
+      ],
+      "evidence_against": [
+        "Dreams are more vivid and immersive than daydreams",
+        "Some brain damage affects dreaming but not daydreaming",
+        "Dreams have narrative structure that daydreams lack"
+      ],
+      "status": "emerging",
+      "strength": 0.55,
+      "weakness": "Describes mechanism but not function"
+    },
+    "social_simulation": {
+      "name": "Social Simulation Theory",
+      "author": "Revonsuo (2001), supplementary",
+      "description": "Dreams simulate social interactions, allowing practice of social skills and relationship management in a safe environment.",
+      "mechanism": "The brain uses sleep to simulate social scenarios, rehearsing responses to social challenges and strengthening social bonds.",
+      "predictions": [
+        "Dreams contain more social interactions than expected by chance",
+        "Socially isolated people have more social dreams",
+        "Dream social content predicts waking social behavior"
+      ],
+      "evidence_for": [
+        "Most dreams involve other people",
+        "Social anxiety correlates with social dream content",
+        "Dreams help process social experiences"
+      ],
+      "evidence_against": [
+        "Many dreams are solitary",
+        "Social simulation could occur in daydreaming",
+        "Does not explain non-social dreams"
+      ],
+      "status": "emerging",
+      "strength": 0.5,
+      "weakness": "Subset of threat simulation theory"
+    }
+  },
+  "gaps": [
+    {
+      "type": "sparse_concept",
+      "concept": "Brainstem",
+      "n_connections": 2,
+      "description": "Concept 'Brainstem' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Hippocampus",
+      "n_connections": 1,
+      "description": "Concept 'Hippocampus' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Memory",
+      "n_connections": 2,
+      "description": "Concept 'Memory' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Emotion",
+      "n_connections": 2,
+      "description": "Concept 'Emotion' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Threat Detection",
+      "n_connections": 2,
+      "description": "Concept 'Threat Detection' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Social Interaction",
+      "n_connections": 1,
+      "description": "Concept 'Social Interaction' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Creativity",
+      "n_connections": 2,
+      "description": "Concept 'Creativity' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Neural Noise",
+      "n_connections": 2,
+      "description": "Concept 'Neural Noise' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Synaptic Plasticity",
+      "n_connections": 2,
+      "description": "Concept 'Synaptic Plasticity' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Emotional Processing",
+      "n_connections": 2,
+      "description": "Concept 'Emotional Processing' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Threat Rehearsal",
+      "n_connections": 1,
+      "description": "Concept 'Threat Rehearsal' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Social Rehearsal",
+      "n_connections": 1,
+      "description": "Concept 'Social Rehearsal' has few connections"
+    },
+    {
+      "type": "sparse_concept",
+      "concept": "Spontaneous Thought",
+      "n_connections": 2,
+      "description": "Concept 'Spontaneous Thought' has few connections"
+    },
+    {
+      "type": "unexplained_phenomenon",
+      "concept": "creativity",
+      "n_explanations": 1,
+      "description": "Few theories explain 'creativity'"
+    },
+    {
+      "type": "unexplained_phenomenon",
+      "concept": "narrative",
+      "n_explanations": 1,
+      "description": "Few theories explain 'narrative'"
+    },
+    {
+      "type": "unexplained_phenomenon",
+      "concept": "spontaneous_thought",
+      "n_explanations": 1,
+      "description": "Few theories explain 'spontaneous_thought'"
+    }
+  ],
+  "hypotheses": [
+    {
+      "id": "H1_bayesian",
+      "name": "Dreams as Bayesian Inference",
+      "score": 0.7384999999999998
+    },
+    {
+      "id": "H2_compression",
+      "name": "Dreams as Information Compression",
+      "score": 0.7328787362861818
+    },
+    {
+      "id": "H3_sandbox",
+      "name": "Dreams as Evolutionary Sandbox",
+      "score": 0.7085
+    },
+    {
+      "id": "H4_defrag",
+      "name": "Dreams as Neural Defragmentation",
+      "score": 0.53
+    },
+    {
+      "id": "H5_social",
+      "name": "Dreams as Social Network Dynamics",
+      "score": 0.6035
+    },
+    {
+      "id": "H6_creativity",
+      "name": "Dreams as Creativity Incubator",
+      "score": 0.7855000000000001
+    },
+    {
+      "id": "H7_predictive",
+      "name": "Dreams as Predictive Coding Error",
+      "score": 0.7884985922372446
+    }
+  ],
+  "predictions": [
+    {
+      "hypothesis_id": "H1_bayesian",
+      "hypothesis_name": "Dreams as Bayesian Inference",
+      "prediction_id": "H1_bayesian_P1",
+      "prediction_text": "Dream content should be biased toward prior beliefs (familiar scenes, people)",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H1_bayesian",
+      "hypothesis_name": "Dreams as Bayesian Inference",
+      "prediction_id": "H1_bayesian_P2",
+      "prediction_text": "Dreams should become more coherent as the night progresses (more data = better inference)",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H1_bayesian",
+      "hypothesis_name": "Dreams as Bayesian Inference",
+      "prediction_id": "H1_bayesian_P3",
+      "prediction_text": "People with stronger priors (more experience) should have more coherent dreams",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H1_bayesian",
+      "hypothesis_name": "Dreams as Bayesian Inference",
+      "prediction_id": "H1_bayesian_P4",
+      "prediction_text": "Dream bizarreness should correlate with noise level (anomalous signals)",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H2_compression",
+      "hypothesis_name": "Dreams as Information Compression",
+      "prediction_id": "H2_compression_P1",
+      "prediction_text": "Dream content should reconstruct recent experiences in compressed form",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H2_compression",
+      "hypothesis_name": "Dreams as Information Compression",
+      "prediction_id": "H2_compression_P2",
+      "prediction_text": "More complex experiences should produce longer, more vivid dreams",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H2_compression",
+      "hypothesis_name": "Dreams as Information Compression",
+      "prediction_id": "H2_compression_P3",
+      "prediction_text": "Dream recall should correlate with reconstruction accuracy",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H2_compression",
+      "hypothesis_name": "Dreams as Information Compression",
+      "prediction_id": "H2_compression_P4",
+      "prediction_text": "Learning new skills should increase dream complexity",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H3_sandbox",
+      "hypothesis_name": "Dreams as Evolutionary Sandbox",
+      "prediction_id": "H3_sandbox_P1",
+      "prediction_text": "Dreams should contain more extreme scenarios than waking life",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H3_sandbox",
+      "hypothesis_name": "Dreams as Evolutionary Sandbox",
+      "prediction_id": "H3_sandbox_P2",
+      "prediction_text": "Creative people should have more vivid, bizarre dreams",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H3_sandbox",
+      "hypothesis_name": "Dreams as Evolutionary Sandbox",
+      "prediction_id": "H3_sandbox_P3",
+      "prediction_text": "Dream content should be more diverse than waking experience",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H3_sandbox",
+      "hypothesis_name": "Dreams as Evolutionary Sandbox",
+      "prediction_id": "H3_sandbox_P4",
+      "prediction_text": "Dreams should help solve problems that are too risky to try while awake",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H4_defrag",
+      "hypothesis_name": "Dreams as Neural Defragmentation",
+      "prediction_id": "H4_defrag_P1",
+      "prediction_text": "Learning should increase dream vividness (more to defragment)",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H4_defrag",
+      "hypothesis_name": "Dreams as Neural Defragmentation",
+      "prediction_id": "H4_defrag_P2",
+      "prediction_text": "Dream content should reflect reorganization of recent experiences",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H4_defrag",
+      "hypothesis_name": "Dreams as Neural Defragmentation",
+      "prediction_id": "H4_defrag_P3",
+      "prediction_text": "Neural efficiency should increase after sleep (faster reaction times)",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H4_defrag",
+      "hypothesis_name": "Dreams as Neural Defragmentation",
+      "prediction_id": "H4_defrag_P4",
+      "prediction_text": "Dream recall should correlate with degree of reorganization",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H5_social",
+      "hypothesis_name": "Dreams as Social Network Dynamics",
+      "prediction_id": "H5_social_P1",
+      "prediction_text": "Dreams should involve more social interactions than expected by chance",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H5_social",
+      "hypothesis_name": "Dreams as Social Network Dynamics",
+      "prediction_id": "H5_social_P2",
+      "prediction_text": "Socially complex periods should produce more social dreams",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H5_social",
+      "hypothesis_name": "Dreams as Social Network Dynamics",
+      "prediction_id": "H5_social_P3",
+      "prediction_text": "Dream social content should predict future social behavior",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H5_social",
+      "hypothesis_name": "Dreams as Social Network Dynamics",
+      "prediction_id": "H5_social_P4",
+      "prediction_text": "Socially isolated people should have fewer social dreams",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H6_creativity",
+      "hypothesis_name": "Dreams as Creativity Incubator",
+      "prediction_id": "H6_creativity_P1",
+      "prediction_text": "REM sleep should enhance creative problem-solving",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H6_creativity",
+      "hypothesis_name": "Dreams as Creativity Incubator",
+      "prediction_id": "H6_creativity_P2",
+      "prediction_text": "Dreams should contain more novel combinations than waking thought",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H6_creativity",
+      "hypothesis_name": "Dreams as Creativity Incubator",
+      "prediction_id": "H6_creativity_P3",
+      "prediction_text": "People who dream more should be more creative",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H6_creativity",
+      "hypothesis_name": "Dreams as Creativity Incubator",
+      "prediction_id": "H6_creativity_P4",
+      "prediction_text": "Creative periods should be preceded by more REM sleep",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H6_creativity",
+      "hypothesis_name": "Dreams as Creativity Incubator",
+      "prediction_id": "H6_creativity_P5",
+      "prediction_text": "Dream incubation (thinking about a problem before sleep) should improve solutions",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H7_predictive",
+      "hypothesis_name": "Dreams as Predictive Coding Error",
+      "prediction_id": "H7_predictive_P1",
+      "prediction_text": "Dreams should contain more unexpected events than waking life",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H7_predictive",
+      "hypothesis_name": "Dreams as Predictive Coding Error",
+      "prediction_id": "H7_predictive_P2",
+      "prediction_text": "Days with more surprises should produce more vivid dreams",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H7_predictive",
+      "hypothesis_name": "Dreams as Predictive Coding Error",
+      "prediction_id": "H7_predictive_P3",
+      "prediction_text": "Dreams should help update predictive models (improve future predictions)",
+      "test_type": "simulation",
+      "measurable": true
+    },
+    {
+      "hypothesis_id": "H7_predictive",
+      "hypothesis_name": "Dreams as Predictive Coding Error",
+      "prediction_id": "H7_predictive_P4",
+      "prediction_text": "People who are more surprised during the day should have more memorable dreams",
+      "test_type": "simulation",
+      "measurable": true
+    }
+  ],
+  "tournament_results": [
+    {
+      "hypothesis_id": "H7_predictive",
+      "hypothesis_name": "Dreams as Predictive Coding Error",
+      "scores": {
+        "novelty": 0.9,
+        "testability": 0.75,
+        "explanatory_power": 0.85,
+        "simulation_coherence": 0.9999906149149637,
+        "evidence_support": 0.4,
+        "parsimony": 0.81
+      },
+      "total": 0.7884985922372446,
+      "simulation_result": {
+        "final_error": 9.385085036291152e-06
+      }
+    },
+    {
+      "hypothesis_id": "H6_creativity",
+      "hypothesis_name": "Dreams as Creativity Incubator",
+      "scores": {
+        "novelty": 0.85,
+        "testability": 0.85,
+        "explanatory_power": 0.8,
+        "simulation_coherence": 1.0,
+        "evidence_support": 0.4,
+        "parsimony": 0.78
+      },
+      "total": 0.7855000000000001,
+      "simulation_result": {
+        "novelty": 0.5758584767979396,
+        "n_combinations": 71
+      }
+    },
+    {
+      "hypothesis_id": "H1_bayesian",
+      "hypothesis_name": "Dreams as Bayesian Inference",
+      "scores": {
+        "novelty": 0.8,
+        "testability": 0.7,
+        "explanatory_power": 0.75,
+        "simulation_coherence": 0.999999999999999,
+        "evidence_support": 0.4,
+        "parsimony": 0.81
+      },
+      "total": 0.7384999999999998,
+      "simulation_result": {
+        "coherence": 0.999999999999999,
+        "final_state": [
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713203,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713203,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713203,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713203,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713203,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713203,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713203,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240222,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240222,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713203,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.05598333130229212,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811225,
+            0.9327225427240223,
+            0.223059602257132,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ],
+          [
+            0.2615166298127981,
+            0.22721108309811222,
+            0.9327225427240223,
+            0.22305960225713198,
+            0.19709329166460499,
+            0.78676872853786,
+            0.4293604560349566,
+            0.6789365181873808,
+            0.055983331302292105,
+            0.5089465295529797
+          ]
+        ]
+      }
+    },
+    {
+      "hypothesis_id": "H2_compression",
+      "hypothesis_name": "Dreams as Information Compression",
+      "scores": {
+        "novelty": 0.75,
+        "testability": 0.8,
+        "explanatory_power": 0.7,
+        "simulation_coherence": 0.9591915752412119,
+        "evidence_support": 0.4,
+        "parsimony": 0.815
+      },
+      "total": 0.7328787362861818,
+      "simulation_result": {
+        "reconstruction_error": 0.04080842475878814,
+        "compression_ratio": 0.5
+      }
+    },
+    {
+      "hypothesis_id": "H3_sandbox",
+      "hypothesis_name": "Dreams as Evolutionary Sandbox",
+      "scores": {
+        "novelty": 0.7,
+        "testability": 0.75,
+        "explanatory_power": 0.65,
+        "simulation_coherence": 1.0,
+        "evidence_support": 0.4,
+        "parsimony": 0.81
+      },
+      "total": 0.7085,
+      "simulation_result": {
+        "scenario_diversity": 2.592427747944125,
+        "constraint_level": 0.1
+      }
+    },
+    {
+      "hypothesis_id": "H5_social",
+      "hypothesis_name": "Dreams as Social Network Dynamics",
+      "scores": {
+        "novelty": 0.6,
+        "testability": 0.8,
+        "explanatory_power": 0.55,
+        "simulation_coherence": 0.5,
+        "evidence_support": 0.4,
+        "parsimony": 0.81
+      },
+      "total": 0.6035,
+      "simulation_result": {}
+    },
+    {
+      "hypothesis_id": "H4_defrag",
+      "hypothesis_name": "Dreams as Neural Defragmentation",
+      "scores": {
+        "novelty": 0.65,
+        "testability": 0.7,
+        "explanatory_power": 0.6,
+        "simulation_coherence": 0,
+        "evidence_support": 0.4,
+        "parsimony": 0.825
+      },
+      "total": 0.53,
+      "simulation_result": {
+        "organization": 0
+      }
+    }
+  ]
+}
