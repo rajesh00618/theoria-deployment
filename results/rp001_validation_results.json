@@ -1,0 +1,109 @@
+{
+  "seeds": 30,
+  "time_seconds": 502.4,
+  "noise_sweep": {
+    "0.0": {
+      "noise": 0.0,
+      "diversity_mean": 0.22224871570402724,
+      "diversity_std": 0.03719500312085249,
+      "diversity_ci95": 0.013310060927367095,
+      "utility_mean": 0.18686917359632163,
+      "convergence_rate": 1.0
+    },
+    "0.05": {
+      "noise": 0.05,
+      "diversity_mean": 0.31830469612147294,
+      "diversity_std": 0.016587454556511352,
+      "diversity_ci95": 0.005935744381032837,
+      "utility_mean": 0.040073268288715665,
+      "convergence_rate": 1.0
+    },
+    "0.1": {
+      "noise": 0.1,
+      "diversity_mean": 0.5702865976826798,
+      "diversity_std": 0.023973874498572002,
+      "diversity_ci95": 0.008578940811061616,
+      "utility_mean": 0.009640985085601409,
+      "convergence_rate": 0.0
+    },
+    "0.15": {
+      "noise": 0.15,
+      "diversity_mean": 0.7456094624511881,
+      "diversity_std": 0.0260495551124905,
+      "diversity_ci95": 0.00932171357941558,
+      "utility_mean": 0.004698605661765163,
+      "convergence_rate": 0.0
+    },
+    "0.2": {
+      "noise": 0.2,
+      "diversity_mean": 0.8660922316524281,
+      "diversity_std": 0.02561889832459146,
+      "diversity_ci95": 0.009167605027062566,
+      "utility_mean": 0.002314104424961831,
+      "convergence_rate": 0.0
+    },
+    "0.3": {
+      "noise": 0.3,
+      "diversity_mean": 1.0134550096785087,
+      "diversity_std": 0.024742943465226232,
+      "diversity_ci95": 0.008854148606319907,
+      "utility_mean": -0.0001816907047130101,
+      "convergence_rate": 0.0
+    }
+  },
+  "topology": {
+    "ring": {
+      "diversity_mean": 0.31830469612147294,
+      "diversity_std": 0.016587454556511352,
+      "convergence_rate": 1.0
+    },
+    "random": {
+      "diversity_mean": 0.28486523386879414,
+      "diversity_std": 0.011228673103702914,
+      "convergence_rate": 1.0
+    }
+  },
+  "agent_count": {
+    "50": {
+      "n_agents": 50,
+      "diversity_mean": 0.30799928663674,
+      "convergence_rate": 1.0
+    },
+    "100": {
+      "n_agents": 100,
+      "diversity_mean": 0.31830469612147294,
+      "convergence_rate": 1.0
+    }
+  },
+  "contrarians": {
+    "0.0": {
+      "contrarian_fraction": 0.0,
+      "diversity_mean": 0.31830469612147294,
+      "convergence_rate": 1.0
+    },
+    "0.05": {
+      "contrarian_fraction": 0.05,
+      "diversity_mean": 0.42657454726053684,
+      "convergence_rate": 1.0
+    },
+    "0.1": {
+      "contrarian_fraction": 0.1,
+      "diversity_mean": 0.5207438207389113,
+      "convergence_rate": 0.23333333333333334
+    },
+    "0.15": {
+      "contrarian_fraction": 0.15,
+      "diversity_mean": 0.599273498295005,
+      "convergence_rate": 0.0
+    },
+    "0.2": {
+      "contrarian_fraction": 0.2,
+      "diversity_mean": 0.6740266050265085,
+      "convergence_rate": 0.0
+    }
+  },
+  "summary": {
+    "optimal_noise": 0.0,
+    "optimal_utility": 0.18686917359632163
+  }
+}
