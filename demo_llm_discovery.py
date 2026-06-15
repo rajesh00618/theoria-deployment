@@ -112,7 +112,7 @@ def main():
     active_theories = theoria.memory.theory.get_active()
     if active_theories:
         for i, t in enumerate(active_theories[:10]):
-            claim = t.core_claim.statement if t.core_claim else "N/A"
+            claim = t.core_claims[0].statement if t.core_claims else "N/A"
             print(f"\n  Theory {i+1}: {t.name}")
             print(f"    Claim: {claim[:200]}")
             print(f"    Posterior: {t.posterior:.3f}")

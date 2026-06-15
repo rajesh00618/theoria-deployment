@@ -864,7 +864,7 @@ class AbductiveImagination:
 
         existing_knowledge = []
         for t in existing_theories[-8:]:
-            existing_knowledge.append(f"{t.name}: {t.core_claim.statement if t.core_claim else t.description[:100]}")
+            existing_knowledge.append(f"{t.name}: {t.core_claims[0].statement if t.core_claims else t.description[:100]}")
         for c in concepts[:5]:
             existing_knowledge.append(f"Concept: {c.name} — {c.definition[:80] if c.definition else 'no definition'}")
 
