@@ -1,0 +1,37 @@
+{
+  "0.0": {
+    "contrarian_fraction": 0.0,
+    "diversity_mean": 0.31675088523253003,
+    "diversity_std": 0.013315884667723904,
+    "convergence_rate": 1.0,
+    "n_seeds": 30
+  },
+  "0.05": {
+    "contrarian_fraction": 0.05,
+    "diversity_mean": 0.42554541276481733,
+    "diversity_std": 0.020998059269888816,
+    "convergence_rate": 1.0,
+    "n_seeds": 30
+  },
+  "0.1": {
+    "contrarian_fraction": 0.1,
+    "diversity_mean": 0.5194306219048979,
+    "diversity_std": 0.024937541804148255,
+    "convergence_rate": 0.3,
+    "n_seeds": 30
+  },
+  "0.15": {
+    "contrarian_fraction": 0.15,
+    "diversity_mean": 0.5984908039977522,
+    "diversity_std": 0.02385551275769751,
+    "convergence_rate": 0.0,
+    "n_seeds": 30
+  },
+  "0.2": {
+    "contrarian_fraction": 0.2,
+    "diversity_mean": 0.6738674833743059,
+    "diversity_std": 0.027151894697531643,
+    "convergence_rate": 0.0,
+    "n_seeds": 30
+  }
+}

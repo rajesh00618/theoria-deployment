@@ -1,0 +1,82 @@
+{
+  "Abortion": {
+    "n_edits": 500,
+    "n_users": 150,
+    "n_dissenters": 37,
+    "dissent_fraction": 0.24666666666666667,
+    "fragmentation": 0.960152,
+    "burst_intensity": 0.1
+  },
+  "Banana": {
+    "n_edits": 500,
+    "n_users": 111,
+    "n_dissenters": 20,
+    "dissent_fraction": 0.18018018018018017,
+    "fragmentation": 0.72624,
+    "burst_intensity": 0.062
+  },
+  "Climate change": {
+    "n_edits": 484,
+    "n_users": 129,
+    "n_dissenters": 32,
+    "dissent_fraction": 0.24806201550387597,
+    "fragmentation": 0.9414315962024452,
+    "burst_intensity": 0.08677685950413223
+  },
+  "Dog": {
+    "n_edits": 500,
+    "n_users": 149,
+    "n_dissenters": 12,
+    "dissent_fraction": 0.08053691275167785,
+    "fragmentation": 0.783616,
+    "burst_intensity": 0.062
+  },
+  "Evolution": {
+    "n_edits": 500,
+    "n_users": 170,
+    "n_dissenters": 46,
+    "dissent_fraction": 0.27058823529411763,
+    "fragmentation": 0.976736,
+    "burst_intensity": 0.098
+  },
+  "Gravity": {
+    "n_edits": 500,
+    "n_users": 145,
+    "n_dissenters": 35,
+    "dissent_fraction": 0.2413793103448276,
+    "fragmentation": 0.92632,
+    "burst_intensity": 0.112
+  },
+  "Gun control": {
+    "n_edits": 500,
+    "n_users": 182,
+    "n_dissenters": 43,
+    "dissent_fraction": 0.23626373626373626,
+    "fragmentation": 0.979728,
+    "burst_intensity": 0.08
+  },
+  "Nuclear power": {
+    "n_edits": 500,
+    "n_users": 136,
+    "n_dissenters": 28,
+    "dissent_fraction": 0.20588235294117646,
+    "fragmentation": 0.960616,
+    "burst_intensity": 0.084
+  },
+  "Vaccination": {
+    "n_edits": 500,
+    "n_users": 272,
+    "n_dissenters": 41,
+    "dissent_fraction": 0.15073529411764705,
+    "fragmentation": 0.990816,
+    "burst_intensity": 0.104
+  },
+  "Water": {
+    "n_edits": 500,
+    "n_users": 256,
+    "n_dissenters": 36,
+    "dissent_fraction": 0.140625,
+    "fragmentation": 0.98856,
+    "burst_intensity": 0.094
+  }
+}
