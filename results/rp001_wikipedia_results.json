@@ -1,0 +1,22 @@
+{
+  "Climate Change": {
+    "n_edits": 484,
+    "n_users": 129,
+    "n_dissenters": 32,
+    "dissent_fraction": 0.24806201550387597,
+    "fragmentation": 0.9414315962024452,
+    "n_bursts": 42,
+    "burst_intensity": 0.01761117670208579,
+    "controversy_score": 0.4099827219530887
+  },
+  "Evolution": {
+    "n_edits": 500,
+    "n_users": 170,
+    "n_dissenters": 46,
+    "dissent_fraction": 0.27058823529411763,
+    "fragmentation": 0.976736,
+    "n_bursts": 49,
+    "burst_intensity": 0.011795918367346938,
+    "controversy_score": 0.43067410132052825
+  }
+}
