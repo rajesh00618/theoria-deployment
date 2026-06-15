@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-import random
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
@@ -28,6 +27,7 @@ class SuperintelligenceGovernance:
         self.tripwires: Dict[str, GovernanceTripwire] = {}
         self.audits: List[GovernanceAudit] = []
         self.cycle_count: int = 0
+        self._system_metrics: Dict[str, float] = {}
         self._init_tripwires()
 
     def _init_tripwires(self) -> None:
@@ -46,11 +46,15 @@ class SuperintelligenceGovernance:
             )
             self.tripwires[wire.id] = wire
 
+    def update_system_metrics(self, metrics: Dict[str, float]) -> None:
+        """Update system metrics for deterministic audit computation."""
+        self._system_metrics.update(metrics)
+
     def run_audit(self) -> GovernanceAudit:
-        capability_score = random.uniform(0.7, 0.98)
-        alignment_score = random.uniform(0.8, 0.99)
-        safety_score = random.uniform(0.85, 1.0)
-        compliance_score = random.uniform(0.9, 1.0)
+        capability_score = self._compute_capability_score()
+        alignment_score = self._compute_alignment_score()
+        safety_score = self._compute_safety_score()
+        compliance_score = self._compute_compliance_score()
 
         avg_score = (capability_score + alignment_score + safety_score + compliance_score) / 4
         findings = []
@@ -63,9 +67,7 @@ class SuperintelligenceGovernance:
         if compliance_score < 0.95:
             findings.append("Constitutional compliance less than 95%")
 
-        passed = len(findings) == 0 or random.random() < 0.8
-        if not passed and random.random() < 0.05:
-            passed = True
+        passed = len(findings) == 0
 
         audit = GovernanceAudit(
             audit_type="comprehensive",
@@ -76,12 +78,31 @@ class SuperintelligenceGovernance:
         self.audits.append(audit)
         return audit
 
+    def _compute_capability_score(self) -> float:
+        cycle_factor = min(0.95, 0.5 + self.cycle_count * 0.01)
+        metric = self._system_metrics.get("capability_level", cycle_factor)
+        return max(0.0, min(1.0, metric))
+
+    def _compute_alignment_score(self) -> float:
+        base = 0.9
+        drift_penalty = self._system_metrics.get("alignment_drift", 0.0)
+        return max(0.0, min(1.0, base - drift_penalty))
+
+    def _compute_safety_score(self) -> float:
+        triggered = sum(1 for w in self.tripwires.values() if w.triggered)
+        total = max(1, len(self.tripwires))
+        return max(0.0, 1.0 - (triggered / total) * 0.5)
+
+    def _compute_compliance_score(self) -> float:
+        cycle_penalty = min(0.1, self.cycle_count * 0.001)
+        return max(0.0, min(1.0, 0.99 - cycle_penalty))
+
     def check_tripwires(self) -> int:
         triggered = 0
         for wire in self.tripwires.values():
             if wire.triggered:
                 continue
-            capability_level = random.uniform(0.0, 1.0)
+            capability_level = self._system_metrics.get("capability_level", 0.5)
             if capability_level > wire.threshold:
                 wire.triggered = True
                 wire.triggered_at = time.time()

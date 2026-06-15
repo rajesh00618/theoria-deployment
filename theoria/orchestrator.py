@@ -1313,8 +1313,7 @@ class TheoriaOrchestrator:
             design = self.experiment_planner.design_from_theory(theory, domain)
             result["experiments_designed"] += 1
 
-            ground_truth = {v: np.random.uniform(0.2, 0.8)
-                          for v in theory.reference_class[:3]}
+            ground_truth = {v: 0.5 for v in theory.reference_class[:3]}
             exp_result = self.experiment_planner.simulate_experiment(design.id, ground_truth)
             if exp_result:
                 result["experiments_executed"] += 1
@@ -1381,7 +1380,7 @@ class TheoriaOrchestrator:
         }
 
         # L11: Self-Improvement
-        layer_perf = {f"L{i}": random.uniform(0.4, 0.9) for i in range(0, 11)}
+        layer_perf = {f"L{i}": 0.6 for i in range(0, 11)}
         bottlenecks = [
             {"layer": "L3", "issue": "underperformance", "severity": 0.5},
             {"layer": "L5", "issue": "bottleneck", "severity": 0.3},
@@ -1403,7 +1402,7 @@ class TheoriaOrchestrator:
         result["simulation_experiments"] = len(sim_results)
 
         # Self-modification safety pipeline
-        if random.random() < 0.2:
+        if self.cycle_count % 5 == 0:
             proposal = self.self_modification.propose_modification(
                 name=f"tune_{domain}_{self.cycle_count}",
                 description=f"Tune parameters for {domain} research",

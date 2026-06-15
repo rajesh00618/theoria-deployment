@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import uuid
-import random
 import math
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
@@ -42,11 +41,11 @@ class MathematicalDiscovery:
         result = ConjectureResult()
         max_conj = getattr(self.config, "max_conjectures_per_cycle", 5) if self.config else 5
 
-        for _ in range(random.randint(1, max_conj)):
-            domain = random.choice(self.domains)
+        for i in range(min(max_conj, 3)):
+            domain = self.domains[i % len(self.domains)]
             statement = "Conjecture {} in {} (cycle {})".format(
                 len(self.conjectures) + 1, domain, self.cycle_count)
-            novelty = random.uniform(0.2, 0.9)
+            novelty = self._compute_novelty(domain)
             conjecture = MathematicalConjecture(
                 statement=statement,
                 domain=domain,
@@ -62,6 +61,11 @@ class MathematicalDiscovery:
 
         return result
 
+    def _compute_novelty(self, domain: str) -> float:
+        existing = sum(1 for c in self.conjectures if c.domain == domain)
+        novelty = max(0.2, min(0.9, 0.9 - existing * 0.1))
+        return novelty
+
     def attempt_proof(self, conjecture: MathematicalConjecture,
                       max_depth: int = 500) -> ProofAttempt:
         attempt = ProofAttempt(
@@ -69,16 +73,13 @@ class MathematicalDiscovery:
             depth=min(max_depth, getattr(self.config, "proof_search_depth", 100)
                       if self.config else 100),
         )
-        success_prob = 0.3 if conjecture.novelty_score < 0.5 else 0.1
-        if random.random() < success_prob:
+        if conjecture.novelty_score < 0.5:
             attempt.status = "proven"
             conjecture.status = "proven"
-            for i in range(1, random.randint(3, 8)):
-                pass
         else:
             attempt.status = "failed"
-            conjecture.status = "open" if random.random() < 0.3 else "proposed"
-        attempt.steps = random.randint(1, attempt.depth)
+            conjecture.status = "proposed"
+        attempt.steps = min(attempt.depth, 10)
         return attempt
 
     def search_proofs(self, conjectures: Optional[List[MathematicalConjecture]] = None) -> ConjectureResult:
@@ -89,7 +90,7 @@ class MathematicalDiscovery:
             self.proofs.append(attempt)
             if attempt.status == "proven":
                 result.proofs_found += 1
-            elif attempt.status == "failed" and random.random() < 0.2:
+            elif attempt.status == "failed" and c.novelty_score > 0.7:
                 c.status = "disproven"
                 result.disproven += 1
         result.conjectures = targets

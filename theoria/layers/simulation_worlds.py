@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import uuid
-import random
 import numpy as np
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
@@ -88,8 +87,8 @@ class SimulationWorldManager:
         if world.experiment_count >= world.max_experiments:
             return WorldExperimentResult(world_id=world_id)
 
-        confirmed = random.random() < 0.6
-        info_gain = random.uniform(0.1, 0.9)
+        confirmed = self._evaluate_hypothesis(world, hypothesis)
+        info_gain = self._compute_information_gain(world, hypothesis)
 
         result = WorldExperimentResult(
             world_id=world_id,
@@ -98,9 +97,9 @@ class SimulationWorldManager:
             hypothesis=hypothesis,
             result={
                 "outcome": "confirmed" if confirmed else "refuted",
-                "effect_size": random.uniform(0.1, 2.0),
-                "significance": random.uniform(0.001, 0.1),
-                "data_points": random.randint(10, 1000),
+                "effect_size": self._compute_effect_size(world, hypothesis),
+                "significance": self._compute_significance(world, hypothesis),
+                "data_points": self._compute_sample_size(world),
             },
             confirmed=confirmed,
             information_gain=info_gain,
@@ -112,6 +111,34 @@ class SimulationWorldManager:
 
         self.experiment_results.append(result)
         return result
+
+    def _evaluate_hypothesis(self, world: SimulationWorld, hypothesis: str) -> bool:
+        n_experiments = world.experiment_count
+        n_discoveries = world.discovery_count
+        base_rate = 0.5
+        if n_experiments > 0:
+            historical_rate = n_discoveries / n_experiments
+            base_rate = 0.3 + historical_rate * 0.4
+        return base_rate > 0.5
+
+    def _compute_information_gain(self, world: SimulationWorld, hypothesis: str) -> float:
+        n_experiments = world.experiment_count
+        novelty_factor = max(0.1, 1.0 - n_experiments * 0.01)
+        return max(0.1, min(0.9, novelty_factor * 0.7))
+
+    def _compute_effect_size(self, world: SimulationWorld, hypothesis: str) -> float:
+        n_experiments = world.experiment_count
+        convergence = min(2.0, 0.5 + n_experiments * 0.01)
+        return max(0.1, convergence)
+
+    def _compute_significance(self, world: SimulationWorld, hypothesis: str) -> float:
+        n_experiments = world.experiment_count
+        p_value = max(0.001, 0.1 - n_experiments * 0.001)
+        return p_value
+
+    def _compute_sample_size(self, world: SimulationWorld) -> int:
+        n_experiments = world.experiment_count
+        return max(10, min(1000, 50 + n_experiments * 5))
 
     def run_batch_experiments(self, n: int = 100) -> List[WorldExperimentResult]:
         if not self.worlds:
@@ -126,9 +153,10 @@ class SimulationWorldManager:
             "H follows power law distribution",
         ]
 
-        for _ in range(n):
-            world_id = random.choice(list(self.worlds.keys()))
-            hypothesis = random.choice(hypotheses)
+        world_ids = list(self.worlds.keys())
+        for i in range(n):
+            world_id = world_ids[i % len(world_ids)]
+            hypothesis = hypotheses[i % len(hypotheses)]
             result = self.run_experiment(world_id, hypothesis)
             results.append(result)
 

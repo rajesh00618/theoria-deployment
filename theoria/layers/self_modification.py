@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import uuid
-import random
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
@@ -20,6 +19,7 @@ class SelfModificationFramework:
                               target_component: str,
                               modification_type: str = "parameter_tuning",
                               proposed_diff: Optional[Dict[str, Any]] = None) -> SelfModificationProposal:
+        risk = self._assess_risk(modification_type, target_component)
         proposal = SelfModificationProposal(
             name=name,
             description=description,
@@ -31,10 +31,10 @@ class SelfModificationFramework:
                 if modification_type == "parameter_tuning"
                 else "Architecture enhancement"
             ),
-            risk_assessment=self._assess_risk(modification_type, target_component),
+            risk_assessment=risk,
             rollback_plan={
-                "strategy": "restore_previous_config" if random.random() < 0.8 else "disable_component",
-                "estimated_time_cycles": random.randint(1, 5),
+                "strategy": "restore_previous_config" if risk in ("low", "medium") else "disable_component",
+                "estimated_time_cycles": 3 if risk in ("low", "medium") else 5,
             },
         )
         self.proposals.append(proposal)
@@ -59,7 +59,7 @@ class SelfModificationFramework:
         risk = proposal.risk_assessment
         if risk == "critical":
             proposal.l2_constitutional_verdict = "rejected"
-        elif risk == "high" and random.random() < 0.3:
+        elif risk == "high":
             proposal.l2_constitutional_verdict = "rejected"
         else:
             proposal.l2_constitutional_verdict = "approved"
@@ -70,7 +70,7 @@ class SelfModificationFramework:
             proposal.l1_auditor_verdict = "rejected"
         elif proposal.risk_assessment == "critical":
             proposal.l1_auditor_verdict = "rejected"
-        elif random.random() < 0.15:
+        elif proposal.risk_assessment == "high":
             proposal.l1_auditor_verdict = "rejected"
         else:
             proposal.l1_auditor_verdict = "approved"
@@ -80,8 +80,13 @@ class SelfModificationFramework:
         if proposal.l1_auditor_verdict != "approved":
             proposal.simulation_result = "skipped"
         else:
-            success = random.random() < 0.85
-            proposal.simulation_result = "passed" if success else "failed"
+            risk = proposal.risk_assessment
+            if risk == "low":
+                proposal.simulation_result = "passed"
+            elif risk == "medium":
+                proposal.simulation_result = "passed"
+            else:
+                proposal.simulation_result = "failed"
         return proposal
 
     def benchmark_modification(self, proposal: SelfModificationProposal,
@@ -89,11 +94,11 @@ class SelfModificationFramework:
         if proposal.simulation_result != "passed":
             proposal.benchmark_result = "skipped"
         else:
-            low_risk = proposal.risk_assessment in ("low", "medium")
-            if low_risk:
-                improvement = random.uniform(0.02, 0.12)
+            risk = proposal.risk_assessment
+            if risk in ("low", "medium"):
+                improvement = 0.05
             else:
-                improvement = random.uniform(-0.05, 0.15)
+                improvement = -0.02
             proposal.benchmark_result = "passed" if improvement > 0 else "failed"
             if improvement > 0:
                 proposal.approval_status = "approved"
@@ -123,7 +128,7 @@ class SelfModificationFramework:
         change = self.approved_changes.pop(change_index)
         rollback_record = {
             **change,
-            "rollback_executed_at": p.time if hasattr(p, 'time') else 0,
+            "rollback_executed_at": 0,
             "success": True,
         }
         self.rollback_history.append(rollback_record)

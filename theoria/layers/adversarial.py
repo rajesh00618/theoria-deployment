@@ -41,7 +41,7 @@ class RedTeam:
         if len(theory.reference_class) < 2:
             flaws.append("Insufficient reference class for generalization")
             severity += 0.15
-        if self.aggressiveness > 0.5 and np.random.random() < self.aggressiveness:
+        if self.aggressiveness > 0.5 and len(theory.core_claims) < 3:
             flaws.append("Assumption: causal direction may be reversed")
             severity += 0.2
             flaws.append("Alternative explanation: hidden confounder")
@@ -68,7 +68,7 @@ class RedTeam:
         if result and result.effect_size < 0.3:
             flaws.append("Small effect size — may lack practical significance")
             severity += 0.15
-        if np.random.random() < self.aggressiveness * 0.3:
+        if result and result.effect_size < 0.5:
             flaws.append("Measurement instrument may lack sufficient precision")
             severity += 0.1
         challenge = RedTeamChallenge(
@@ -82,7 +82,7 @@ class RedTeam:
         return challenge
 
     def evaluate_challenge(self, challenge_id: str, defense: str) -> bool:
-        survived = len(defense) > 20 or np.random.random() > 0.3
+        survived = len(defense) > 20 and len(defense) < 5000
         for c in self.challenges:
             if c.id == challenge_id:
                 c.resolved = True

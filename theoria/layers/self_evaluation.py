@@ -1,7 +1,5 @@
 from __future__ import annotations
 
-import random
-import math
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
@@ -25,6 +23,11 @@ class SelfEvaluation:
         self.calibration_target = (getattr(config, "calibration_target", 0.9)
                                    if config else 0.9)
         self.cycle_count = 0
+        self._system_context: Dict[str, Any] = {}
+
+    def set_system_context(self, context: Dict[str, Any]) -> None:
+        """Provide actual system state for self-assessment."""
+        self._system_context.update(context)
 
     def assess_capability(self, capability_name: str,
                           actual_score: float,
@@ -50,9 +53,8 @@ class SelfEvaluation:
             "collaboration", "tool_use", "world_modeling", "self_awareness"
         ]
         for cap in capabilities:
-            actual = random.uniform(0.3, 0.95)
-            predicted = actual + random.uniform(-0.2, 0.2)
-            predicted = max(0.0, min(1.0, predicted))
+            actual = self._compute_actual_score(cap)
+            predicted = self._compute_predicted_score(cap, actual)
             self.assess_capability(capability_name=cap, actual_score=actual,
                                   predicted_score=predicted)
             result.capabilities_assessed += 1
@@ -74,3 +76,63 @@ class SelfEvaluation:
             result.improvement_suggestions.append(
                 f"Improve {w.capability_name} (current: {w.actual_performance:.2f})")
         return result
+
+    def _compute_actual_score(self, capability: str) -> float:
+        if capability == "reasoning":
+            theories = self._system_context.get("theories_proposed", 0)
+            falsified = self._system_context.get("theories_falsified", 0)
+            if theories == 0:
+                return 0.3
+            survival_rate = 1.0 - (falsified / max(1, theories))
+            return max(0.1, min(0.95, 0.3 + survival_rate * 0.6))
+
+        elif capability == "memory":
+            stored = self._system_context.get("memory_entries", 0)
+            recalled = self._system_context.get("memory_recalls", 0)
+            if stored == 0:
+                return 0.3
+            recall_rate = recalled / max(1, stored)
+            return max(0.1, min(0.95, 0.3 + recall_rate * 0.6))
+
+        elif capability == "planning":
+            plans = self._system_context.get("plans_executed", 0)
+            completed = self._system_context.get("plans_completed", 0)
+            if plans == 0:
+                return 0.3
+            completion_rate = completed / plans
+            return max(0.1, min(0.95, 0.3 + completion_rate * 0.6))
+
+        elif capability == "creativity":
+            novel = self._system_context.get("novel_hypotheses", 0)
+            total = max(1, self._system_context.get("total_hypotheses", 1))
+            novelty_ratio = novel / total
+            return max(0.1, min(0.95, 0.2 + novelty_ratio * 0.7))
+
+        elif capability == "collaboration":
+            interactions = self._system_context.get("agent_interactions", 0)
+            successful = self._system_context.get("successful_interactions", 0)
+            if interactions == 0:
+                return 0.3
+            success_rate = successful / interactions
+            return max(0.1, min(0.95, 0.3 + success_rate * 0.6))
+
+        elif capability == "tool_use":
+            tools_used = self._system_context.get("tools_used", 0)
+            tools_available = max(1, self._system_context.get("tools_available", 1))
+            utilization = tools_used / tools_available
+            return max(0.1, min(0.95, 0.3 + utilization * 0.6))
+
+        elif capability == "world_modeling":
+            accuracy = self._system_context.get("world_model_accuracy", 0.5)
+            return max(0.1, min(0.95, accuracy))
+
+        elif capability == "self_awareness":
+            calibration = self._system_context.get("self_calibration_error", 0.3)
+            return max(0.1, min(0.95, 1.0 - calibration))
+
+        return 0.5
+
+    def _compute_predicted_score(self, capability: str, actual: float) -> float:
+        error_margin = self._system_context.get("prediction_error_margin", 0.1)
+        predicted = actual + error_margin
+        return max(0.0, min(1.0, predicted))

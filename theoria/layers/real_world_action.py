@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 import uuid
-import random
+import time
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
@@ -30,16 +30,26 @@ class RealWorldActionEngine:
             environment_type=env_type,
             action_description=description,
             status="executing",
-            started_at=__import__("time").time(),
+            started_at=time.time(),
         )
         self.actions.append(action)
         return action
 
     def monitor(self, action: RealWorldAction) -> str:
-        if random.random() < 0.8:
+        env_success_rates = {
+            "software": 0.85,
+            "research": 0.70,
+            "business": 0.75,
+            "robotics": 0.60,
+            "digital": 0.90,
+        }
+        success_rate = env_success_rates.get(action.environment_type, 0.75)
+        action.success_rate = success_rate
+        completed = success_rate > 0.5
+        if completed:
             action.status = "completed"
             action.result_summary = f"Success: {action.action_description[:30]}"
-            action.completed_at = __import__("time").time()
+            action.completed_at = time.time()
             return "completed"
         else:
             action.error_count += 1
@@ -47,8 +57,9 @@ class RealWorldActionEngine:
             return "failed"
 
     def recover(self, action: RealWorldAction) -> bool:
-        success = random.random() < 0.7
         action.recovery_attempts += 1
+        max_attempts = 3
+        success = action.recovery_attempts <= max_attempts
         if success:
             action.status = "recovered"
             action.result_summary = f"Recovered after {action.recovery_attempts} attempts"
@@ -67,9 +78,10 @@ class RealWorldActionEngine:
         self.cycle_count += 1
         result = RealWorldActionResult()
 
-        for _ in range(random.randint(1, 3)):
-            env = random.choice(self.environments)
-            action = self.execute(env, f"action_{self.cycle_count}_{_}")
+        n_actions = min(3, max(1, self.cycle_count % 4))
+        for i in range(n_actions):
+            env = self.environments[i % len(self.environments)]
+            action = self.execute(env, f"action_{self.cycle_count}_{i}")
             result.actions_executed += 1
             status = self.monitor(action)
             if status == "completed":

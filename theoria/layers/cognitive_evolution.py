@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 import uuid
-import random
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
@@ -27,27 +26,29 @@ class CognitiveEvolutionLayer:
         self.cycle_count = 0
 
     def invent_architecture(self) -> CognitiveInvention:
-        parent = random.choice(self.known_architectures)
+        idx = self.cycle_count % len(self.known_architectures)
+        parent = self.known_architectures[idx]
         name = f"{parent}_variant_{self.cycle_count}"
         invention = CognitiveInvention(
             invention_type="architecture", name=name,
             description=f"Novel architecture derived from {parent}",
             parent_architectures=[parent],
-            performance_gain=random.uniform(0.05, 0.5),
-            complexity=random.uniform(0.3, 0.9),
+            performance_gain=0.2,
+            complexity=0.6,
         )
         self.inventions.append(invention)
         return invention
 
     def invent_reasoning(self) -> CognitiveInvention:
-        parent = random.choice(self.known_reasoning)
+        idx = self.cycle_count % len(self.known_reasoning)
+        parent = self.known_reasoning[idx]
         name = f"{parent}_meta_{self.cycle_count}"
         invention = CognitiveInvention(
             invention_type="reasoning_strategy", name=name,
             description=f"Novel reasoning strategy extending {parent}",
             parent_architectures=[parent],
-            performance_gain=random.uniform(0.05, 0.4),
-            complexity=random.uniform(0.2, 0.8),
+            performance_gain=0.15,
+            complexity=0.5,
         )
         self.inventions.append(invention)
         return invention
@@ -57,8 +58,9 @@ class CognitiveEvolutionLayer:
         invention = CognitiveInvention(
             invention_type="learning_algorithm", name=name,
             description=f"Novel learning algorithm v{self.cycle_count}",
-            performance_gain=random.uniform(0.05, 0.6),
-            complexity=random.uniform(0.3, 0.95),
+            parent_architectures=["gradient_descent"],
+            performance_gain=0.25,
+            complexity=0.7,
         )
         self.inventions.append(invention)
         return invention
@@ -67,7 +69,8 @@ class CognitiveEvolutionLayer:
         if idx >= len(self.inventions):
             return False
         inv = self.inventions[idx]
-        passes = random.random() < (inv.performance_gain / max(inv.complexity, 0.1))
+        ratio = inv.performance_gain / max(inv.complexity, 0.1)
+        passes = ratio > 0.3
         inv.verified = passes
         return passes
 
@@ -75,23 +78,20 @@ class CognitiveEvolutionLayer:
         self.cycle_count += 1
         result = CognitiveEvolutionResult()
 
-        if random.random() < 0.5:
-            inv = self.invent_architecture()
-            result.architectures_invented += 1
-            result.inventions += 1
+        inv = self.invent_architecture()
+        result.architectures_invented += 1
+        result.inventions += 1
 
-        if random.random() < 0.4:
-            inv = self.invent_reasoning()
-            result.reasoning_strategies += 1
-            result.inventions += 1
+        inv = self.invent_reasoning()
+        result.reasoning_strategies += 1
+        result.inventions += 1
 
-        if random.random() < 0.3:
-            inv = self.invent_learning()
-            result.learning_algorithms += 1
-            result.inventions += 1
+        inv = self.invent_learning()
+        result.learning_algorithms += 1
+        result.inventions += 1
 
         for i in range(len(self.inventions)):
-            if not self.inventions[i].verified and random.random() < 0.3:
+            if not self.inventions[i].verified:
                 if self.verify_invention(i):
                     result.verified_count += 1
 
