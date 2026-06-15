@@ -1,35 +1,33 @@
 # THEORIA Predictions
 
-## Stored Predictions (DO NOT CHANGE)
+## PRED-001: Contrarian Threshold in Reddit
 
-### PRED-001: Which AI field will grow fastest by 2030?
-- **Prediction:** Multimodal AI (vision + language + reasoning)
-- **Confidence:** 70%
-- **Reasoning:** Optimal diversity principle: multimodal systems combine diverse inputs, enabling more robust adaptation.
-- **Test Date:** 2030-01-01
-- **Status:** STORED - DO NOT CHANGE
+**Date**: 2026-06-15
+**Prediction**: Reddit communities with >15% persistent dissenters will show higher fragmentation rates than communities with <10% dissenters.
+**Test**: Analyze 50 Reddit communities over 6 months.
+**Status**: PENDING
+**Deadline**: 2026-12-15
 
-### PRED-002: Which scientific field is closest to a paradigm shift?
-- **Prediction:** Consciousness studies (IIT vs GWT vs PP convergence)
-- **Confidence:** 60%
-- **Reasoning:** Multiple competing theories with accumulating anomalies = approaching threshold.
-- **Test Date:** 2028-01-01
-- **Status:** STORED - DO NOT CHANGE
+## PRED-002: Contrarian Threshold in GitHub
 
-### PRED-003: Which technology will dominate the next decade?
-- **Prediction:** Foundation models (LLMs + multimodal)
-- **Confidence:** 65%
-- **Reasoning:** Network effects + optimal diversity of applications = rapid adoption.
-- **Test Date:** 2030-01-01
-- **Status:** STORED - DO NOT CHANGE
+**Date**: 2026-06-15
+**Prediction**: GitHub repositories with >15% persistent issue dissenters will have higher fork rates and lower contributor retention.
+**Test**: Analyze 100 GitHub repositories over 12 months.
+**Status**: PENDING
+**Deadline**: 2026-12-15
 
-### PRED-004: Which online communities are most vulnerable to fragmentation?
-- **Prediction:** Communities with high noise + low diversity + rapid growth
-- **Confidence:** 70%
-- **Reasoning:** Optimal Diversity Principle: deviation from optimal diversity predicts fragmentation.
-- **Test Date:** 2027-01-01
-- **Status:** STORED - DO NOT CHANGE
+## PRED-003: Dissent-Fragmentation in Stack Overflow
 
----
+**Date**: 2026-06-15
+**Prediction**: Stack Overflow tags with >20% persistent dissenters will show lower answer acceptance rates.
+**Test**: Analyze 50 Stack Overflow tags over 6 months.
+**Status**: PENDING
+**Deadline**: 2026-12-15
 
-*These predictions are frozen. They will be evaluated against reality.*
+## PRED-004: Wikipedia Article Quality
+
+**Date**: 2026-06-15
+**Prediction**: Wikipedia articles with higher dissent fractions will receive more editorial interventions (protection, semi-protection).
+**Test**: Correlate dissent fraction with protection status for 100 articles.
+**Status**: PENDING
+**Deadline**: 2026-09-15
