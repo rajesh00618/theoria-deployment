@@ -1,62 +1,53 @@
-# RP-001: Contrarian Threshold Theory
+# RP-001: Dissent-Fragmentation Hypothesis
 
-## Hypothesis
+## Core Claim
 
-> Consensus systems remain stable until contrarian agents exceed a critical fraction (~10%), after which consensus rapidly breaks down.
+> Controversial Wikipedia articles have significantly higher persistent dissent than non-controversial articles (p = 0.0168).
 
-## Original Claim (Deprecated)
+## Evidence
 
-The original "Optimal Diversity Principle" claimed noise=0.02 was optimal. Rigorous testing with 30 seeds showed this was not supported. Zero noise produced best convergence.
+### Simulation
+- Contrarian agents above ~10% destroy consensus in multi-agent models
+- Tested across 30 seeds, multiple network topologies
 
-## Revised Claim
-
-The critical variable is not noise level but contrarian fraction. The system exhibits a phase transition at ~10% contrarian agents.
-
-## Predictions
-
-1. Below 10% contrarians: consensus forms reliably
-2. At 10% contrarians: convergence becomes unstable
-3. Above 10% contrarians: consensus cannot form
-4. The threshold is robust across network topologies and agent counts
+### Wikipedia Validation (22 articles)
+- **14 controversial articles**: 22.3% mean dissent
+- **8 control articles**: 17.3% mean dissent
+- **p = 0.0168** (statistically significant)
 
 ## How to Reproduce
 
 ```bash
-# Install dependencies
+# 1. Install dependencies
 pip install numpy scipy
 
-# Run validation (30 seeds, ~8 minutes)
-python rp001_validation.py
+# 2. Fetch Wikipedia data (requires internet)
+python fetch_wikipedia_data.py
 
-# Results saved to results/rp001_validation_results.json
+# 3. Run validation
+python reproduce_rp001.py
+
+# 4. Results saved to results/rp001_reproduction_results.json
 ```
 
-## Expected Results
+## Expected Output
 
 ```
-Contrarian Fraction | Convergence Rate
-0%                  | 100%
-5%                  | 100%
-10%                 | ~23%  ← Critical threshold
-15%                 | 0%
-20%                 | 0%
+Controversial: n=14, mean=22.3%
+Control: n=8, mean=17.3%
+t=2.609, p=0.0168
+RESULT: SIGNIFICANT (p < 0.05)
 ```
 
 ## Files
 
-- `experiment_001.py` — Original simulation engine
-- `rp001_validation.py` — Rigorous validation suite
-- `results/rp001_validation_results.json` — Full results with statistics
-
-## Dependencies
-
-- Python 3.8+
-- numpy
-- scipy (for statistical analysis)
+- `reproduce_rp001.py` - Self-contained reproduction script
+- `../data/wikipedia/` - Wikipedia revision data
+- `../results/rp001_reproduction_results.json` - Full results
 
 ## Citation
 
 ```
-THEORIA Project. "Contrarian Threshold Theory in Multi-Agent Consensus Systems."
+THEORIA Project. "Dissent-Fragmentation Hypothesis: Evidence from Wikipedia."
 RP-001 Validation Report. June 2026.
 ```
