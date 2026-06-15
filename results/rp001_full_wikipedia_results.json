@@ -7,6 +7,14 @@
     "fragmentation": 0.960152,
     "burst_intensity": 0.1
   },
+  "Abortion in the United States": {
+    "n_edits": 500,
+    "n_users": 154,
+    "n_dissenters": 39,
+    "dissent_fraction": 0.2532467532467532,
+    "fragmentation": 0.974984,
+    "burst_intensity": 0.112
+  },
   "Banana": {
     "n_edits": 500,
     "n_users": 111,
@@ -15,6 +23,14 @@
     "fragmentation": 0.72624,
     "burst_intensity": 0.062
   },
+  "Biology": {
+    "n_edits": 500,
+    "n_users": 129,
+    "n_dissenters": 25,
+    "dissent_fraction": 0.1937984496124031,
+    "fragmentation": 0.924488,
+    "burst_intensity": 0.06
+  },
   "Climate change": {
     "n_edits": 484,
     "n_users": 129,
@@ -22,6 +38,38 @@
     "dissent_fraction": 0.24806201550387597,
     "fragmentation": 0.9414315962024452,
     "burst_intensity": 0.08677685950413223
+  },
+  "Climate change denial": {
+    "n_edits": 500,
+    "n_users": 76,
+    "n_dissenters": 17,
+    "dissent_fraction": 0.2236842105263158,
+    "fragmentation": 0.746368,
+    "burst_intensity": 0.048
+  },
+  "COVID-19 misinformation": {
+    "n_edits": 500,
+    "n_users": 170,
+    "n_dissenters": 46,
+    "dissent_fraction": 0.27058823529411763,
+    "fragmentation": 0.979768,
+    "burst_intensity": 0.094
+  },
+  "Creationism": {
+    "n_edits": 194,
+    "n_users": 91,
+    "n_dissenters": 21,
+    "dissent_fraction": 0.23076923076923078,
+    "fragmentation": 0.9755021787650122,
+    "burst_intensity": 0.08762886597938144
+  },
+  "DNA": {
+    "n_edits": 200,
+    "n_users": 117,
+    "n_dissenters": 18,
+    "dissent_fraction": 0.15384615384615385,
+    "fragmentation": 0.9785,
+    "burst_intensity": 0.075
   },
   "Dog": {
     "n_edits": 500,
@@ -39,6 +87,22 @@
     "fragmentation": 0.976736,
     "burst_intensity": 0.098
   },
+  "Evolution as fact and theory": {
+    "n_edits": 500,
+    "n_users": 272,
+    "n_dissenters": 42,
+    "dissent_fraction": 0.15441176470588236,
+    "fragmentation": 0.991272,
+    "burst_intensity": 0.102
+  },
+  "Genetically modified food controversies": {
+    "n_edits": 500,
+    "n_users": 143,
+    "n_dissenters": 36,
+    "dissent_fraction": 0.2517482517482518,
+    "fragmentation": 0.96812,
+    "burst_intensity": 0.054
+  },
   "Gravity": {
     "n_edits": 500,
     "n_users": 145,
@@ -55,6 +119,22 @@
     "fragmentation": 0.979728,
     "burst_intensity": 0.08
   },
+  "Gun violence in the United States": {
+    "n_edits": 500,
+    "n_users": 212,
+    "n_dissenters": 36,
+    "dissent_fraction": 0.16981132075471697,
+    "fragmentation": 0.976976,
+    "burst_intensity": 0.094
+  },
+  "Israel\u2013Palestine conflict": {
+    "n_edits": 1,
+    "n_users": 1,
+    "n_dissenters": 0,
+    "dissent_fraction": 0.0,
+    "fragmentation": 0.0,
+    "burst_intensity": 0.0
+  },
   "Nuclear power": {
     "n_edits": 500,
     "n_users": 136,
@@ -63,6 +143,30 @@
     "fragmentation": 0.960616,
     "burst_intensity": 0.084
   },
+  "Nuclear power debate": {
+    "n_edits": 500,
+    "n_users": 192,
+    "n_dissenters": 39,
+    "dissent_fraction": 0.203125,
+    "fragmentation": 0.979264,
+    "burst_intensity": 0.09
+  },
+  "Photosynthesis": {
+    "n_edits": 200,
+    "n_users": 94,
+    "n_dissenters": 19,
+    "dissent_fraction": 0.20212765957446807,
+    "fragmentation": 0.96865,
+    "burst_intensity": 0.065
+  },
+  "Physics": {
+    "n_edits": 500,
+    "n_users": 202,
+    "n_dissenters": 38,
+    "dissent_fraction": 0.18811881188118812,
+    "fragmentation": 0.978696,
+    "burst_intensity": 0.098
+  },
   "Vaccination": {
     "n_edits": 500,
     "n_users": 272,
@@ -70,6 +174,14 @@
     "dissent_fraction": 0.15073529411764705,
     "fragmentation": 0.990816,
     "burst_intensity": 0.104
+  },
+  "Vaccine controversies": {
+    "n_edits": 6,
+    "n_users": 4,
+    "n_dissenters": 1,
+    "dissent_fraction": 0.25,
+    "fragmentation": 0.0,
+    "burst_intensity": 0.16666666666666666
   },
   "Water": {
     "n_edits": 500,

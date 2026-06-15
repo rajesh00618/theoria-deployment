@@ -118,8 +118,11 @@ def main():
     print("  RESULTS")
     print(f"{'='*70}")
 
-    controversial = ["Climate change", "Evolution", "Vaccination", "Nuclear power", "Gun control", "Abortion"]
-    control = ["Banana", "Water", "Dog", "Gravity"]
+    controversial = ["Climate change", "Evolution", "Vaccination", "Nuclear power", "Gun control", "Abortion",
+                     "Climate change denial", "Evolution as fact and theory", "Nuclear power debate",
+                     "Gun violence in the United States", "Abortion in the United States",
+                     "Genetically modified food controversies", "COVID-19 misinformation", "Creationism"]
+    control = ["Banana", "Water", "Dog", "Gravity", "Photosynthesis", "DNA", "Physics", "Biology"]
 
     cont_data = []
     ctrl_data = []
