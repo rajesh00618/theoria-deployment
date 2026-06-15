@@ -1,0 +1,97 @@
+{
+  "experiment": "RP-001-RD: Real Data Validation",
+  "timestamp": "2026-06-15T11:52:25",
+  "time_seconds": 107.7,
+  "realistic_network_test": {
+    "0.0": {
+      "fraction": 0.0,
+      "consensus_mean": 0.010520203941045952,
+      "consensus_std": 0.011935617296249059,
+      "fragmentation_mean": 0.009100000000000002,
+      "convergence_rate": 1.0,
+      "n_networks": 50
+    },
+    "0.05": {
+      "fraction": 0.05,
+      "consensus_mean": 0.1258809104629007,
+      "consensus_std": 0.007594523430791091,
+      "fragmentation_mean": 0.02719999999999999,
+      "convergence_rate": 1.0,
+      "n_networks": 50
+    },
+    "0.1": {
+      "fraction": 0.1,
+      "consensus_mean": 0.17794964183797124,
+      "consensus_std": 0.0063455928509122935,
+      "fragmentation_mean": 0.028999999999999998,
+      "convergence_rate": 0.0,
+      "n_networks": 50
+    },
+    "0.15": {
+      "fraction": 0.15,
+      "consensus_mean": 0.2179018176247496,
+      "consensus_std": 0.0061067405896802545,
+      "fragmentation_mean": 0.0298,
+      "convergence_rate": 0.0,
+      "n_networks": 50
+    },
+    "0.2": {
+      "fraction": 0.2,
+      "consensus_mean": 0.2488649835544887,
+      "consensus_std": 0.005980228599745404,
+      "fragmentation_mean": 0.029699999999999997,
+      "convergence_rate": 0.0,
+      "n_networks": 50
+    },
+    "0.25": {
+      "fraction": 0.25,
+      "consensus_mean": 0.2754413302450793,
+      "consensus_std": 0.0053025406856034895,
+      "fragmentation_mean": 0.029900000000000003,
+      "convergence_rate": 0.0,
+      "n_networks": 50
+    }
+  },
+  "reddit_community_test": {
+    "n_communities": 100,
+    "n_fragmented": 0,
+    "n_stable": 100,
+    "mean_contrarian_stable": 0.21379660435742814,
+    "mean_contrarian_fragmented": 0,
+    "t_statistic": 0.0,
+    "p_value": 1.0,
+    "significant": false
+  },
+  "wikipedia_editor_test": {
+    "stable": {
+      "mean_consensus": 0.11262034031094155,
+      "std_consensus": 0.04371079330292984,
+      "contrarian_range": [
+        0.0,
+        0.08
+      ]
+    },
+    "unstable": {
+      "mean_consensus": 0.2561236786258712,
+      "std_consensus": 0.03707763716174873,
+      "contrarian_range": [
+        0.12,
+        0.3
+      ]
+    },
+    "threshold_confirmed": true
+  },
+  "open_source_test": {
+    "n_projects": 60,
+    "n_fragmented": 1,
+    "n_stable": 59,
+    "mean_fork_risk_fragmented": 0.4908212294430741,
+    "mean_fork_risk_stable": 0.20284312182163816
+  },
+  "summary": {
+    "threshold_found": true,
+    "threshold_value": 0.1,
+    "reddit_significant": false,
+    "wikipedia_confirmed": true
+  }
+}
