@@ -1,27 +1,42 @@
 # THEORIA Reproduction Guide
 
-## Quick Start (5 minutes)
+## What This Project Is
+
+THEORIA is a research prototype exploring autonomous scientific discovery. It has **one validated discovery** backed by real data:
+
+**RP-001: Dissent-Fragmentation Hypothesis**
+- Controversial Wikipedia articles have significantly higher persistent dissent than non-controversial articles
+- Statistical test: p = 0.0168 (significant)
+- Data: Real Wikipedia revision histories (22 articles)
+
+## What This Project Is NOT
+
+- Not a complete autonomous scientific discovery system
+- Not validated beyond RP-001
+- Not producing novel scientific discoveries
+
+## Quick Start
 
 ```bash
-# 1. Clone the repository
+# Clone
 git clone https://github.com/rajesh00618/theoria-deployment.git
 cd theoria-deployment
 
-# 2. Install dependencies
+# Install
 pip install numpy scipy
 
-# 3. Run reproduction
+# Reproduce RP-001
 python reproduce.py
 ```
 
-## What You Should See
+## Expected Output
 
 ```
-THEORIA RP-001 Reproducibility Package
+THEORIA RP-001 Reproducer
 Dissent-Fragmentation Hypothesis
 ======================================================================
 
-  Analyzed 22 articles
+  Loaded 22 articles
 
   Article                              Edits  Users  Dissent%  Fragment
   -----------------------------------------------------------------
@@ -29,7 +44,7 @@ Dissent-Fragmentation Hypothesis
   Climate change                         484    129    24.8%     0.941
   ...
 
-  Statistical Test:
+  Statistical Test: Two-sample t-test (controversial vs control)
   Controversial: n=14, mean=22.3%
   Control: n=8, mean=17.3%
   t=2.609, p=0.0168
@@ -38,64 +53,27 @@ Dissent-Fragmentation Hypothesis
   The Dissent-Fragmentation hypothesis is supported.
 ```
 
-## Expected Results
+## What You Need
 
-- **p-value**: ~0.0168 (significant at p < 0.05)
-- **Controversial articles**: ~22.3% dissent
-- **Control articles**: ~17.3% dissent
-- **Effect**: Controversial articles have significantly higher dissent
+- Python 3.10+
+- numpy
+- scipy
+- Internet (for initial data fetch, or use cached data)
 
-## If Results Differ
+## What You Should Verify
 
-1. **Different p-value**: Wikipedia data changes over time. This is expected.
-2. **Different article count**: Some articles may have fewer revisions.
-3. **Different dissent percentages**: Threshold or calculation method may differ.
+1. **p-value matches**: Should be approximately 0.0168
+2. **Direction matches**: Controversial mean > Control mean
+3. **Hash matches**: Result hash should be reproducible
 
-## Validation Criteria
+## Limitations
 
-The hypothesis is supported if:
-- p < 0.05 (statistically significant)
-- Controversial mean > Control mean (direction matches prediction)
-
-## Additional Validations
-
-```bash
-# RP-002: Dream Theory
-python rp002_validation.py
-
-# RP-003: Creativity Theory
-python rp003_validation.py
-
-# RP-004 to RP-012
-python rp006_012_validation.py
-
-# Cross-platform validation
-python cross_platform_validation.py
-
-# Blind discovery benchmark
-python blind_discovery_benchmark.py
-```
-
-## Dependencies
-
-```
-numpy>=1.24.0
-scipy>=1.11.0
-```
-
-No other dependencies required. No API keys needed. No external services.
-
-## Troubleshooting
-
-**Windows encoding error**: Set `PYTHONIOENCODING=utf-8` before running.
-
-**Network error**: Wikipedia API may be temporarily unavailable. Try again later.
-
-**Different results**: Wikipedia data is dynamic. Results may vary by date.
+- Only 22 articles (14 controversial, 8 control)
+- Wikipedia data changes over time
+- Single platform (Wikipedia only)
+- Effect size is moderate (not large)
 
 ## Citation
-
-If you reproduce these results, please cite:
 
 ```
 THEORIA: An Autonomous Scientific Discovery System
