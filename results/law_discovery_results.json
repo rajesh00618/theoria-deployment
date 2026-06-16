@@ -1,0 +1,133 @@
+{
+  "timestamp": "2026-06-16T08:50:22.356233",
+  "n_datasets": 3,
+  "n_laws": 3,
+  "n_theories": 3,
+  "n_predictions": 3,
+  "laws": [
+    {
+      "name": "temperature anomaly (C) as function of years since 1980",
+      "equation": "y = 0.0149 * x^1.0361",
+      "form": "power_law",
+      "r_squared": 0.8523094911576032,
+      "p_value": 0.0,
+      "aic": -212.95921014455425,
+      "bic": -209.3458851650136,
+      "strength": "strong",
+      "domain": "climate science",
+      "x_variable": "years since 1980",
+      "y_variable": "temperature anomaly (C)",
+      "n_data_points": 45,
+      "description": "temperature anomaly (C) follows a power_law relationship with years since 1980 (R^2=0.852, p=0.000000)"
+    },
+    {
+      "name": "orbital period (years) as function of semi-major axis (AU)",
+      "equation": "y = 0.9929 * x^1.5027",
+      "form": "power_law",
+      "r_squared": 0.9999079070547473,
+      "p_value": 0.0,
+      "aic": -236.10579568713584,
+      "bic": -232.28174967627956,
+      "strength": "very strong",
+      "domain": "astronomy",
+      "x_variable": "semi-major axis (AU)",
+      "y_variable": "orbital period (years)",
+      "n_data_points": 50,
+      "description": "orbital period (years) follows a power_law relationship with semi-major axis (AU) (R^2=1.000, p=0.000000)"
+    },
+    {
+      "name": "voltage (V) as function of current (A)",
+      "equation": "y = 9.9137 * x^1.0030",
+      "form": "power_law",
+      "r_squared": 0.9990010229482239,
+      "p_value": 0.0,
+      "aic": -75.04530356966018,
+      "bic": -71.22125755880388,
+      "strength": "very strong",
+      "domain": "electrical engineering",
+      "x_variable": "current (A)",
+      "y_variable": "voltage (V)",
+      "n_data_points": 50,
+      "description": "voltage (V) follows a power_law relationship with current (A) (R^2=0.999, p=0.000000)"
+    }
+  ],
+  "theories": [
+    {
+      "name": "Law of temperature anomaly (C)-years since 1980 Relationship",
+      "statement": "temperature anomaly (C) follows a power_law relationship with years since 1980 (R^2=0.852, p=0.000000)",
+      "equation": "y = 0.0149 * x^1.0361",
+      "explanation": "temperature anomaly (C) follows a power law with years since 1980. This suggests scale-invariant dynamics, common in complex systems.",
+      "mechanism": "Scale-free relationship between years since 1980 and temperature anomaly (C)",
+      "evidence": "R^2=0.852, p=0.000000, n=45",
+      "testable_predictions": [
+        "temperature anomaly (C) will continue to follow power_law relationship with years since 1980",
+        "Changing years since 1980 will produce power_law change in temperature anomaly (C)"
+      ],
+      "limitations": [
+        "Correlation does not imply causation",
+        "Relationship may not hold outside observed range",
+        "Confounding variables not controlled"
+      ]
+    },
+    {
+      "name": "Law of orbital period (years)-semi-major axis (AU) Relationship",
+      "statement": "orbital period (years) follows a power_law relationship with semi-major axis (AU) (R^2=1.000, p=0.000000)",
+      "equation": "y = 0.9929 * x^1.5027",
+      "explanation": "orbital period (years) follows a power law with semi-major axis (AU). This suggests scale-invariant dynamics, common in complex systems.",
+      "mechanism": "Scale-free relationship between semi-major axis (AU) and orbital period (years)",
+      "evidence": "R^2=1.000, p=0.000000, n=50",
+      "testable_predictions": [
+        "orbital period (years) will continue to follow power_law relationship with semi-major axis (AU)",
+        "Changing semi-major axis (AU) will produce power_law change in orbital period (years)"
+      ],
+      "limitations": [
+        "Correlation does not imply causation",
+        "Relationship may not hold outside observed range",
+        "Confounding variables not controlled"
+      ]
+    },
+    {
+      "name": "Law of voltage (V)-current (A) Relationship",
+      "statement": "voltage (V) follows a power_law relationship with current (A) (R^2=0.999, p=0.000000)",
+      "equation": "y = 9.9137 * x^1.0030",
+      "explanation": "voltage (V) follows a power law with current (A). This suggests scale-invariant dynamics, common in complex systems.",
+      "mechanism": "Scale-free relationship between current (A) and voltage (V)",
+      "evidence": "R^2=0.999, p=0.000000, n=50",
+      "testable_predictions": [
+        "voltage (V) will continue to follow power_law relationship with current (A)",
+        "Changing current (A) will produce power_law change in voltage (V)"
+      ],
+      "limitations": [
+        "Correlation does not imply causation",
+        "Relationship may not hold outside observed range",
+        "Confounding variables not controlled"
+      ]
+    }
+  ],
+  "predictions": [
+    {
+      "dataset": "climate_trend",
+      "prediction": "At 50 years since 1980, temperature anomaly (C) will be 0.856",
+      "law": "y = 0.0149 * x^1.0361",
+      "confidence": 0.8523094911576032,
+      "test_date": "2030-01-01",
+      "hash": "5da55583756aa195"
+    },
+    {
+      "dataset": "kepler",
+      "prediction": "At 50 semi-major axis (AU), orbital period (years) will be 354.721",
+      "law": "y = 0.9929 * x^1.5027",
+      "confidence": 0.9999079070547473,
+      "test_date": "2030-01-01",
+      "hash": "bcdf2f8a19e5d35a"
+    },
+    {
+      "dataset": "ohm",
+      "prediction": "At 50 current (A), voltage (V) will be 501.557",
+      "law": "y = 9.9137 * x^1.0030",
+      "confidence": 0.9990010229482239,
+      "test_date": "2030-01-01",
+      "hash": "2e453050e8cef06e"
+    }
+  ]
+}

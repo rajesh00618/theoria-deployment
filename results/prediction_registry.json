@@ -49,6 +49,39 @@
       "hash": "c7b6d127d828dd2c",
       "status": "FROZEN",
       "made_date": "2026-06-16T08:33:17.653707"
+    },
+    "LAW-5da55583": {
+      "question": "What is the relationship in climate_trend?",
+      "prediction": "At 50 years since 1980, temperature anomaly (C) will be 0.856",
+      "confidence": 0.8523094911576032,
+      "test_date": "2030-01-01",
+      "result": "UNKNOWN",
+      "law": "y = 0.0149 * x^1.0361",
+      "hash": "5da55583756aa195",
+      "status": "FROZEN",
+      "made_date": "2026-06-16T08:50:22.356233"
+    },
+    "LAW-bcdf2f8a": {
+      "question": "What is the relationship in kepler?",
+      "prediction": "At 50 semi-major axis (AU), orbital period (years) will be 354.721",
+      "confidence": 0.9999079070547473,
+      "test_date": "2030-01-01",
+      "result": "UNKNOWN",
+      "law": "y = 0.9929 * x^1.5027",
+      "hash": "bcdf2f8a19e5d35a",
+      "status": "FROZEN",
+      "made_date": "2026-06-16T08:50:22.356233"
+    },
+    "LAW-2e453050": {
+      "question": "What is the relationship in ohm?",
+      "prediction": "At 50 current (A), voltage (V) will be 501.557",
+      "confidence": 0.9990010229482239,
+      "test_date": "2030-01-01",
+      "result": "UNKNOWN",
+      "law": "y = 9.9137 * x^1.0030",
+      "hash": "2e453050e8cef06e",
+      "status": "FROZEN",
+      "made_date": "2026-06-16T08:50:22.356233"
     }
   },
   "evaluation_protocol": {
