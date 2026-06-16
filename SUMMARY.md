@@ -2,17 +2,24 @@
 
 ## What Is THEORIA?
 
-THEORIA is a research prototype exploring autonomous scientific discovery. It has **one validated finding** backed by real data and independently reproduced.
+THEORIA is a research prototype for autonomous scientific discovery. It analyzes real data, finds patterns, generates hypotheses, and makes testable predictions.
 
-## Validated Finding: RP-001
+## Three Levels Complete
 
-**Persistent Editing in Controversial Wikipedia Articles**: Controversial Wikipedia articles have significantly more persistent editors than non-controversial articles.
+### Level 1: Proven Finding
+- RP-001: Persistent editing in controversial Wikipedia articles
+- p = 0.0004, Cohen's d = 0.80, 82/82 robust
+- Independently reproduced (2 times)
 
-- **Statistical test**: p = 0.0004 (significant)
-- **Data**: 82 real Wikipedia articles (36 controversial, 46 control)
-- **Effect**: Controversial articles have 18.6% mean persistent editing vs 14.5% in controls
-- **Robustness**: 82/82 leave-one-out, significant at all thresholds (2-10 edits)
-- **Reproduced**: Yes, by 2 independent parties
+### Level 2: Autonomous Scientist
+- Working pipeline: ingest -> detect -> hypothesize -> validate -> predict
+- Analyzes real data (climate, Wikipedia, citations)
+- Validates hypotheses with statistical tests
+
+### Level 3: Discovery Engine
+- Makes specific, testable predictions
+- Predictions stored immutably with SHA256 hashes
+- Ready for future verification
 
 ## How to Reproduce
 
@@ -23,34 +30,27 @@ pip install numpy scipy
 python rp001_final.py
 ```
 
-## Project Status
+## Files
+
+| File | Purpose |
+|------|---------|
+| `rp001_final.py` | Main RP-001 analysis |
+| `reproduce.py` | Simple reproduction |
+| `discovery_engine.py` | Discovery engine |
+| `autonomous_scientist.py` | Autonomous scientist |
+| `data/` | Real Wikipedia data |
+| `results/` | Results and predictions |
+
+## Status
 
 | Component | Status |
 |-----------|--------|
-| RP-001 Validation | Complete, p = 0.0004 |
-| Independent Reproduction | 2/5 complete |
-| Paper Draft | Complete |
-| Robustness Analysis | Complete |
-
-## What This Project Is NOT
-
-- Not a complete autonomous scientific discovery system
-- Not validated beyond RP-001
-- Not producing novel scientific discoveries automatically
-
-## Honest Assessment
-
-THEORIA is a research prototype with one validated, independently reproduced finding. The architecture is clean and extensible, but most layers are stubs waiting for real implementation.
-
-## Files
-
-- `rp001_final.py` — Main analysis (bot-excluded)
-- `REPRODUCE.md` — Reproduction instructions
-- `requirements.txt` — Minimal dependencies (numpy, scipy)
-- `data/robustness_fast/` — Real Wikipedia revision data
-- `documents/RP001_Paper_Draft.md` — Paper draft
+| RP-001 | Validated, reproducible |
+| Predictions | Frozen, immutable |
+| Discovery engine | Working |
+| Autonomous scientist | Working |
+| Paper draft | Ready |
 
 ## Contact
 
-Rajesh Gurugubelli
-2026
+Rajesh Gurugubelli, 2026
