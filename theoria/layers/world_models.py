@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 import math
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import WorldModel
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -48,6 +54,7 @@ class WorldModelingEngine:
         self.predictions: List[Prediction] = []
         self.interventions: List[InterventionPlan] = []
         self.cycle_count = 0
+        self._rng = random.Random(42)
 
         self._initialize_models()
 
@@ -81,22 +88,26 @@ class WorldModelingEngine:
         model = self.models.get(model_id)
         if not model:
             return Prediction(confidence=0.0)
+        pred_value = _det_score(f"pred_{model_id}_{variable}_{self.cycle_count}") * 2 - 1
+        confidence = model.accuracy * (0.5 + _det_score(f"conf_{model_id}_{variable}") * 0.5)
         pred = Prediction(
             model_id=model_id,
             variable=variable,
-            predicted_value=random.uniform(-1, 1),
-            confidence=model.accuracy * random.uniform(0.5, 1.0),
+            predicted_value=pred_value,
+            confidence=confidence,
         )
         self.predictions.append(pred)
         return pred
 
     def plan_intervention(self, model_id: str, target: str) -> InterventionPlan:
+        outcome = _det_score(f"outcome_{model_id}_{target}_{self.cycle_count}") - 0.5
+        risk = 0.1 + _det_score(f"risk_{model_id}_{target}") * 0.6
         plan = InterventionPlan(
             plan_id=str(uuid.uuid4()),
             target_variable=target,
             intervention="Adjust {}".format(target),
-            expected_outcome=random.uniform(-0.5, 0.5),
-            risk=random.uniform(0.1, 0.7),
+            expected_outcome=outcome,
+            risk=risk,
         )
         self.interventions.append(plan)
         return plan
@@ -104,7 +115,8 @@ class WorldModelingEngine:
     def update_model(self, model_id: str) -> None:
         model = self.models.get(model_id)
         if model:
-            model.accuracy = min(1.0, model.accuracy + random.uniform(-0.05, 0.1))
+            delta = _det_score(f"update_{model_id}_{self.cycle_count}") * 0.1 - 0.05
+            model.accuracy = max(0.0, min(1.0, model.accuracy + delta))
 
     def run_cycle(self) -> WorldModelResult:
         self.cycle_count += 1
@@ -112,11 +124,12 @@ class WorldModelingEngine:
 
         for model_id in list(self.models.keys()):
             self.update_model(model_id)
-            var = "variable_{}".format(random.randint(0, 5))
+            var_idx = int(_det_score(f"var_{model_id}_{self.cycle_count}") * 5)
+            var = "variable_{}".format(var_idx)
             self.predict(model_id, var)
             result.predictions_made += 1
 
-            if random.random() < 0.3:
+            if self._rng.random() < 0.3:
                 self.plan_intervention(model_id, var)
                 result.interventions_planned += 1
 

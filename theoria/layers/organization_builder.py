@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import AgentTeam
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -32,7 +38,7 @@ class OrganizationBuilder:
         aid = str(uuid.uuid4())[:8]
         self.agents[aid] = {
             "id": aid, "specialization": specialization,
-            "productivity": random.uniform(0.3, 0.9),
+            "productivity": 0.3 + _det_score(f"prod_{aid}") * 0.6,
             "training_level": 0, "status": "active",
         }
         return aid

@@ -2,10 +2,16 @@ from __future__ import annotations
 
 import uuid
 import random
+import hashlib
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import CivilizationForecast
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).hexdigest()
+    return int(h[:8], 16) / 0xFFFFFFFF
 
 
 @dataclass
@@ -27,8 +33,9 @@ class CivilizationSimulator:
 
     def build_model(self, model_type: str) -> Dict[str, Any]:
         model = {
-            "type": model_type, "accuracy": random.uniform(0.5, 0.95),
-            "parameters": {"complexity": random.uniform(0.3, 0.9)},
+            "type": model_type,
+            "accuracy": 0.5 + _det_score(f"{model_type}_accuracy") * 0.45,
+            "parameters": {"complexity": 0.3 + _det_score(f"{model_type}_complexity") * 0.6},
             "status": "active",
         }
         self.models[model_type] = model
@@ -44,10 +51,13 @@ class CivilizationSimulator:
             model_type=model_type, scenario=scenario,
             forecast_horizon_days=horizon,
             predicted_outcomes=[
-                {"step": i, "value": random.uniform(0, 1)}
+                {"step": i, "value": _det_score(f"{model_type}_{scenario}_outcome_{i}")}
                 for i in range(n_outcomes)
             ],
-            confidence_intervals=[random.uniform(0.6, 0.95) for _ in range(n_outcomes)],
+            confidence_intervals=[
+                0.6 + _det_score(f"{model_type}_{scenario}_ci_{i}") * 0.35
+                for i in range(n_outcomes)
+            ],
             accuracy=model["accuracy"],
         )
         self.forecasts.append(forecast)
@@ -59,7 +69,7 @@ class CivilizationSimulator:
             model = self.build_model(model_type)
         return {
             "policy": policy, "model_type": model_type,
-            "expected_impact": random.uniform(-0.5, 0.5),
+            "expected_impact": -0.5 + _det_score(f"{policy}_{model_type}_impact") * 1.0,
             "confidence": model["accuracy"],
         }
 
@@ -68,7 +78,7 @@ class CivilizationSimulator:
         for i in range(variations):
             scenarios.append({
                 "name": f"{base}_variant_{i}",
-                "probability": random.uniform(0.1, 0.5),
+                "probability": 0.1 + _det_score(f"{base}_prob_{i}") * 0.4,
                 "description": f"Scenario {i} based on {base}",
             })
         total = sum(s["probability"] for s in scenarios)

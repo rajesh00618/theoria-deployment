@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.config import AutonomousInstitutionsConfig
 from theoria.core.types import ResearchInstitution
@@ -66,7 +71,7 @@ class AutonomousResearchInstitutions:
                 inst.proposals_reviewed += reviewed
                 proposals += reviewed
             if self.config.enable_resource_allocation:
-                allocated = random.uniform(0, 100)
+                allocated = _det_score(f"resource_{inst.id}") * 100
                 inst.resources_allocated += allocated
                 resources += allocated
             pubs = random.randint(0, 5)

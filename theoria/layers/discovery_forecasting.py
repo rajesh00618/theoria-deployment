@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.config import DiscoveryForecastingConfig
 from theoria.core.types import DiscoveryForecast
@@ -64,7 +69,7 @@ class DiscoveryForecastingEngine:
             forecast_type=forecast_type,
             target_domain=domain,
             prediction=prediction,
-            probability=random.uniform(0.1, 0.9),
+            probability=0.1 + _det_score(f"prob_{forecast_type}_{domain}") * 0.8,
             time_horizon_days=random.randint(30, self.config.forecast_horizon_days),
             accuracy=0.0,
         )
@@ -75,7 +80,7 @@ class DiscoveryForecastingEngine:
         updated = 0
         for f in self.forecasts.values():
             if f.accuracy == 0.0 and random.random() < 0.1:
-                f.accuracy = random.uniform(0.0, 1.0)
+                f.accuracy = _det_score(f"accuracy_{f.id}")
                 updated += 1
         return updated
 

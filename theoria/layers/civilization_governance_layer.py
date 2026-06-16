@@ -3,11 +3,17 @@
 from __future__ import annotations
 
 import random
+import hashlib
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 from theoria.core.config import CivilizationGovernanceConfig
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).hexdigest()
+    return int(h[:8], 16) / 0xFFFFFFFF
 
 
 @dataclass
@@ -30,20 +36,19 @@ class CivilizationGovernanceLayer:
 
     def _detect_risks(self) -> int:
         risks = 0
-        # Simulate risk detection
         if random.random() < 0.15:
-            self.stability_score = max(0.0, self.stability_score - random.uniform(0.01, 0.05))
+            self.stability_score = max(0.0, self.stability_score - (0.01 + _det_score(f"gov_stab_decline_{self.cycle_count}") * 0.04))
             self.risk_log.append({
                 "type": "stability_decline",
-                "severity": random.uniform(0.1, 0.5),
+                "severity": 0.1 + _det_score(f"gov_stab_severity_{self.cycle_count}") * 0.4,
                 "detected_at": time.time(),
             })
             risks += 1
         if random.random() < 0.1:
-            self.alignment_score = max(0.0, self.alignment_score - random.uniform(0.01, 0.03))
+            self.alignment_score = max(0.0, self.alignment_score - (0.01 + _det_score(f"gov_align_drift_{self.cycle_count}") * 0.02))
             self.risk_log.append({
                 "type": "alignment_drift",
-                "severity": random.uniform(0.1, 0.3),
+                "severity": 0.1 + _det_score(f"gov_align_severity_{self.cycle_count}") * 0.2,
                 "detected_at": time.time(),
             })
             risks += 1
@@ -52,14 +57,13 @@ class CivilizationGovernanceLayer:
     def _automatic_intervention(self) -> int:
         interventions = 0
         if self.stability_score < self.config.stability_target:
-            self.stability_score = min(1.0, self.stability_score + random.uniform(0.05, 0.15))
+            self.stability_score = min(1.0, self.stability_score + (0.05 + _det_score(f"gov_stab_intervene_{self.cycle_count}") * 0.1))
             interventions += 1
         if self.alignment_score < self.config.alignment_target:
-            self.alignment_score = min(1.0, self.alignment_score + random.uniform(0.03, 0.1))
+            self.alignment_score = min(1.0, self.alignment_score + (0.03 + _det_score(f"gov_align_intervene_{self.cycle_count}") * 0.07))
             interventions += 1
-        # Recovery toward targets
-        self.stability_score = min(1.0, self.stability_score + random.uniform(0, 0.02))
-        self.alignment_score = min(1.0, self.alignment_score + random.uniform(0, 0.01))
+        self.stability_score = min(1.0, self.stability_score + _det_score(f"gov_stab_recover_{self.cycle_count}") * 0.02)
+        self.alignment_score = min(1.0, self.alignment_score + _det_score(f"gov_align_recover_{self.cycle_count}") * 0.01)
         return interventions
 
     def run_cycle(self) -> GovernanceLayerResult:

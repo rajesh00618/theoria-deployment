@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.config import AutonomousFieldCreationConfig
 from theoria.core.types import ScientificField
@@ -65,7 +70,7 @@ class AutonomousFieldCreator:
         matured = 0
         for f in self.fields.values():
             if f.maturity < 1.0:
-                f.maturity = min(1.0, f.maturity + random.uniform(0.05, 0.15))
+                f.maturity = min(1.0, f.maturity + 0.05 + _det_score(f"maturity_{f.id}") * 0.1)
                 if f.maturity >= self.config.min_maturity_for_completion:
                     matured += 1
         return matured

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
@@ -9,6 +10,11 @@ from typing import Any, Dict, List, Optional
 
 from theoria.core.config import MetaCivilizationIntelligenceConfig
 from theoria.core.types import CivilizationModel
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -69,7 +75,7 @@ class MetaCivilizationIntelligence:
             description=description,
             findings=findings,
             recommendations=recommendations,
-            accuracy=random.uniform(0.6, 0.95),
+            accuracy=0.6 + _det_score(f"mcacc_{model_type}") * 0.35,
         )
         self.models[model.id] = model
         return model
@@ -83,7 +89,8 @@ class MetaCivilizationIntelligence:
         findings = 0
         recommendations = 0
         for m in self.models.values():
-            m.accuracy = min(1.0, m.accuracy + random.uniform(-0.02, 0.05))
+            delta = _det_score(f"mcdelta_{m.id}_{self.cycle_count if hasattr(self, 'cycle_count') else 0}") * 0.07 - 0.02
+            m.accuracy = max(0.0, min(1.0, m.accuracy + delta))
             findings += len(m.findings)
             recommendations += len(m.recommendations)
 

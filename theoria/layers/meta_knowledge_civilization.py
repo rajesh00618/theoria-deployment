@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
@@ -9,6 +10,11 @@ from typing import Any, Dict, List, Optional
 
 from theoria.core.config import MetaKnowledgeConfig
 from theoria.core.types import MetaKnowledgeModel
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -24,6 +30,7 @@ class MetaKnowledgeCivilization:
     def __init__(self, config: Optional[MetaKnowledgeConfig] = None):
         self.config = config or MetaKnowledgeConfig()
         self.models: Dict[str, MetaKnowledgeModel] = {}
+        self.cycle_count = 0
 
     def _generate_hypothesis(self, question: str) -> str:
         templates = [
@@ -50,7 +57,7 @@ class MetaKnowledgeCivilization:
             question=question,
             hypothesis=hypothesis,
             findings=findings,
-            confidence=random.uniform(0.3, 0.8),
+            confidence=0.3 + _det_score(f"mkconf_{question[:20]}") * 0.5,
         )
         self.models[model.id] = model
         return model
@@ -60,7 +67,7 @@ class MetaKnowledgeCivilization:
         for model in self.models.values():
             if model.confidence < 0.9 and random.random() < 0.3:
                 # Test and update confidence
-                delta = random.uniform(-0.1, 0.2)
+                delta = _det_score(f"mkdelta_{model.id}_{self.cycle_count}") * 0.3 - 0.1
                 model.confidence = min(1.0, max(0.0, model.confidence + delta))
                 if delta > 0:
                     model.findings.append(f"New evidence supports hypothesis (confidence delta: {delta:.2f})")

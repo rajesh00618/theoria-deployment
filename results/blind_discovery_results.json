@@ -1,0 +1,41 @@
+{
+  "statistical_detection": {
+    "effect_detection": {
+      "passed": false,
+      "confidence": 0.6949693223093498,
+      "methods": [
+        "one_sample_t_test",
+        "cohens_d_effect_size",
+        "consistency_check",
+        "confidence_interval"
+      ]
+    },
+    "no_effect_detection": {
+      "passed_correctly": true,
+      "confidence": 0.2916791185881009
+    }
+  },
+  "knowledge_graph": {
+    "nodes_added": 4,
+    "edges_added": 3,
+    "voltage_found": true,
+    "ohm_law_found": true
+  },
+  "prediction_immutable": {
+    "hash_created": true,
+    "integrity_ok": true,
+    "chains_ok": true,
+    "prediction_valid": true
+  },
+  "deterministic_scoring": {
+    "deterministic": true,
+    "in_range": true,
+    "different_labels_different_scores": true
+  },
+  "real_data_connector": {
+    "returned_results": 3,
+    "has_real_data": true,
+    "has_titles": true,
+    "no_fake_urls": true
+  }
+}

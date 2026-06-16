@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import ExecutiveDecision
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -33,7 +39,7 @@ class ExecutiveIntelligenceLayer:
         self.goals[gid] = {
             "id": gid, "description": description, "priority": priority,
             "domain": domain, "progress": 0.0, "status": "active",
-            "resources_allocated": 0.0, "risk_score": random.uniform(0.1, 0.9),
+            "resources_allocated": 0.0, "risk_score": 0.1 + _det_score(f"risk_{gid}") * 0.8,
         }
         return gid
 
@@ -42,7 +48,7 @@ class ExecutiveIntelligenceLayer:
         decision = ExecutiveDecision(
             decision_type="goal_selection",
             context=context, options_considered=options,
-            chosen_option=chosen, confidence=random.uniform(0.5, 0.95),
+            chosen_option=chosen, confidence=0.5 + _det_score(f"decconf_{context[:10]}") * 0.45,
             expected_outcome=f"Expected: {chosen}",
         )
         self.decisions.append(decision)
@@ -70,7 +76,7 @@ class ExecutiveIntelligenceLayer:
         if len(self.goals) < self.max_active and random.random() < 0.4:
             n = random.randint(0, min(5, self.max_active - len(self.goals)))
             for i in range(n):
-                self.add_goal(f"goal_{self.cycle_count}_{i}", priority=random.uniform(0.2, 0.9))
+                self.add_goal(f"goal_{self.cycle_count}_{i}", priority=0.2 + _det_score(f"eprior_{self.cycle_count}_{i}") * 0.7)
 
         if random.random() < 0.5:
             self.make_decision(f"cycle_{self.cycle_count}", [f"option_{i}" for i in range(random.randint(2, 5))])
@@ -84,7 +90,7 @@ class ExecutiveIntelligenceLayer:
 
         for gid, goal in list(self.goals.items()):
             if goal["status"] == "active":
-                goal["progress"] = min(1.0, goal["progress"] + random.uniform(0.01, 0.05))
+                goal["progress"] = min(1.0, goal["progress"] + 0.01 + _det_score(f"prog_{gid}_{self.cycle_count}") * 0.04)
                 if goal["progress"] >= 1.0:
                     goal["status"] = "completed"
                     result.goals_completed += 1

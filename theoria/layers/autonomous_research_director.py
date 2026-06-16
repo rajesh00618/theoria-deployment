@@ -2,11 +2,17 @@ from __future__ import annotations
 
 import uuid
 import random
+import hashlib
 import math
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import ResearchPortfolio
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).hexdigest()
+    return int(h[:8], 16) / 0xFFFFFFFF
 
 
 @dataclass
@@ -43,7 +49,7 @@ class AutonomousResearchDirector:
             "progress": 0.0,
             "experiments_planned": random.randint(10, 1000),
             "experiments_completed": 0,
-            "resources_allocated": random.uniform(0.1, 1.0),
+            "resources_allocated": 0.1 + _det_score(f"research_{name}_resources") * 0.9,
         }
         self.portfolio.projects.append(project)
         self.portfolio.total_projects += 1
@@ -104,7 +110,7 @@ class AutonomousResearchDirector:
             for i in range(n):
                 self.add_project("project_{}_{}".format(self.cycle_count, i),
                                  random.choice(["physics", "biology", "cs", "math"]),
-                                 priority=random.uniform(0.3, 0.9))
+                                 priority=0.3 + _det_score(f"research_proj_{self.cycle_count}_{i}_priority") * 0.6)
 
         self.allocate_resources()
         self.assess_risk()

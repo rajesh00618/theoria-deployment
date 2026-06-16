@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import UniversalToolSpec
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -24,13 +30,16 @@ class UniversalToolEcosystem:
         self.tools: Dict[str, UniversalToolSpec] = {}
         self.tool_types = ["analyzer", "compiler", "simulator", "designer", "researcher", "optimizer"]
         self.cycle_count = 0
+        self._rng = random.Random(42)
 
     def create_tool(self, tool_type: str, name: str) -> UniversalToolSpec:
+        capability = 0.3 + _det_score(f"cap_{tool_type}_{name}") * 0.6
+        reliability = 0.3 + _det_score(f"rel_{tool_type}_{name}") * 0.6
         tool = UniversalToolSpec(
             tool_type=tool_type, name=name,
             description=f"{tool_type} tool created at cycle {self.cycle_count}",
-            capability_score=random.uniform(0.3, 0.9),
-            reliability=random.uniform(0.3, 0.9),
+            capability_score=capability,
+            reliability=reliability,
             usage_count=0, status="active",
         )
         self.tools[tool.name] = tool
@@ -40,8 +49,10 @@ class UniversalToolEcosystem:
         tool = self.tools.get(tool_name)
         if not tool:
             return 0.0
-        tool.capability_score = min(1.0, tool.capability_score + random.uniform(-0.1, 0.1))
-        tool.reliability = min(1.0, tool.reliability + random.uniform(-0.05, 0.05))
+        delta_cap = _det_score(f"ecap_{tool_name}_{self.cycle_count}") * 0.2 - 0.1
+        delta_rel = _det_score(f"erel_{tool_name}_{self.cycle_count}") * 0.1 - 0.05
+        tool.capability_score = max(0.0, min(1.0, tool.capability_score + delta_cap))
+        tool.reliability = max(0.0, min(1.0, tool.reliability + delta_rel))
         tool.usage_count += 1
         return (tool.capability_score + tool.reliability) / 2
 
@@ -59,17 +70,17 @@ class UniversalToolEcosystem:
         self.cycle_count += 1
         result = ToolEcosystemResult()
 
-        n = random.randint(0, 3)
+        n = int(_det_score(f"create_count_{self.cycle_count}") * 3)
         for i in range(n):
-            tt = random.choice(self.tool_types)
+            tt = self.tool_types[i % len(self.tool_types)]
             self.create_tool(tt, f"{tt}_v{self.cycle_count}_{i}")
             result.tools_created += 1
 
         for tname, tool in list(self.tools.items()):
-            if tool.status == "active" and random.random() < 0.3:
+            if tool.status == "active" and self._rng.random() < 0.3:
                 self.evaluate_tool(tname)
                 result.tools_evaluated += 1
-            if tool.reliability < 0.2 and random.random() < 0.3:
+            if tool.reliability < 0.2 and self._rng.random() < 0.3:
                 self.retire_tool(tname)
                 result.tools_retired += 1
 

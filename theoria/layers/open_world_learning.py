@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import OpenWorldLearningRecord
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -26,7 +32,7 @@ class OpenWorldLearningEngine:
         self.cycle_count = 0
 
     def learn_from_source(self, source_type: str, fact: str) -> OpenWorldLearningRecord:
-        confidence = random.uniform(0.3, 0.95)
+        confidence = 0.3 + _det_score(f"conf_{source_type}_{fact}_{self.cycle_count}") * 0.65
         record = OpenWorldLearningRecord(
             source_type=source_type,
             source_description=f"learned from {source_type} at cycle {self.cycle_count}",

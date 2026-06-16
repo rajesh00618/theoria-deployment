@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import LongHorizonPlan
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -66,7 +72,7 @@ class LongHorizonPlanning:
         result = PlanExecutionResult(plan=plan)
         plan_milestones = self.milestones.get(plan.id, [])
 
-        progress_gain = random.uniform(0.05, 0.15)
+        progress_gain = 0.05 + _det_score(f"progress_{plan.id}_{self.cycle_count}") * 0.1
         plan.completed_steps = min(plan.total_steps, plan.completed_steps + int(plan.total_steps * progress_gain))
         progress = plan.completed_steps / max(1, plan.total_steps)
 

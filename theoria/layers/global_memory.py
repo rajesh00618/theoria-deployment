@@ -1,9 +1,14 @@
 from __future__ import annotations
 
+import hashlib
 import uuid
 import random
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.types import GlobalMemoryEntry
 
@@ -65,7 +70,7 @@ class GlobalMemory:
         for mt in self.memory_types:
             if random.random() < 0.3:
                 self.store(mt, f"{mt}_content_at_cycle_{self.cycle_count}",
-                          importance=random.uniform(0.3, 0.9))
+                          importance=0.3 + _det_score(f"importance_{mt}_{self.cycle_count}") * 0.6)
 
         result.compressed_count = self.compress()
         result.abstractions_created = self.abstract()

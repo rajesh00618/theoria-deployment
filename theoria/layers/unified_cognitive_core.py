@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 import time
 from typing import Any, Dict, List, Optional, Set, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import CognitiveTrace
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -38,13 +44,14 @@ class UnifiedCognitiveCore:
         modes_used = random.sample(self.reasoning_modes,
                                     k=random.randint(1, min(5, len(self.reasoning_modes))))
 
+        confidence = 0.3 + _det_score(f"conf_{input_data}_{self.cycle_count}") * 0.65
         trace = CognitiveTrace(
             attention_focus=input_data,
             reasoning_modes_used=modes_used,
             input_domains=domains,
             active_goals=goals,
             inference_steps=[{"step": i, "mode": m} for i, m in enumerate(modes_used)],
-            confidence=random.uniform(0.3, 0.95),
+            confidence=confidence,
         )
         self.traces.append(trace)
         self.attention_focus = input_data

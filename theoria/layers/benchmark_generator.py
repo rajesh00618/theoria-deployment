@@ -2,11 +2,17 @@ from __future__ import annotations
 
 import uuid
 import random
+import hashlib
 import numpy as np
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import BenchmarkSpec
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).hexdigest()
+    return int(h[:8], 16) / 0xFFFFFFFF
 
 
 class BenchmarkGenerator:
@@ -22,7 +28,7 @@ class BenchmarkGenerator:
                 "id": f"stress_{domain}_{i}",
                 "input": {f"var_{j}": random.uniform(-10, 10) for j in range(3)},
                 "expected_output": f"output_{i}",
-                "difficulty": difficulty + random.uniform(-0.1, 0.1),
+                "difficulty": difficulty + (-0.1 + _det_score(f"stress_{domain}_{i}_diff") * 0.2),
             })
 
         spec = BenchmarkSpec(
@@ -34,7 +40,7 @@ class BenchmarkGenerator:
             scoring_criteria=["accuracy", "speed", "robustness"],
             test_cases=test_cases,
             ground_truth={"expected_pass_rate": 0.8},
-            validation_score=random.uniform(0.5, 0.9),
+            validation_score=0.5 + _det_score(f"stress_{domain}_val_{self.cycle_count}") * 0.4,
         )
         self.benchmarks.append(spec)
         return spec
@@ -59,7 +65,7 @@ class BenchmarkGenerator:
             scoring_criteria=["adversarial_accuracy", "robustness", "graceful_degradation"],
             test_cases=adversarial_cases,
             ground_truth={"expected_robust_accuracy": 0.7},
-            validation_score=random.uniform(0.4, 0.8),
+            validation_score=0.4 + _det_score(f"adv_{domain}_val_{self.cycle_count}") * 0.4,
         )
         self.benchmarks.append(spec)
         return spec
@@ -72,7 +78,7 @@ class BenchmarkGenerator:
                 "scenario": f"Novel scenario {i} for {domain}",
                 "constraints": [f"constraint_{j}" for j in range(random.randint(1, 3))],
                 "expected_property": f"property_{i % 2}",
-                "difficulty": difficulty + random.uniform(-0.2, 0.2),
+                "difficulty": difficulty + (-0.2 + _det_score(f"novel_{domain}_{i}_diff") * 0.4),
             })
 
         spec = BenchmarkSpec(
@@ -84,7 +90,7 @@ class BenchmarkGenerator:
             scoring_criteria=["novelty", "generalization", "efficiency"],
             test_cases=novel_cases,
             ground_truth={"expected_generalization": 0.6},
-            validation_score=random.uniform(0.3, 0.7),
+            validation_score=0.3 + _det_score(f"novel_{domain}_val_{self.cycle_count}") * 0.4,
         )
         self.benchmarks.append(spec)
         return spec
@@ -94,7 +100,7 @@ class BenchmarkGenerator:
         specs = []
         for i in range(count):
             btype = i % 3
-            difficulty = random.uniform(0.3, 0.95)
+            difficulty = 0.3 + _det_score(f"suite_{domain}_{i}_diff") * 0.65
             if btype == 0:
                 specs.append(self.generate_stress_test(domain, difficulty))
             elif btype == 1:
@@ -107,7 +113,7 @@ class BenchmarkGenerator:
     def validate_benchmark(self, spec_id: str) -> float:
         for b in self.benchmarks:
             if b.id == spec_id:
-                validation = random.uniform(0.6, 1.0)
+                validation = 0.6 + _det_score(f"validate_{spec_id}") * 0.4
                 b.validation_score = validation
                 b.status = "validated" if validation > 0.5 else "generated"
                 return validation

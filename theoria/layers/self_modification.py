@@ -94,11 +94,17 @@ class SelfModificationFramework:
         if proposal.simulation_result != "passed":
             proposal.benchmark_result = "skipped"
         else:
-            risk = proposal.risk_assessment
-            if risk in ("low", "medium"):
-                improvement = 0.05
-            else:
-                improvement = -0.02
+            # Deterministic benchmark: improvement based on modification type and current performance
+            mod_type_scores = {
+                "parameter_tuning": 0.05,
+                "module_addition": 0.03,
+                "module_removal": -0.01,
+                "behavior_change": -0.02,
+            }
+            risk_adjustments = {"low": 1.0, "medium": 0.7, "high": 0.3, "critical": 0.0}
+            base = mod_type_scores.get(proposal.modification_type, 0.0)
+            adjustment = risk_adjustments.get(proposal.risk_assessment, 0.5)
+            improvement = base * adjustment
             proposal.benchmark_result = "passed" if improvement > 0 else "failed"
             if improvement > 0:
                 proposal.approval_status = "approved"

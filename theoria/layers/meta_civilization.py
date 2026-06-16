@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 import numpy as np
 from typing import Any, Dict, List, Optional, Tuple
@@ -9,6 +10,11 @@ from dataclasses import dataclass, field
 from theoria.core.types import (
     MetaScienceFinding, CivilizationMetrics, ResearchAgenda,
 )
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -252,10 +258,10 @@ class GoalGeneration:
                 "Published research program",
                 f"Cross-domain applications of {domain} insights",
             ],
-            resource_estimate=random.uniform(0.3, 1.0),
-            novelty_score=random.uniform(0.4, 0.9),
-            feasibility_score=random.uniform(0.3, 0.8),
-            impact_score=random.uniform(0.5, 0.95),
+            resource_estimate=0.3 + _det_score(f"resource_{domain}_{self.cycle_count}") * 0.7,
+            novelty_score=0.4 + _det_score(f"novelty_{domain}_{self.cycle_count}") * 0.5,
+            feasibility_score=0.3 + _det_score(f"feasibility_{domain}_{self.cycle_count}") * 0.5,
+            impact_score=0.5 + _det_score(f"impact_{domain}_{self.cycle_count}") * 0.45,
         )
 
         self.agendas.append(agenda)

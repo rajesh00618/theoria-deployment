@@ -1,0 +1,24 @@
+{
+  "github": {
+    "n_repos": 5,
+    "correlation": -0.5395045962366573,
+    "p_value": 0.34803633328250866,
+    "pattern_holds": "False",
+    "passed": "False"
+  },
+  "wikipedia": {
+    "controversial_n": 14,
+    "control_n": 8,
+    "controversial_mean": 0.22254164770232063,
+    "control_mean": 0.17257655977386235,
+    "t_statistic": 2.6092450900092263,
+    "p_value": 0.016787679874147445,
+    "passed": "True"
+  },
+  "cross_platform": {
+    "wikipedia_significant": true,
+    "github_passed": "False",
+    "primary_evidence": "strong",
+    "passed": true
+  }
+}

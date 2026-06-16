@@ -7,11 +7,16 @@ Emergent behaviors: collaboration, competition, peer review, paradigm formation.
 
 from __future__ import annotations
 
+import hashlib
 import time
 import uuid
 import numpy as np
 from typing import Any, Dict, List, Optional, Tuple
 from collections import defaultdict
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.types import SocietyAgent, Collaboration, ParadigmEvent
 
@@ -50,8 +55,8 @@ class ScientificSociety:
             agent = SocietyAgent(
                 name=f"{domain.title()}{role.title()}_{i}",
                 domain=domain, role=role, expertise=expertise,
-                productivity=float(np.random.uniform(0.5, 1.5)),
-                reputation=float(np.random.uniform(0.3, 0.9)),
+                productivity=float(0.5 + _det_score(f"prod_{domain}_{role}_{i}") * 1.0),
+                reputation=float(0.3 + _det_score(f"rep_{domain}_{role}_{i}") * 0.6),
                 is_active=True,
             )
             self.agents[agent.id] = agent

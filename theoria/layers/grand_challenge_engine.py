@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import GrandChallenge
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -51,7 +57,7 @@ class GrandChallengeEngine:
         challenge = self.challenges.get(challenge_name)
         if not challenge:
             return {"error": "challenge_not_found"}
-        progress_gain = random.uniform(0.001, 0.01)
+        progress_gain = 0.001 + _det_score(f"gcprog_{challenge_name}_{self.cycle_count}") * 0.009
         challenge.progress = min(1.0, challenge.progress + progress_gain)
         challenge.completed_experiments += 1
         return {
@@ -107,5 +113,5 @@ class GrandChallengeEngine:
             for m in c.milestones
             if m.get("achieved") or int(c.progress * 10) >= m.get("year", 0)
         )
-        result.collaboration_score = random.uniform(0.4, 0.9)
+        result.collaboration_score = 0.4 + _det_score(f"gccollab_{self.cycle_count}") * 0.5
         return result

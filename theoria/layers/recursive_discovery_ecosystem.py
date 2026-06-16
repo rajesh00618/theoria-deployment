@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.config import RecursiveDiscoveryConfig
 from theoria.core.types import RecursiveDiscoverer
@@ -58,10 +63,10 @@ class RecursiveDiscoveryEcosystem:
 
             # Higher-depth discoverers perform better
             perf_boost = d.recursion_depth * 0.1
-            d.performance = min(1.0, d.performance + random.uniform(0, 0.05) + perf_boost * 0.01)
+            d.performance = min(1.0, d.performance + _det_score(f"perf_{d.id}") * 0.05 + perf_boost * 0.01)
 
             if d.performance > 0.8 and self.config.enable_self_improvement:
-                d.performance = min(1.0, d.performance + random.uniform(0, 0.02))
+                d.performance = min(1.0, d.performance + _det_score(f"self_{d.id}") * 0.02)
 
             if random.random() < 0.02 and d.recursion_depth > 0:
                 d.status = "retired"

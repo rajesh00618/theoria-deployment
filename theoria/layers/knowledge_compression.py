@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 import numpy as np
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import CompressedAbstraction, Theory
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 class KnowledgeCompressionEngine:
@@ -30,7 +36,7 @@ class KnowledgeCompressionEngine:
                 applicability_domains=list(set(
                     d for t in theory_list for d in (getattr(t.domain, 'conditions', []) or [])
                 )) or ["general"],
-                predictive_power=random.uniform(0.4, 0.8),
+                predictive_power=0.4 + _det_score(f"pp_{self.cycle_count}_meta") * 0.4,
             )
             self.abstractions.append(compressed)
             return compressed
@@ -50,7 +56,7 @@ class KnowledgeCompressionEngine:
             applicability_domains=list(set(
                 d for t in cluster for d in (getattr(t.domain, 'conditions', []) or [])
             )) or ["general"],
-            predictive_power=random.uniform(0.5, 0.9),
+            predictive_power=0.5 + _det_score(f"pp_{self.cycle_count}_unified") * 0.4,
         )
         self.abstractions.append(compressed)
         return compressed
@@ -86,7 +92,7 @@ class KnowledgeCompressionEngine:
                 getattr(t.domain, 'conditions', [])[0] if getattr(t.domain, 'conditions', None) else "general"
                 for t in theories
             )) or ["general"],
-            predictive_power=random.uniform(0.3, 0.7),
+            predictive_power=0.3 + _det_score(f"pp_{self.cycle_count}_pattern") * 0.4,
         )
         self.abstractions.append(pattern)
         return pattern

@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import UniversalProblem
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -40,6 +46,7 @@ class UniversalProblemSolver:
             "analytical", "empirical", "creative", "hybrid",
         ])
         self.cycle_count = 0
+        self._rng = random.Random(42)
 
     def pose_problem(self, description: str, domain: str = "general",
                      difficulty: float = 0.5) -> UniversalProblem:
@@ -55,11 +62,11 @@ class UniversalProblemSolver:
 
     def solve(self, problem: UniversalProblem,
               approach: Optional[str] = None) -> Optional[Solution]:
-        approach = approach or random.choice(self.approaches)
+        approach = approach or self._rng.choice(self.approaches)
         quality_threshold = (getattr(self.config, "quality_threshold", 0.5)
                             if self.config else 0.5)
 
-        quality = random.uniform(0.2, 0.95)
+        quality = 0.2 + _det_score(f"sol_{problem.id}_{approach}_{self.cycle_count}") * 0.75
         if quality < quality_threshold:
             return None
 
@@ -82,10 +89,10 @@ class UniversalProblemSolver:
         max_solutions = (getattr(self.config, "max_solutions_per_cycle", 5)
                         if self.config else 5)
 
-        new_problems = random.randint(0, 3)
+        new_problems = int(_det_score(f"newprob_{self.cycle_count}") * 3)
         for i in range(new_problems):
-            domain = random.choice(self.domains)
-            difficulty = random.uniform(0.3, 0.9)
+            domain = self.domains[int(_det_score(f"domain_{self.cycle_count}_{i}") * len(self.domains)) % len(self.domains)]
+            difficulty = 0.3 + _det_score(f"diff_{self.cycle_count}_{i}") * 0.6
             self.pose_problem(
                 "Problem {} in {} (cycle {})".format(i, domain, self.cycle_count),
                 domain, difficulty)
@@ -93,7 +100,7 @@ class UniversalProblemSolver:
 
         open_problems = [p for p in self.problems if p.status == "unsolved"]
         for p in open_problems[:max_solutions]:
-            approach = random.choice(self.approaches)
+            approach = self._rng.choice(self.approaches)
             solution = self.solve(p, approach)
             if solution:
                 result.solutions.append(solution)

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
@@ -9,6 +10,11 @@ from typing import Any, Dict, List, Optional
 
 from theoria.core.config import KnowledgeEvolutionConfig, DiscoveryEcologyConfig
 from theoria.core.types import KnowledgeEvolutionRecord, DiscoveryEcology
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -39,22 +45,23 @@ class KnowledgeEvolutionLayer:
             eco = DiscoveryEcology(
                 name=name,
                 approach=approach,
-                agents=[f"agent_{random.randint(0, 9999)}" for _ in range(random.randint(10, 100))],
-                theories_active=random.randint(5, 50),
-                productivity_score=random.uniform(0.2, 0.6),
-                stability_score=random.uniform(0.5, 0.9),
+                agents=[f"agent_{i}" for i in range(int(10 + _det_score(f"agents_{name}") * 90))],
+                theories_active=int(5 + _det_score(f"theories_{name}") * 45),
+                productivity_score=0.2 + _det_score(f"prod_{name}") * 0.4,
+                stability_score=0.5 + _det_score(f"stab_{name}") * 0.4,
             )
             self.ecologies[eco.id] = eco
 
     def _mutate_knowledge(self, parent_id: str = "") -> KnowledgeEvolutionRecord:
         evo_type = random.choice(self.config.evolution_types)
         parent = f"knowledge_{random.randint(0, 9999)}"
+        kid = f"knowledge_{len(self._knowledge_pool)}"
         record = KnowledgeEvolutionRecord(
-            knowledge_id=f"knowledge_{len(self._knowledge_pool)}",
+            knowledge_id=kid,
             parent_knowledge_id=parent_id or parent,
             evolution_type=evo_type,
             mutation_description=f"{evo_type.capitalize()} of {parent}",
-            fitness_score=random.uniform(0.3, 0.95),
+            fitness_score=0.3 + _det_score(f"fitness_{kid}") * 0.65,
         )
         self.records[record.id] = record
         self._knowledge_pool.append(record.knowledge_id)
@@ -66,8 +73,8 @@ class KnowledgeEvolutionLayer:
             if random.random() < 0.3:
                 eco.discoveries_made += random.randint(0, 3)
                 eco.theories_active += max(0, eco.theories_active + random.randint(-1, 3))
-                eco.productivity_score = min(1.0, eco.productivity_score + random.uniform(-0.03, 0.12))
-                eco.stability_score = min(1.0, eco.stability_score + random.uniform(-0.02, 0.08))
+                eco.productivity_score = max(0.0, min(1.0, eco.productivity_score + _det_score(f"prodelta_{eco.name}_{self.cycle_count if hasattr(self, 'cycle_count') else 0}") * 0.15 - 0.03))
+                eco.stability_score = max(0.0, min(1.0, eco.stability_score + _det_score(f"stabdelta_{eco.name}_{self.cycle_count if hasattr(self, 'cycle_count') else 0}") * 0.1 - 0.02))
             if eco.productivity_score > 0.1:
                 active += 1
         return active

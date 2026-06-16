@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.config import GlobalKnowledgeCivilizationConfig
 from theoria.core.types import KnowledgeObject
@@ -42,10 +47,10 @@ class GlobalKnowledgeCivilization:
             title=self._generate_title(domain),
             domain=domain,
             content_summary=f"Knowledge from {source_type} in {domain}",
-            confidence=random.uniform(0.4, 0.95),
+            confidence=0.4 + _det_score(f"conf_{source_type}_{domain}_{len(self.objects)}") * 0.55,
         )
         if random.random() < 0.1:
-            obj.confidence = random.uniform(0.1, 0.4)
+            obj.confidence = 0.1 + _det_score(f"lowconf_{source_type}_{domain}_{len(self.objects)}") * 0.3
             obj.contradictions = [f"contradicts_existing_knowledge_{i}" for i in range(random.randint(1, 3))]
         self.objects[obj.id] = obj
         return obj
@@ -68,7 +73,7 @@ class GlobalKnowledgeCivilization:
                 source_type="synthesis",
                 title=f"Synthesis of {random.randint(2,5)} knowledge objects",
                 domain="cross_domain",
-                confidence=random.uniform(0.5, 0.8),
+                confidence=0.5 + _det_score(f"synth_conf_{len(self.objects)}") * 0.3,
             )
             self.objects[obj.id] = obj
         return syntheses

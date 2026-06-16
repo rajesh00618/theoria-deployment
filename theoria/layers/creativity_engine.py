@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 import math
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import CreativeArtifact
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -42,23 +48,23 @@ class CreativityEngine:
         return artifact
 
     def generate_hypothesis(self, domain: str) -> CreativeArtifact:
-        novelty = random.uniform(0.3, 0.95)
-        utility = random.uniform(0.2, 0.8)
-        impact = random.uniform(0.1, 0.9)
+        novelty = 0.3 + _det_score(f"hyp_n_{domain}_{self.cycle_count}") * 0.65
+        utility = 0.2 + _det_score(f"hyp_u_{domain}_{self.cycle_count}") * 0.6
+        impact = 0.1 + _det_score(f"hyp_i_{domain}_{self.cycle_count}") * 0.8
         return self.create(domain, f"novel_hypothesis_{self.cycle_count}",
                           novelty=novelty, utility=utility, impact=impact)
 
     def generate_theory(self, domain: str) -> CreativeArtifact:
-        novelty = random.uniform(0.4, 0.9)
-        utility = random.uniform(0.3, 0.85)
-        impact = random.uniform(0.3, 0.95)
+        novelty = 0.4 + _det_score(f"th_n_{domain}_{self.cycle_count}") * 0.5
+        utility = 0.3 + _det_score(f"th_u_{domain}_{self.cycle_count}") * 0.55
+        impact = 0.3 + _det_score(f"th_i_{domain}_{self.cycle_count}") * 0.65
         return self.create(domain, f"novel_theory_{self.cycle_count}",
                           novelty=novelty, utility=utility, impact=impact)
 
     def generate_design(self, domain: str) -> CreativeArtifact:
-        novelty = random.uniform(0.3, 0.85)
-        utility = random.uniform(0.5, 0.95)
-        impact = random.uniform(0.2, 0.8)
+        novelty = 0.3 + _det_score(f"ds_n_{domain}_{self.cycle_count}") * 0.55
+        utility = 0.5 + _det_score(f"ds_u_{domain}_{self.cycle_count}") * 0.45
+        impact = 0.2 + _det_score(f"ds_i_{domain}_{self.cycle_count}") * 0.6
         return self.create(domain, f"novel_design_{self.cycle_count}",
                           novelty=novelty, utility=utility, impact=impact)
 

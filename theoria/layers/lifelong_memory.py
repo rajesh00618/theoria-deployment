@@ -1,11 +1,16 @@
 from __future__ import annotations
 
+import hashlib
 import uuid
 import random
 import time
 import math
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.types import LifeEpisode
 
@@ -110,7 +115,7 @@ class LifelongMemoryLayer:
         self.cycle_count += 1
         result = self.consolidate()
         for ep in self.working_memory.values():
-            ep.memory_strength *= random.uniform(0.99, 1.0)
+            ep.memory_strength *= 0.99 + _det_score(f"working_{ep.id}") * 0.01
         for ep in self.consolidated_memory.values():
-            ep.memory_strength *= random.uniform(0.998, 1.0)
+            ep.memory_strength *= 0.998 + _det_score(f"consolidated_{ep.id}") * 0.002
         return result

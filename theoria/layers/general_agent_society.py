@@ -1,10 +1,15 @@
 from __future__ import annotations
 
+import hashlib
 import uuid
 import random
 import math
 from typing import Any, Dict, List, Optional, Tuple
 from dataclasses import dataclass, field
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.types import GeneralAgent
 
@@ -42,7 +47,7 @@ class GeneralAgentSociety:
                 name="Agent_{}_{}".format(role, i),
                 role=role,
                 domain="general",
-                productivity=random.uniform(0.3, 0.9),
+                productivity=0.3 + _det_score(f"prod_init_{role}_{i}") * 0.6,
                 is_active=True,
             )
             self.agents[agent.id] = agent
@@ -56,7 +61,7 @@ class GeneralAgentSociety:
                 name="Agent_{}_{}".format(role, base + i),
                 role=role,
                 domain="general",
-                productivity=random.uniform(0.3, 0.9),
+                productivity=0.3 + _det_score(f"prod_add_{role}_{base + i}") * 0.6,
                 is_active=True,
             )
             self.agents[agent.id] = agent
@@ -96,7 +101,7 @@ class GeneralAgentSociety:
         total = 0.0
         for agent in self.agents.values():
             if agent.is_active:
-                noise = random.uniform(-0.05, 0.05)
+                noise = -0.05 + _det_score(f"noise_{agent.id}_{self.cycle_count}") * 0.1
                 agent.productivity = max(0.1, min(1.0, agent.productivity + noise))
                 total += agent.productivity
         return total / max(1, len([a for a in self.agents.values() if a.is_active]))

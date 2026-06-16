@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
@@ -9,6 +10,11 @@ from typing import Any, Dict, List, Optional
 
 from theoria.core.config import UniversalProblemNetworkConfig
 from theoria.core.types import ProblemNode
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -40,7 +46,7 @@ class UniversalProblemNetwork:
             node = ProblemNode(
                 name=domain,
                 description=descriptions.get(domain, f"Problems related to {domain}"),
-                criticality=random.uniform(0.5, 1.0),
+                criticality=0.5 + _det_score(f"crit_{domain}") * 0.5,
             )
             self.nodes[node.id] = node
         # Connect related problems

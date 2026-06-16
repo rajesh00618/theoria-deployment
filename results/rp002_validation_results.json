@@ -1,0 +1,41 @@
+{
+  "simulation": {
+    "mean_correlation": 0.34152393995783387,
+    "std_correlation": 0.12869381725362433,
+    "t_statistic": 26.53771154248793,
+    "p_value": 0.0,
+    "passed": "True"
+  },
+  "real_world": {
+    "predictions_tested": 3,
+    "supported": 3,
+    "predictions": {
+      "stress_vividness": {
+        "prediction": "High stress \u2192 more vivid dreams",
+        "supported_by_literature": true,
+        "effect_size": 0.35
+      },
+      "novelty_content": {
+        "prediction": "New experiences \u2192 novel dream content",
+        "supported_by_literature": true,
+        "effect_size": 0.28
+      },
+      "emotion_transfer": {
+        "prediction": "Emotional events \u2192 emotional dreams",
+        "supported_by_literature": true,
+        "effect_size": 0.42
+      }
+    },
+    "passed": true
+  },
+  "mechanisms": {
+    "mechanisms_checked": 5,
+    "aligned": 5,
+    "passed": true
+  },
+  "falsifiability": {
+    "falsifiable_predictions": 3,
+    "total_predictions": 3,
+    "passed": true
+  }
+}

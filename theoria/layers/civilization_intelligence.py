@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 import math
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import ResearchPortfolio, GrandChallenge
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -38,12 +44,12 @@ class CivilizationIntelligenceLayer:
         names = list(self.portfolios.keys())
         for i in range(len(names)):
             for j in range(i + 1, len(names)):
-                synergy = random.uniform(0.1, 0.9)
+                synergy = 0.1 + _det_score(f"syn_{names[i]}_{names[j]}") * 0.8
                 if synergy > 0.6:
                     transfers.append({
                         "from": names[i], "to": names[j],
                         "synergy": synergy,
-                        "resource_transferred": random.uniform(0.01, 0.1),
+                        "resource_transferred": 0.01 + _det_score(f"res_{names[i]}_{names[j]}") * 0.09,
                     })
         return {"optimization": "cross_portfolio", "transfers": transfers}
 
@@ -58,7 +64,7 @@ class CivilizationIntelligenceLayer:
             }
         record = self.grand_challenge_results[challenge_name]
         record["coordinated_cycles"] += 1
-        record["total_progress"] = min(1.0, record["total_progress"] + random.uniform(0.005, 0.02))
+        record["total_progress"] = min(1.0, record["total_progress"] + 0.005 + _det_score(f"ciprog_{challenge_name}_{self.cycle_count}") * 0.015)
         record["portfolios_involved"] = list(set(record["portfolios_involved"] + portfolio_names))
         return record
 
@@ -93,5 +99,5 @@ class CivilizationIntelligenceLayer:
         scores = self.assess_civilization_impact()
         if scores:
             result.civilization_impact = sum(scores.values()) / len(scores)
-            result.synergy_score = random.uniform(0.4, 0.9)
+            result.synergy_score = 0.4 + _det_score(f"cisyn_{self.cycle_count}") * 0.5
         return result

@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 import math
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import UnifiedModel
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -25,14 +31,18 @@ class UnifiedWorldModel:
         self.domains = ["physics", "biology", "economics", "society", "technology", "politics"]
         self.models: Dict[str, UnifiedModel] = {}
         self.cycle_count = 0
+        self._rng = random.Random(42)
 
     def build_model(self, domain: str) -> UnifiedModel:
+        acc = 0.5 + _det_score(f"acc_{domain}_{self.cycle_count}") * 0.45
+        consistency = 0.6 + _det_score(f"cons_{domain}") * 0.38
+        depth = int(10 + _det_score(f"depth_{domain}") * 990)
         model = UnifiedModel(
             name=f"{domain}_model_v{self.cycle_count}",
             domains=[domain],
-            prediction_accuracy={domain: random.uniform(0.5, 0.95)},
-            simulation_depth=random.randint(10, 1000),
-            consistency_score=random.uniform(0.6, 0.98),
+            prediction_accuracy={domain: acc},
+            simulation_depth=depth,
+            consistency_score=consistency,
         )
         self.models[model.name] = model
         return model
@@ -45,10 +55,11 @@ class UnifiedWorldModel:
         predictions = []
         for model in models_for_domain:
             acc = model.prediction_accuracy.get(domain, 0.5)
+            conf = acc * (0.8 + _det_score(f"pconf_{model.name}_{input_data[:10]}") * 0.2)
             predictions.append({
                 "model": model.name,
                 "prediction": f"predicted_outcome_{input_data[:20]}",
-                "confidence": acc * random.uniform(0.8, 1.0),
+                "confidence": conf,
             })
         return {"domain": domain, "predictions": predictions}
 
@@ -57,24 +68,29 @@ class UnifiedWorldModel:
         state = {"step": 0, "value": 1.0}
         for i in range(steps):
             state["step"] = i
-            state["value"] *= 1 + random.uniform(-0.05, 0.05)
+            delta = _det_score(f"sim_{scenario}_{i}") * 0.1 - 0.05
+            state["value"] *= 1 + delta
             timeline.append(dict(state))
         return {"scenario": scenario, "steps": steps, "timeline": timeline}
 
     def plan_intervention(self, target: str, resources: float) -> Dict[str, Any]:
+        impact_factor = 0.5 + _det_score(f"impact_{target}") * 1.0
+        conf = 0.4 + _det_score(f"iconf_{target}") * 0.5
         return {
             "target": target,
             "resources": resources,
-            "expected_impact": resources * random.uniform(0.5, 1.5),
-            "confidence": random.uniform(0.4, 0.9),
+            "expected_impact": resources * impact_factor,
+            "confidence": conf,
         }
 
     def generate_scenario(self, base: str, horizon: int) -> Dict[str, Any]:
+        n_branches = int(2 + _det_score(f"branches_{base}") * 3)
         branches = []
-        for i in range(random.randint(2, 5)):
+        for i in range(n_branches):
+            prob = 0.1 + _det_score(f"prob_{base}_{i}") * 0.4
             branches.append({
                 "branch": f"scenario_{i}",
-                "probability": random.uniform(0.1, 0.5),
+                "probability": prob,
                 "outcome": f"{base}_variant_{i}",
             })
         total_prob = sum(b["probability"] for b in branches)
@@ -92,9 +108,9 @@ class UnifiedWorldModel:
         result.models_maintained = len(self.models)
 
         result.predictions_made = len(self.domains)
-        result.simulations_run = random.randint(1, 3)
-        result.interventions_planned = random.randint(0, 2)
-        result.scenarios_generated = random.randint(0, 2)
+        result.simulations_run = max(1, int(_det_score(f"simcount_{self.cycle_count}") * 3))
+        result.interventions_planned = int(_det_score(f"intcount_{self.cycle_count}") * 2)
+        result.scenarios_generated = int(_det_score(f"scenariocount_{self.cycle_count}") * 2)
 
         models_list = list(self.models.values())
         if models_list:

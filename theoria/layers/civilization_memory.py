@@ -3,12 +3,18 @@
 from __future__ import annotations
 
 import random
+import hashlib
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
 
 from theoria.core.config import CivilizationMemoryConfig
 from theoria.core.types import CivilizationMemoryRecord
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).hexdigest()
+    return int(h[:8], 16) / 0xFFFFFFFF
 
 
 @dataclass
@@ -37,7 +43,7 @@ class CivilizationMemory:
             "institution": "Institute for Advanced Study",
         }
         title = titles.get(record_type, f"{record_type.capitalize()} Record")
-        importance = random.uniform(0.1, 1.0) if self.config.enable_importance_weighting else 0.5
+        importance = 0.1 + _det_score(f"{record_type}_{title}_importance") * 0.9 if self.config.enable_importance_weighting else 0.5
 
         record = CivilizationMemoryRecord(
             record_type=record_type,

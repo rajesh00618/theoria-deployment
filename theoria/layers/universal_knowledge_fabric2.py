@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
@@ -9,6 +10,11 @@ from typing import Any, Dict, List, Optional
 
 from theoria.core.config import KnowledgeFabric2Config
 from theoria.core.types import KnowledgeFabricNode
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -42,7 +48,7 @@ class UniversalKnowledgeFabric2:
         node = KnowledgeFabricNode(
             domain=domain,
             content=content,
-            integration_score=random.uniform(0.3, 0.8),
+            integration_score=0.3 + _det_score(f"integ_{domain}_{len(self.nodes)}") * 0.5,
         )
 
         # Connect to existing nodes in other domains

@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
@@ -9,6 +10,11 @@ from typing import Any, Dict, List, Optional
 
 from theoria.core.config import RecursiveToolCivilizationConfig
 from theoria.core.types import RecursiveTool
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -45,7 +51,7 @@ class RecursiveToolCivilization:
             recursion_level=recursion_level,
             tools_produced=produced,
             capabilities=capabilities,
-            performance_score=random.uniform(0.5, 1.0),
+            performance_score=0.5 + _det_score(f"perftool_{name}_{recursion_level}") * 0.5,
         )
         self.tools[tool.id] = tool
         return tool
@@ -76,7 +82,8 @@ class RecursiveToolCivilization:
                 self.discover_next_recursion()
 
         for t in self.tools.values():
-            t.performance_score = min(1.0, t.performance_score + random.uniform(-0.05, 0.1))
+            delta = _det_score(f"perfup_{t.id}_{self.cycle_count if hasattr(self, 'cycle_count') else 0}") * 0.15 - 0.05
+            t.performance_score = max(0.0, min(1.0, t.performance_score + delta))
 
         result.tools_created = len(self.tools)
         result.total_tools = len(self.tools)

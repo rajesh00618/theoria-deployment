@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
@@ -9,6 +10,11 @@ from typing import Any, Dict, List, Optional
 
 from theoria.core.config import SingularityCoordinationConfig
 from theoria.core.types import SingularityMetric
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -30,9 +36,10 @@ class SingularityCoordinationLayer:
 
     def _init_metrics(self) -> None:
         for name, target in self.config.metric_targets.items():
+            initial = target * (0.5 + _det_score(f"init_{name}") * 0.4)
             metric = SingularityMetric(
                 metric_name=name,
-                value=random.uniform(target * 0.5, target * 0.9),
+                value=initial,
                 target=target,
             )
             self.metrics[metric.id] = metric
@@ -40,8 +47,7 @@ class SingularityCoordinationLayer:
     def _update_metrics(self) -> int:
         on_target = 0
         for m in self.metrics.values():
-            # Simulate organic growth toward targets
-            delta = random.uniform(-0.05, 0.08) * m.target
+            delta = (_det_score(f"delta_{m.metric_name}_{self.cycle_count}") * 0.13 - 0.05) * m.target
             m.value = max(0.0, m.value + delta)
 
             if m.value >= m.target * 0.9:

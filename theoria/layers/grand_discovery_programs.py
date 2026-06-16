@@ -2,10 +2,15 @@
 
 from __future__ import annotations
 
+import hashlib
 import random
 import time
 from dataclasses import dataclass, field
 from typing import Any, Dict, List, Optional
+
+
+def _det_score(label: str) -> float:
+    return int(hashlib.sha256(label.encode()).hexdigest(), 16) % 10000 / 10000.0
 
 from theoria.core.config import GrandDiscoveryProgramsConfig
 from theoria.core.types import DiscoveryProgram
@@ -39,15 +44,15 @@ class GrandDiscoveryPrograms:
 
             exp_batch = random.randint(100, self.config.experiments_per_program // 10)
             prog.experiments_planned += exp_batch
-            completed = int(exp_batch * random.uniform(0.3, 0.8))
+            completed = int(exp_batch * (0.3 + _det_score(f"completion_{prog.id}") * 0.5))
             prog.experiments_completed += completed
 
             theories = random.randint(5, 20)
             prog.theories_generated += theories
-            validated = int(theories * random.uniform(0.2, 0.6))
+            validated = int(theories * (0.2 + _det_score(f"validation_{prog.id}") * 0.4))
             prog.theories_validated += validated
 
-            progress_increment = random.uniform(0.001, 0.01)
+            progress_increment = 0.001 + _det_score(f"progress_{prog.id}") * 0.009
             prog.progress = min(1.0, prog.progress + progress_increment)
 
             if prog.progress >= 1.0:

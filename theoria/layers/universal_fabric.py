@@ -1,12 +1,18 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 import math
 from typing import Any, Dict, List, Optional, Set, Tuple
 from dataclasses import dataclass, field
 
 from theoria.core.types import KnowledgeNode, KnowledgeEdge
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -104,7 +110,7 @@ class UniversalKnowledgeFabric:
                 n1 = random.choice(list(self.nodes.keys()))
                 n2 = random.choice(list(self.nodes.keys()))
                 if n1 != n2:
-                    self.add_edge(n1, n2, "cross_domain", random.random())
+                    self.add_edge(n1, n2, "cross_domain", _det_score(f"edge_{n1}_{n2}_{self.cycle_count}"))
 
         total_possible = len(self.nodes) * (len(self.nodes) - 1) / 2.0
         actual_edges = len(self.edges)

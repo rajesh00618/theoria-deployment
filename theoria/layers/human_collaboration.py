@@ -1,11 +1,17 @@
 from __future__ import annotations
 
 import uuid
+import hashlib
 import random
 from typing import Any, Dict, List, Optional
 from dataclasses import dataclass, field
 
 from theoria.core.types import CollaborationRecord
+
+
+def _det_score(label: str) -> float:
+    h = hashlib.sha256(label.encode()).digest()
+    return (h[0] + h[1]) / 510.0
 
 
 @dataclass
@@ -31,8 +37,8 @@ class HumanCollaboration:
             partner_type=partner,
             interaction_type=mode,
             topic=topic,
-            feedback_score=random.uniform(0.4, 0.95),
-            collaboration_quality=random.uniform(0.4, 0.95),
+            feedback_score=0.4 + _det_score(f"fb_{partner}_{mode}_{topic[:10]}") * 0.55,
+            collaboration_quality=0.4 + _det_score(f"cq_{partner}_{mode}_{topic[:10]}") * 0.55,
             outcomes=[f"{mode}_on_{topic[:30]}"],
         )
         self.collaborations.append(record)
