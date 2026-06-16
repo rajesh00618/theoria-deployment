@@ -4,15 +4,15 @@ A research prototype exploring autonomous scientific discovery.
 
 ## Validated Discovery
 
-**RP-001: Dissent-Fragmentation Hypothesis**
+**RP-001: Persistent Editing in Controversial Wikipedia Articles**
 
-Controversial Wikipedia articles have significantly more persistent dissenters than non-controversial articles.
+Controversial Wikipedia articles have significantly more persistent editors than non-controversial articles.
 
 - 82 articles (36 controversial, 46 control)
-- p = 0.0007 (statistically significant)
-- Cohen's d = 0.77 (large effect)
+- p = 0.0004 (statistically significant)
+- Cohen's d = 0.80 (large effect)
 - 82/82 leave-one-out robust
-- Independently reproduced
+- Independently reproduced (2 times)
 
 ## Quick Start
 
@@ -32,12 +32,11 @@ python rp001_final.py
 
 ```
 theoria/
-├── rp001_final.py              # Frozen RP-001 analysis
-├── reproduce.py                # Simple reproduction script
+├── rp001_final.py              # Main analysis (bot-excluded)
 ├── data/                       # Real Wikipedia revision data
 │   └── robustness_fast/        # 82 articles
 ├── results/
-│   └── rp001_final.json        # Frozen results
+│   └── rp001_final.json        # Results with hash
 ├── documents/
 │   └── RP001_Paper_Draft.md    # Paper draft
 ├── theoria/                    # Core library
@@ -47,25 +46,17 @@ theoria/
 └── requirements.txt            # Dependencies
 ```
 
-## What THEORIA Does
-
-1. **Ingests real data** (Wikipedia revisions via MediaWiki API)
-2. **Computes metrics** (dissent fraction, fragmentation)
-3. **Tests hypotheses** (t-tests, Mann-Whitney, bootstrap CI)
-4. **Validates robustness** (leave-one-out sensitivity analysis)
-5. **Tracks predictions** (SHA256 immutable storage)
-
-## RP-001 Results
+## RP-001 Results (with bot exclusion)
 
 | Metric | Value |
 |--------|-------|
 | Articles | 82 |
-| Controversial mean | 20.8% |
-| Control mean | 16.5% |
-| Student t-test | p = 0.000679 |
-| Welch t-test | p = 0.001240 |
-| Mann-Whitney U | p = 0.000595 |
-| Cohen's d | 0.770 |
+| Controversial mean | 18.6% |
+| Control mean | 14.5% |
+| Student t-test | p = 0.000401 |
+| Welch t-test | p = 0.000877 |
+| Mann-Whitney U | p = 0.000500 |
+| Cohen's d | 0.801 |
 | Leave-one-out | 82/82 |
 
 ## Reproduction
@@ -75,8 +66,8 @@ python rp001_final.py
 ```
 
 Expected output:
-- p ≈ 0.0007
-- Effect size ≈ 0.77
+- p ≈ 0.0004
+- Effect size ≈ 0.80
 - 82/82 robust
 
 ## Citation
@@ -84,8 +75,8 @@ Expected output:
 ```
 THEORIA: An Autonomous Scientific Discovery System
 Rajesh Gurugubelli, 2026
-RP-001: Dissent-Fragmentation Hypothesis
-82 articles, p = 0.0007, Cohen's d = 0.77
+RP-001: Persistent Editing in Controversial Wikipedia Articles
+82 articles, p = 0.0004, Cohen's d = 0.80
 ```
 
 ## License

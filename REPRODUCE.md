@@ -2,18 +2,12 @@
 
 ## What This Project Is
 
-THEORIA is a research prototype exploring autonomous scientific discovery. It has **one validated discovery** backed by real data:
+THEORIA is a research prototype exploring autonomous scientific discovery. It has **one validated finding** backed by real data:
 
-**RP-001: Dissent-Fragmentation Hypothesis**
-- Controversial Wikipedia articles have significantly higher persistent dissent than non-controversial articles
-- Statistical test: p = 0.0168 (significant)
-- Data: Real Wikipedia revision histories (22 articles)
-
-## What This Project Is NOT
-
-- Not a complete autonomous scientific discovery system
-- Not validated beyond RP-001
-- Not producing novel scientific discoveries
+**RP-001: Persistent Editing in Controversial Wikipedia Articles**
+- Controversial Wikipedia articles have significantly more persistent editors
+- Statistical test: p = 0.0004 (significant)
+- Data: Real Wikipedia revision histories (82 articles)
 
 ## Quick Start
 
@@ -26,31 +20,30 @@ cd theoria-deployment
 pip install numpy scipy
 
 # Reproduce RP-001
-python reproduce.py
+python rp001_final.py
 ```
 
 ## Expected Output
 
 ```
-THEORIA RP-001 Reproducer
-Dissent-Fragmentation Hypothesis
+THEORIA RP-001 FINAL
 ======================================================================
 
-  Loaded 22 articles
+  Loaded 82 articles
+  Controversial: 36
+  Control: 46
 
-  Article                              Edits  Users  Dissent%  Fragment
-  -----------------------------------------------------------------
-  Abortion                               500    150    24.7%     0.960
-  Climate change                         484    129    24.8%     0.941
-  ...
+  Statistical Tests:
+  Controversial mean: 18.6%
+  Control mean: 14.5%
+  Student t-test: p=0.000401
+  Welch t-test: p=0.000877
+  Mann-Whitney: p=0.000500
+  Cohen's d: 0.801
 
-  Statistical Test: Two-sample t-test (controversial vs control)
-  Controversial: n=14, mean=22.3%
-  Control: n=8, mean=17.3%
-  t=2.609, p=0.0168
+  Leave-One-Out: 82/82 robust
 
-  RESULT: SIGNIFICANT (p < 0.05)
-  The Dissent-Fragmentation hypothesis is supported.
+  Result: SIGNIFICANT
 ```
 
 ## What You Need
@@ -58,20 +51,19 @@ Dissent-Fragmentation Hypothesis
 - Python 3.10+
 - numpy
 - scipy
-- Internet (for initial data fetch, or use cached data)
 
 ## What You Should Verify
 
-1. **p-value matches**: Should be approximately 0.0168
+1. **p-value matches**: Should be approximately 0.0004
 2. **Direction matches**: Controversial mean > Control mean
-3. **Hash matches**: Result hash should be reproducible
+3. **Hash matches**: Result hash should be a07429475b5dab8c
 
 ## Limitations
 
-- Only 22 articles (14 controversial, 8 control)
+- Only 82 articles (36 controversial, 46 control)
 - Wikipedia data changes over time
 - Single platform (Wikipedia only)
-- Effect size is moderate (not large)
+- "Persistent editing" does not measure "dissent"
 
 ## Citation
 
