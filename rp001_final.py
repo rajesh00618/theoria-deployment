@@ -67,6 +67,9 @@ CONTROL = [
 DISSENT_THRESHOLD = 3  # Minimum edits to count as persistent contributor
 MAX_REVISIONS = 1000   # Revisions per article
 
+# Bot patterns to exclude
+BOT_PATTERNS = ["bot", "abot", "greenc", "hager", "citation"]
+
 
 # ============================================================================
 # ANALYSIS
@@ -94,7 +97,9 @@ def compute_metrics(revisions):
     total = len(revisions)
     n_users = len(user_counts)
     
-    persistent = sum(1 for u, c in user_counts.items() if c >= DISSENT_THRESHOLD)
+    # Exclude bots
+    persistent = sum(1 for u, c in user_counts.items() 
+                    if c >= DISSENT_THRESHOLD and not any(b in u.lower() for b in BOT_PATTERNS))
     dissent_fraction = persistent / max(n_users, 1)
     
     return {
