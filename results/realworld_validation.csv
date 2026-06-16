@@ -1,5 +1,0 @@
-network_type,n_agents,threshold
-reddit,500,0.3
-wikipedia,500,0.3
-citation,500,0.3
-twitter,500,0.3

@@ -1,9 +1,0 @@
-{
-  "timestamp": "2026-06-16T07:14:25.138169",
-  "n_articles": 82,
-  "n_controversial": 36,
-  "n_control": 46,
-  "loo_robust": 82,
-  "loo_total": 82,
-  "fragile_articles": []
-}
