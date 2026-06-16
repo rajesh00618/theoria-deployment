@@ -1,10 +1,10 @@
 {
-  "timestamp": "2026-06-16T08:33:17.653707",
+  "timestamp": "2026-06-16T08:41:07.598666",
   "datasets": 3,
   "patterns": 3,
   "hypotheses": 3,
   "predictions": 1,
-  "stored": 1,
+  "stored": 0,
   "pattern_details": [
     {
       "type": "linear_trend",

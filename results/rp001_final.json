@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "frozen_date": "2026-06-16T07:48:11.849012",
+  "frozen_date": "2026-06-16T08:40:52.819845",
   "result_hash": "a07429475b5dab8c",
   "n_articles": 82,
   "n_controversial": 36,
@@ -22,8 +22,8 @@
     },
     "cohens_d": 0.8008310972166968,
     "bootstrap_ci_95": {
-      "lower": 0.018964550295582337,
-      "upper": 0.06330603404722035
+      "lower": 0.019474864649881178,
+      "upper": 0.0635067423736587
     }
   },
   "sensitivity": {
