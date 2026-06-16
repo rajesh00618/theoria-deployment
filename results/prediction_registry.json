@@ -6,7 +6,7 @@
     "PRED-001": {
       "question": "Which AI field will grow fastest by 2030?",
       "prediction": "Multimodal AI (vision + language + reasoning)",
-      "confidence": 0.70,
+      "confidence": 0.7,
       "test_date": "2030-01-01",
       "result": "UNKNOWN",
       "reasoning": "Network effects + optimal diversity of applications = rapid adoption.",
@@ -15,7 +15,7 @@
     "PRED-002": {
       "question": "Which scientific field is closest to a paradigm shift?",
       "prediction": "Consciousness studies (IIT vs GWT vs PP convergence)",
-      "confidence": 0.60,
+      "confidence": 0.6,
       "test_date": "2028-01-01",
       "result": "UNKNOWN",
       "reasoning": "Multiple competing theories with accumulating anomalies = approaching threshold.",
@@ -33,11 +33,22 @@
     "PRED-004": {
       "question": "Which online communities are most vulnerable to fragmentation?",
       "prediction": "Communities with high noise + low diversity + rapid growth",
-      "confidence": 0.70,
+      "confidence": 0.7,
       "test_date": "2027-01-01",
       "result": "UNKNOWN",
       "reasoning": "Optimal Diversity Principle: deviation from optimal diversity predicts fragmentation.",
       "status": "FROZEN"
+    },
+    "DISC-c7b6d127": {
+      "question": "Hypothesis: H-001",
+      "prediction": "Global temperature anomaly in 2030 will be higher than 2025",
+      "confidence": 0.7022964816037234,
+      "test_date": "2030-01-01",
+      "result": "UNKNOWN",
+      "domain": "climate",
+      "hash": "c7b6d127d828dd2c",
+      "status": "FROZEN",
+      "made_date": "2026-06-16T08:33:17.653707"
     }
   },
   "evaluation_protocol": {

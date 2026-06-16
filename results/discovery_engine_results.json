@@ -1,0 +1,67 @@
+{
+  "timestamp": "2026-06-16T08:33:17.653707",
+  "datasets": 3,
+  "patterns": 3,
+  "hypotheses": 3,
+  "predictions": 1,
+  "stored": 1,
+  "pattern_details": [
+    {
+      "type": "linear_trend",
+      "description": "Increasing trend (R^2=0.506)",
+      "slope": 0.01695541463628213,
+      "r_squared": 0.5057412040093084,
+      "p_value": 3.047744056910793e-08,
+      "significance": "strong"
+    },
+    {
+      "type": "acceleration",
+      "description": "Accelerating trend (quadratic coefficient=0.000187)",
+      "acceleration": 0.00018650094682517266,
+      "significance": "slight"
+    },
+    {
+      "type": "cyclic",
+      "period": 7,
+      "description": "Cyclic pattern with period=7 years (autocorrelation=0.652)",
+      "strength": 0.6523673119186374
+    }
+  ],
+  "hypothesis_details": [
+    {
+      "id": "H-001",
+      "statement": "Systematic increasing trend (r^2=0.506) indicates underlying structural change",
+      "evidence": "R^2=0.506, p=0.000000",
+      "confidence": 0.7022964816037234,
+      "testable": true,
+      "domain": "temporal_analysis"
+    },
+    {
+      "id": "H-002",
+      "statement": "Accelerating trend suggests nonlinear dynamics or feedback loops",
+      "evidence": "Acceleration coefficient=0.000187",
+      "confidence": 0.7,
+      "testable": true,
+      "domain": "dynamics"
+    },
+    {
+      "id": "H-003",
+      "statement": "Cyclic pattern with period=7 years suggests oscillatory mechanism",
+      "evidence": "Autocorrelation=0.652",
+      "confidence": 0.6,
+      "testable": true,
+      "domain": "periodicity"
+    }
+  ],
+  "prediction_details": [
+    {
+      "id": "PRED-001",
+      "hypothesis_id": "H-001",
+      "prediction": "Global temperature anomaly in 2030 will be higher than 2025",
+      "confidence": 0.7022964816037234,
+      "test_date": "2030-01-01",
+      "domain": "climate",
+      "hash": "c7b6d127d828dd2c"
+    }
+  ]
+}
