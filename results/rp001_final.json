@@ -1,0 +1,34 @@
+{
+  "version": "1.0.0",
+  "frozen_date": "2026-06-16T07:21:41.306859",
+  "result_hash": "62f6b9abefbfb599",
+  "n_articles": 82,
+  "n_controversial": 36,
+  "n_control": 46,
+  "controversial_mean": 0.2081052973321117,
+  "control_mean": 0.1652188055408888,
+  "test_results": {
+    "student_t": {
+      "t": 3.5361000286239967,
+      "p": 0.000678762851418931
+    },
+    "welch_t": {
+      "t": 3.389869096328085,
+      "p": 0.0012397760094870261
+    },
+    "mann_whitney": {
+      "u": 1196.0,
+      "p": 0.000595035896947067
+    },
+    "cohens_d": 0.7698813039997565,
+    "bootstrap_ci_95": {
+      "lower": 0.018115022324709653,
+      "upper": 0.06556313032748015
+    }
+  },
+  "sensitivity": {
+    "loo_robust": 82,
+    "loo_total": 82,
+    "fragile_articles": []
+  }
+}
