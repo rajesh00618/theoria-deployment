@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-06-16T08:26:10.592606",
+  "data_points": 46,
+  "anomalies": 3,
+  "trend_changes": 3,
+  "hypotheses": 1,
+  "validated": 1,
+  "predictions": 1,
+  "prediction_details": [
+    {
+      "id": "PRED-001",
+      "hypothesis_id": "H2",
+      "prediction": "Future trend changes will be predominantly increasing",
+      "confidence": 0.7000000000000001,
+      "made_date": "2026-06-16T08:26:10.592606",
+      "test_date": "2027-01-01",
+      "status": "FROZEN",
+      "hash": "ece8ba6fdf346ec5"
+    }
+  ]
+}

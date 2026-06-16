@@ -1,0 +1,13 @@
+{
+  "timestamp": "2026-06-16T08:23:52.236838",
+  "n_articles": 82,
+  "controversial_mean": 0.1864833075721585,
+  "control_mean": 0.1452897814769473,
+  "student_p": 0.0004013981388860032,
+  "welch_p": 0.0008772134477012581,
+  "mann_whitney_p": 0.000500317494596968,
+  "cohens_d": 0.8008310972166957,
+  "loo_robust": 82,
+  "loo_total": 82,
+  "result_hash": "b7f418d7e55750d1"
+}
