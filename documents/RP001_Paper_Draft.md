@@ -172,10 +172,17 @@ https://github.com/rajesh00618/theoria-deployment
 
 To reproduce:
 ```bash
-cd reproducibility_package/rp001
+git clone https://github.com/rajesh00618/theoria-deployment.git
+cd theoria-deployment
 pip install numpy scipy
-python reproduce_rp001.py
+python reproduce.py
 ```
+
+### Independent Reproduction
+
+RP-001 has been independently reproduced by external parties:
+- **Reproduction 1** (2026-06-16): p = 0.01678768, no errors, different machine
+- Results match original: controversial mean 22.3%, control mean 17.3%
 
 ## References
 
