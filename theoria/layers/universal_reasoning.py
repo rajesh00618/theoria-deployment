@@ -245,3 +245,11 @@ class UniversalReasoningEngine:
         result.confidence = 0.7
         result.steps = int(agents * 2)
         return result
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "traces_generated": len(self.traces),
+            "belief_base_size": len(self.belief_base),
+            "modes_active": len(self.reasoning_modes),
+        }

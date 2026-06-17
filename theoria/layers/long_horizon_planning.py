@@ -109,3 +109,11 @@ class LongHorizonPlanning:
             result = self.execute_plan(p)
             results.append(result)
         return results
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "total_plans": len(self.plans),
+            "active_plans": len([p for p in self.plans if p.status == "in_progress"]),
+            "completed_plans": len([p for p in self.plans if p.status == "completed"]),
+        }

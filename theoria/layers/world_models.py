@@ -143,3 +143,12 @@ class WorldModelingEngine:
                 "World models reached {:.1%} accuracy".format(result.avg_accuracy))
 
         return result
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "total_models": len(self.models),
+            "model_types": list(set(m.model_type for m in self.models.values())),
+            "total_predictions": len(self.predictions),
+            "total_interventions": len(self.interventions),
+        }

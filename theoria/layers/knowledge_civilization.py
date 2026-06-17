@@ -85,3 +85,13 @@ class KnowledgeCivilizationLayer:
             "total_nodes": self.state.total_nodes,
             "total_edges": self.state.total_edges,
         }
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "fabric_nodes": len(self.fabric.nodes),
+            "fabric_edges": len(self.fabric.edges),
+            "agent_count": len(self.agent_society.agents),
+            "model_count": len(self.world_models.models),
+            "state": self.get_state_summary(),
+        }

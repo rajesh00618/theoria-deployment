@@ -94,3 +94,10 @@ class SoftwareIntelligence:
             result.projects_created += 1
 
         return result
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "total_projects": len(self.projects),
+            "languages_used": list(set(self.languages)),
+        }

@@ -120,3 +120,11 @@ class UniversalKnowledgeFabric:
 
     def get_domain_nodes(self, domain: str) -> List[KnowledgeNode]:
         return [n for n in self.nodes.values() if n.domain == domain]
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "total_nodes": len(self.nodes),
+            "total_edges": len(self.edges),
+            "node_types": list(set(n.node_type for n in self.nodes.values())),
+        }

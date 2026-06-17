@@ -136,3 +136,11 @@ class GeneralAgentSociety:
 
     def get_agents_by_role(self, role: str) -> List[GeneralAgent]:
         return [a for a in self.agents.values() if a.role == role and a.is_active]
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "total_agents": len(self.agents),
+            "active_agents": len([a for a in self.agents.values() if a.is_active]),
+            "roles": self.roles,
+        }

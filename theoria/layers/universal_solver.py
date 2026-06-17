@@ -110,3 +110,11 @@ class UniversalProblemSolver:
                 result.approaches_used[approach] = result.approaches_used.get(approach, 0) + 1
 
         return result
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "total_problems": len(self.problems),
+            "total_solutions": len(self.solutions),
+            "problems_solved": sum(1 for p in self.problems if p.solution_found),
+        }

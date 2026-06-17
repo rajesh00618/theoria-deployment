@@ -93,3 +93,11 @@ class OpenEndedLearning:
             1, len(self.goals) + len(self.completed_goals)))
         result.active_goals = [g for g in self.goals if g.status == "active"]
         return result
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "total_goals": len(self.goals),
+            "completed_goals": len(self.completed_goals),
+            "active_goals": len([g for g in self.goals if g.status == "active"]),
+        }

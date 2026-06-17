@@ -1,0 +1,154 @@
+{
+  "timestamp": "2026-06-17T08:23:07.505048",
+  "total_stages": 7,
+  "passed": 7,
+  "failed": 0,
+  "results": [
+    {
+      "stage": "Stage 1",
+      "name": "RP-001 Baseline",
+      "passed": true,
+      "error": null,
+      "metrics": {
+        "cycles_completed": 1,
+        "theories_proposed": 3,
+        "theories_falsified": 0,
+        "duration_seconds": 39.18
+      },
+      "duration_seconds": 41.33
+    },
+    {
+      "stage": "Stage 2",
+      "name": "Autonomous Scientist",
+      "passed": true,
+      "error": null,
+      "metrics": {
+        "cycles_completed": 1,
+        "theories_proposed": 3,
+        "papers_ingested": 0,
+        "gaps_detected": 3,
+        "questions_generated": 10,
+        "critiques_issued": 3,
+        "programs_active": 0,
+        "duration_seconds": 36.23
+      },
+      "duration_seconds": 38.31
+    },
+    {
+      "stage": "Stage 3",
+      "name": "Experimental Pipeline",
+      "passed": true,
+      "error": null,
+      "metrics": {
+        "cycles_completed": 1,
+        "experiments_designed": 3,
+        "experiments_executed": 3,
+        "interventions_generated": 3,
+        "papers_generated": 3,
+        "predictions_made": 3,
+        "cross_domain_mappings": 12,
+        "debates_held": 1,
+        "agents_active": 6,
+        "duration_seconds": 41.95
+      },
+      "duration_seconds": 44.0
+    },
+    {
+      "stage": "Stage 4",
+      "name": "Scientific Civilization",
+      "passed": true,
+      "error": null,
+      "metrics": {
+        "cycles_completed": 1,
+        "real_papers_found": 0,
+        "embodied_experiments": 0,
+        "society_papers": 0,
+        "ethics_reviews": 0,
+        "adversarial_challenges": 0,
+        "market_predictions": 0,
+        "economy_allocations": 0,
+        "programs_running": 0,
+        "duration_seconds": 39.03
+      },
+      "duration_seconds": 41.08
+    },
+    {
+      "stage": "Stage 5",
+      "name": "Self-Improving Civilization",
+      "passed": true,
+      "error": null,
+      "metrics": {
+        "cycles_completed": 1,
+        "architecture_proposals": 2,
+        "algorithm_candidates": 18,
+        "strategy_population": 1000,
+        "benchmarks_generated": 3,
+        "simulation_experiments": 50,
+        "self_modifications_proposed": 0,
+        "self_modifications_approved": 0,
+        "meta_findings": 0,
+        "abstractions_created": 1,
+        "agendas_generated": 0,
+        "civilization_health": 0.421,
+        "civilization_innovation": 1.67,
+        "duration_seconds": 45.1
+      },
+      "duration_seconds": 47.15
+    },
+    {
+      "stage": "Stage 6",
+      "name": "General Research Intelligence",
+      "passed": true,
+      "error": null,
+      "metrics": {
+        "cycles_completed": 1,
+        "reasoning_traces": 10,
+        "conjectures_generated": 3,
+        "proofs_found": 0,
+        "software_projects": 2,
+        "open_goals": 3,
+        "plans_active": 0,
+        "agent_society_size": 150,
+        "problems_solved": 0,
+        "world_models_active": 5,
+        "fabric_nodes": 3,
+        "cross_domain_mappings_p6": 3,
+        "duration_seconds": 38.66
+      },
+      "duration_seconds": 40.74
+    },
+    {
+      "stage": "Summary",
+      "name": "Full System Summary",
+      "passed": true,
+      "error": null,
+      "metrics": {
+        "summary_keys": [
+          "cycles_completed",
+          "memory",
+          "auditor",
+          "constitutional",
+          "meta_theory",
+          "falsification",
+          "theory_constructor",
+          "abductive",
+          "ontogenesis",
+          "budget_remaining",
+          "discovered_laws",
+          "discovered_law_details",
+          "phase_2",
+          "phase_3",
+          "phase_4",
+          "phase_5",
+          "phase_6"
+        ],
+        "missing_keys": [],
+        "phase_2_active": true,
+        "phase_3_active": true,
+        "phase_5_active": true,
+        "phase_6_active": true
+      },
+      "duration_seconds": 2.05
+    }
+  ]
+}

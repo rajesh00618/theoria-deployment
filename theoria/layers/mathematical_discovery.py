@@ -105,3 +105,13 @@ class MathematicalDiscovery:
 
     def get_open_problems(self) -> List[MathematicalConjecture]:
         return [c for c in self.conjectures if c.status in ("proposed", "open")]
+
+    def get_summary(self) -> Dict[str, Any]:
+        return {
+            "cycle_count": self.cycle_count,
+            "total_conjectures": len(self.conjectures),
+            "total_proofs": len(self.proofs),
+            "proven": sum(1 for c in self.conjectures if c.status == "proven"),
+            "disproven": sum(1 for c in self.conjectures if c.status == "disproven"),
+            "open": sum(1 for c in self.conjectures if c.status in ("proposed", "open")),
+        }

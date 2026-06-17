@@ -469,7 +469,7 @@ class TheoriaOrchestrator:
         self.classical_laws_catalog = {
             "kepler_third": {
                 "name": "Kepler's Third Law",
-                "pattern": "T^2 ∝ a^3",
+                "pattern": "T^2 ~ a^3",
                 "observables": ["period", "semi_major_axis"],
             },
             "ohms_law": {
@@ -1132,7 +1132,7 @@ class TheoriaOrchestrator:
             observable_score = observable_hits / len(observables) if observables else 0
             
             # Match on pattern keywords (e.g., "period", "axis", "pressure", "volume")
-            pattern_keywords = law_info["pattern"].lower().replace("^", " ").replace("·", " ").replace("=", " ").replace("∝", " ").split()
+            pattern_keywords = law_info["pattern"].lower().replace("^", " ").replace("·", " ").replace("=", " ").replace("~", " ").split()
             pattern_hits = sum(1 for kw in pattern_keywords if kw in theory_set and len(kw) > 1)
             pattern_score = pattern_hits / len(pattern_keywords) if pattern_keywords else 0
             
@@ -1148,7 +1148,7 @@ class TheoriaOrchestrator:
                     "cycle": self.cycle_count,
                     "pattern": law_info["pattern"],
                 }
-                print(f"  [B1] DISCOVERED: {law_info['name']} ({law_info['pattern']})")
+                print(f"  [B1] DISCOVERED: {law_info['name']} ({law_info['pattern']})", flush=True)
     
     def run_benchmark_b1(self, max_cycles: int = 50) -> Dict[str, Any]:
         """
